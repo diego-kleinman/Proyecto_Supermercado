@@ -73,36 +73,6 @@ public class Lista<T> implements ILista<T> {
     }
 
     @Override
-    public String imprimir() {
-        String aux = "";
-        if (!esVacia()) {
-            Nodo<T> temp = primero;
-            while (temp != null) {
-                temp.imprimirEtiqueta();
-                temp = temp.getSiguiente();
-            }
-        }
-        return aux;
-    }
-
-    public String imprimir(String separador) {
-        String aux = "";
-        if (esVacia()) {
-            return "";
-        } else {
-            Nodo<T> temp = primero;
-            aux = "" + temp.getEtiqueta();
-            while (temp.getSiguiente() != null) {
-                aux = aux + separador + temp.getSiguiente().getEtiqueta();
-                temp = temp.getSiguiente();
-            }
-
-        }
-        return aux;
-
-    }
-
-    @Override
     public int cantElementos() {
         int contador = 0;
         if (esVacia()) {

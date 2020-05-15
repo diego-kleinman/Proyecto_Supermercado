@@ -27,21 +27,6 @@ public interface ILista<T> {
      */
     public boolean eliminar(Comparable clave);
 
-    /**
-     * Metodo encargado de imprimir en consola las claves de los nodos
-     * contenidos en la lista.
-     * @return 
-     */
-    public String imprimir();
-
-    /**
-     * Retorna un String con las claves separadas por el separador pasado por
-     * par�metro.
-     *
-     * @param separador Separa las claves
-     * @return
-     */
-    public String imprimir(String separador);
 
     /**
      * Retorna la cantidad de elementos de la lista. En caso de que la lista

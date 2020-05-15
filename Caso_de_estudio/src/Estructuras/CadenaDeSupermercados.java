@@ -1,4 +1,5 @@
 package Estructuras;
+
 import Exceptions.SucursalNotFound;
 
 public class CadenaDeSupermercados {
@@ -49,6 +50,19 @@ public class CadenaDeSupermercados {
             aux.getDato().insertarProducto(prod);
         } catch (NullPointerException e) {
             throw new SucursalNotFound();
+
+        }
+
+    }
+
+    public void eliminarProductoEnCadena(Comparable Etiqueta) {
+
+        Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
+        // Inserto en todas las sucursales de la listaSucursales
+        while (actual != null) {
+            Sucursal suc = actual.getDato();
+            suc.eliminarProducto(Etiqueta);
+            actual = actual.getSiguiente();
         }
 
     }

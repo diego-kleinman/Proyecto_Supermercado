@@ -24,7 +24,6 @@ public class Sucursal implements ISucursal {
     }
 
     // Getters y Setters
-
     public String getDireccion() {
         return this.direccion;
     }
@@ -65,44 +64,12 @@ public class Sucursal implements ISucursal {
         // Si no encontramos el producto en la lista, lo incorporamos a la sucursal
         if (prodAux == null) {
             TElementoAB<Producto> aux = new TElementoAB<>(unProducto.getEtiqueta(), unProducto);
-            this.getArbolProductos().insertar(aux);
+            this.arbolProductos.insertar(aux);
         }
 
-    }
-
-    ///////////////// LISTO ELIMINAR////////////////
-    public boolean eliminar(Comparable etiqueta) {
-        // Si la lista NO está vacía llama al método eliminar de la clase Lista.
-        // En caso que la lista este vacía, devuelve false.
-        if (getArbolProductos().esVacio()) {
-            return false;
-        } else {
-            getArbolProductos().eliminar(etiqueta);
-            return true;
-        }
-    }
-
-    /////////////////////////// LISTO IMPRIMIR//////////////////////777
-    // Método que llama al método imprimir de Lista, para imprimir la lista de
-    /////////////////////////// productos del almacen.
-    public String imprimirProductos() {
-        return this.getArbolProductos().inorden().imprimir();
-    }
-
-    // Método que llama al metodo imprimir de lista que recibe un separador
-    /////////////////////////// LISTO IMPRIMIR SEPARADOR/////////////////////
-    public String imprimirSeparador(String separador) {
-        return this.getArbolProductos().inorden().imprimir(",");
-    }
-
-    // Método que llama al método imprimir de ListaProductos, para imprimir la lista
-    // de productos similares.
-    public String imprimirProductosSimilares() {
-        return imprimir(getArbolProductos().inorden().getPrimero());
     }
 
     // Agrega stock a un producto ya existente en el almacen
-
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
         Lista<Producto> listaAux = getArbolProductos().inorden();
         Nodo<Producto> nodo = listaAux.buscar(etiqueta);
@@ -116,7 +83,6 @@ public class Sucursal implements ISucursal {
     }
 
     // Resta stock a un producto del almacen
-
     public Integer restarStock(Comparable etiqueta, Integer cantidad) {
         Lista<Producto> listaAux = getArbolProductos().inorden();
         Nodo<Producto> nodo = listaAux.buscar(etiqueta);
@@ -125,8 +91,7 @@ public class Sucursal implements ISucursal {
             if (aux.getStock() >= cantidad) {
                 aux.setStock(aux.getStock() - cantidad);
                 return aux.getStock();
-            }
-            // Si se pretende vender más unidades de un cierto producto de las que hay en el
+            } // Si se pretende vender más unidades de un cierto producto de las que hay en el
             // almacen se venden todas las que
             // hay y se setea el stock de ese producto en 0
             else {
@@ -176,21 +141,6 @@ public class Sucursal implements ISucursal {
             }
         }
         return null;
-
-    }
-
-    public String imprimir(String separador, Nodo<Producto> nodoPrimerNodo) {
-        String aux = "";
-        Lista<Producto> listaAux = getArbolProductos().inorden();
-        if (!listaAux.esVacia()) {
-            Nodo<Producto> temp = nodoPrimerNodo;
-            while (temp != null) {
-                Producto prod = temp.getDato();
-                aux = aux + prod.getNombre() + separador;
-                temp = temp.getSiguiente();
-            }
-        }
-        return aux;
 
     }
 

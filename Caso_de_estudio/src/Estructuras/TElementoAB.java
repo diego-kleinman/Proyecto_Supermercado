@@ -98,6 +98,19 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
         return temp;
     }
+    
+    public void inorden(Lista<T> unaLista) {
+
+        if (getHijoIzq() != null) {
+            getHijoIzq().inorden(unaLista);
+        }
+        Nodo aux = new Nodo(this.getEtiqueta(), this.getDatos());
+        unaLista.insertar(aux);
+
+        if (getHijoDer() != null) {
+            getHijoDer().inorden(unaLista);
+        }
+    }
 
     @Override
     public String preOrden() {
@@ -259,14 +272,17 @@ public class TElementoAB<T> implements IElementoAB<T> {
     }
     
     public TElementoAB<T> eliminar(Comparable unaEtiqueta) {
-        if (unaEtiqueta.compareTo(this.getEtiqueta()) < 0) {
+        Comparable etiquetaActual = Integer.parseInt(this.getEtiqueta().toString());
+        Comparable etiquetaAInsertar = Integer.parseInt(unaEtiqueta.toString());
+        
+        if (etiquetaAInsertar.compareTo(etiquetaActual) < 0) {
             if (this.hijoIzq != null) {
                 this.hijoIzq = this.hijoIzq.eliminar(unaEtiqueta);
             }
             return this;
         }
         
-        if (unaEtiqueta.compareTo(this.getEtiqueta()) > 0) {
+        if (etiquetaAInsertar.compareTo(etiquetaActual) > 0) {
             if (this.hijoDer != null) {
                 this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
             }

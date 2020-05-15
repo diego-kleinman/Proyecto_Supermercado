@@ -14,7 +14,10 @@ public class TArbolBB<T> implements IArbolBB<T> {
     public TArbolBB() {
         raiz = null;
     }
-
+    
+    public TElementoAB<T> getRaiz() {
+        return this.raiz;
+    }
     /**
      * @param unElemento
      * @return
@@ -72,6 +75,16 @@ public class TArbolBB<T> implements IArbolBB<T> {
          return raiz.inOrden();
       }
    }
+   
+    @Override
+    public Lista<T> inorden() {
+        Lista <T> listaInorden = null;
+        if (!esVacio()) {
+            listaInorden = new Lista<T>();
+            raiz.inorden(listaInorden);
+        }
+        return listaInorden;
+    }
 
    /**
     * Imprime en PostOrden los elementos del árbol, separados por guiones.
@@ -106,16 +119,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public Lista<T> inorden() {
-        Lista<T> listaInorden = null;
-        if (!esVacio()) {
-            listaInorden = new Lista<T>();
-            raiz.inOrden(listaInorden);
-        }
-        return listaInorden;
     }
 
     @Override
