@@ -15,7 +15,7 @@ public class Main {
             try {
                 // Creamos todas las variables para poder instanciar un objeto de la clase
                 // Producto
-                String nombre = aux[0];
+                String nombre = aux[0].toUpperCase();
                 String telefono = aux[1];
                 String direccion = aux[2];
                 String barrio = aux[3];
@@ -63,7 +63,7 @@ public class Main {
         Producto test = new Producto("123","Galletas",103,107);
         
         try {
-            geant.incorporarProductoEnSucursal(test, "Suc1");
+            geant.incorporarProductoEnSucursal(test, "sUc1");
         } catch (SucursalNotFound e) {
             System.out.println("La sucursal no fue encontrada");
         }

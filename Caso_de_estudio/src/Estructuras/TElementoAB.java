@@ -35,14 +35,16 @@ public class TElementoAB<T> implements IElementoAB<T> {
     @SuppressWarnings("unchecked")
     @Override
     public boolean insertar(TElementoAB<T> unElemento) {
-        if (unElemento.getEtiqueta().compareTo(etiqueta) < 0) {
+        Comparable etiquetaActual = Integer.parseInt(this.getEtiqueta().toString());
+        Comparable etiquetaAInsertar = Integer.parseInt(unElemento.getEtiqueta().toString());
+        if (etiquetaAInsertar.compareTo(etiquetaActual) < 0) {
             if (hijoIzq != null) {
                 return getHijoIzq().insertar(unElemento);
             } else {
                 hijoIzq = unElemento;
                 return true;
             }
-        } else if (unElemento.getEtiqueta().compareTo(etiqueta) > 0) {
+        } else if (etiquetaAInsertar.compareTo(etiquetaActual) > 0) {
             if (hijoDer != null) {
                 return getHijoDer().insertar(unElemento);
             } else {

@@ -43,7 +43,7 @@ public class CadenaDeSupermercados {
 
     public void incorporarProductoEnSucursal(Producto prod, String suc) throws SucursalNotFound {
 
-        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc);
+        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
 
         try {
             aux.getDato().insertarProducto(prod);
