@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/Main.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/Producto.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/Lista.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/ProductAlreadyInException.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/CadenaDeSupermercados.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/Sucursal.java</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/altasPrueba.txt</file>
-            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/plantilla/TElementoAB.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/Estructuras/CadenaDeSupermercados.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/Estructuras/Sucursal.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/ArchivosDePrueba/altasPrueba.txt</file>
+            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/Estructuras/Producto.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/Estructuras/Lista.java</file>
+            <file>file:/C:/Users/Diego/Desktop/Caso%20de%20estudio%20AED1/REPO%20GITHUB/Proyecto_Supermercado/Caso_de_estudio/src/Estructuras/Main.java</file>
         </group>
     </open-files>
 </project-private>
