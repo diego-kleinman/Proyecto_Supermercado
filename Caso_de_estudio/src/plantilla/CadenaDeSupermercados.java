@@ -1,5 +1,7 @@
 package plantilla;
 
+import java.lang.NullPointerException;
+
 public class CadenaDeSupermercados {
 
     private Lista<Sucursal> listaSucursales;
@@ -9,7 +11,7 @@ public class CadenaDeSupermercados {
     public CadenaDeSupermercados() {
         listaSucursales = new Lista<>();
         listaCiudades = new Lista<>();
-        listaBarrios = new Lista<>(); 
+        listaBarrios = new Lista<>();
     }
 
     public Lista<Sucursal> getListaSucursales() {
@@ -25,26 +27,19 @@ public class CadenaDeSupermercados {
     }
 
     public void incorporarSucursal(Sucursal suc) {
-        Nodo<Sucursal> nodoSuc = new Nodo<>(suc.getNombre(),suc);
+        Nodo<Sucursal> nodoSuc = new Nodo<>(suc.getNombre(), suc);
         this.listaSucursales.insertar(nodoSuc);
 
     }
 
-    public void incorporarProductoEnCadena(Producto prod) throws Exception {
+    public void incorporarProductoEnCadena(Producto prod) {
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
         // Inserto en todas las sucursales de la listaSucursales
         while (actual != null) {
             Sucursal suc = actual.getDato();
-            try {
-                suc.insertarProducto(prod);
-            } catch (Exception e) {
-                throw new Exception("El producto no pudo ingresarse en el arbol de la sucursal: " + suc.getNombre());
-            }
+            suc.insertarProducto(prod);
             actual = actual.getSiguiente();
-
-
         }
     }
-
 
 }

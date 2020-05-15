@@ -27,6 +27,9 @@ public class Main {
             }
 
         }
+        
+        System.out.println("Las sucursales fueron incorporadas a la cadena de supermercados");
+        System.out.println("***************************************************************************************");
 
         String[] lineas = ManejadorArchivosGenerico.leerArchivo("src/plantilla/altasPrueba.txt");
         for (int i = 0; i < lineas.length; i++) {
@@ -45,11 +48,13 @@ public class Main {
 
             } catch (Exception e) {
 
-                System.out.println("Error de lectura: " + "linea: " + lineas[i]);
+                System.out.println("error al ingresar la linea: " + lineas[i]);
 
             }
 
         }
+        System.out.println("Los productos deseados se incorporaron correctamente");
+        System.out.println("***************************************************************************************");
     }
 
 }
