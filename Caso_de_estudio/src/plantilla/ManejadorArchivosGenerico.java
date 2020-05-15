@@ -1,3 +1,5 @@
+package plantilla;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -17,7 +19,7 @@ public class ManejadorArchivosGenerico {
 			String[] listaLineasArchivo) {
 		FileWriter fw;
 		try {
-			fw = new FileWriter(nombreCompletoArchivo, true);
+			fw = new FileWriter(nombreCompletoArchivo, false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (int i = 0; i < listaLineasArchivo.length; i++) {
 				String lineaActual = listaLineasArchivo[i];

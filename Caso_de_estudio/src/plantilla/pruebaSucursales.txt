@@ -1,0 +1,5 @@
+Suc1,1,luis alberto de herrera,goes,montevideo
+Suc2,2,av Italia,goes,rivera
+Suc3,3,garibaldi 2040,goes,canelones
+Suc4,4,propios,goes,san jose
+Suc5,5,magallanes,goes,flores

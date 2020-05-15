@@ -10,7 +10,7 @@ public class Sucursal implements ISucursal {
     private TArbolBB<Producto> arbolProductos;
 
     //En el constructor del almacen instanciamos 3 listas vacías para luego poner los productos correspondientes
-    public Sucursal(String direccion, String telefono, String nombre) {
+    public Sucursal(String direccion, String telefono, String nombre,String barrio,String ciudad) {
         this.arbolProductos = new TArbolBB<>();
         this.nombre = nombre;
         this.telefono = telefono;
