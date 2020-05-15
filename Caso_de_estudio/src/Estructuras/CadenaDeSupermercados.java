@@ -67,4 +67,17 @@ public class CadenaDeSupermercados {
 
     }
 
+    public void eliminarProductoEnSucursal(Comparable codigo, String suc) throws SucursalNotFound {
+
+        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
+
+        try {
+            aux.getDato().eliminarProducto(codigo);
+        } catch (NullPointerException e) {
+            throw new SucursalNotFound();
+
+        }
+
+    }
+
 }

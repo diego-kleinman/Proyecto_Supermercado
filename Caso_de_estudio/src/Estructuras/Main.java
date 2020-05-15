@@ -22,7 +22,7 @@ public class Main {
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
                 Sucursal sucursal = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
                 geant.incorporarSucursal(sucursal);
-            } catch (Exception e) {
+            } catch (Exception ex) {
 
                 System.out.println("Error de lectura de sucursal: \n" + "linea: " + lineas2[i]);
 
@@ -48,7 +48,7 @@ public class Main {
                 Producto producto = new Producto(codigo, descripcion, precio, cantidad);
                 geant.incorporarProductoEnCadena(producto);
 
-            } catch (Exception e) {
+            } catch (Exception ex) {
 
                 System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i]);
 
@@ -62,7 +62,7 @@ public class Main {
 
         try {
             geant.incorporarProductoEnSucursal(test, "sUc12");
-        } catch (SucursalNotFound e) {
+        } catch (SucursalNotFound ex) {
             System.out.println("La sucursal no fue encontrada");
         }
 
@@ -70,25 +70,42 @@ public class Main {
 
         try {
             geant.incorporarProductoEnSucursal(test2, "sUc1");
-        } catch (SucursalNotFound e) {
+        } catch (SucursalNotFound ex) {
             System.out.println("La sucursal no fue encontrada");
         }
 
-        Nodo<Sucursal> e = geant.getListaSucursales().getPrimero();
-        while (e != null) {
-            System.out.print(e.getDato().getNombre() + ": ");
-            Printer.imprimirPorCodigo(e.getDato().getArbolProductos(), ";");
-            e = e.getSiguiente();
+        Nodo<Sucursal> aux = geant.getListaSucursales().getPrimero();
+        while (aux != null) {
+            System.out.print(aux.getDato().getNombre() + ": ");
+            Printer.imprimirPorCodigo(aux.getDato().getArbolProductos(), ";");
+            aux = aux.getSiguiente();
         }
+//        System.out.println("****************************************");
+//        System.out.println("Elimino un producto el 123 y el 1000073");
+//        geant.eliminarProductoEnCadena("123");
+//        geant.eliminarProductoEnCadena("1000073");
+//        Nodo<Sucursal> b = geant.getListaSucursales().getPrimero();
+//        while (b != null) {
+//            System.out.print(b.getDato().getNombre() + ": ");
+//            Printer.imprimirPorCodigo(b.getDato().getArbolProductos(), ";");
+//            b = b.getSiguiente();
+//        }
+
+        Comparable test3 = "1000073";
         System.out.println("****************************************");
-        System.out.println("Elimino un producto el 123 y el 1000073");
-        geant.eliminarProductoEnCadena("123");
-        geant.eliminarProductoEnCadena("1000073");
-        Nodo<Sucursal> b = geant.getListaSucursales().getPrimero();
-        while (b != null) {
-            System.out.print(b.getDato().getNombre() + ": ");
-            Printer.imprimirPorCodigo(b.getDato().getArbolProductos(), ";");
-            b = b.getSiguiente();
+        System.out.println("Elimino producto 1000073 de la sucursal 1");
+        try {
+            geant.eliminarProductoEnSucursal(test3, "sUc1");
+            
+        } catch (SucursalNotFound ex) {
+            System.out.println("La sucursal no fue encontrada");
+        }
+
+        Nodo<Sucursal> aux2 = geant.getListaSucursales().getPrimero();
+        while (aux2 != null) {
+            System.out.print(aux2.getDato().getNombre() + ": ");
+            Printer.imprimirPorCodigo(aux2.getDato().getArbolProductos(), ";");
+            aux2 = aux2.getSiguiente();
         }
 
         //TArbolBB<Producto> aux = a.getArbolProductos();
