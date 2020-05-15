@@ -4,7 +4,6 @@ public class Main {
 
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
-        System.out.println("a");
 
         String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/plantilla/pruebaSucursales.txt");
         for (int i = 0; i < lineas2.length; i++) {
@@ -20,8 +19,7 @@ public class Main {
 
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
                 Sucursal sucursal = new Sucursal(direccion,telefono,nombre,barrio,ciudad);
-                Nodo<Sucursal> nodoSuc = new Nodo(nombre,sucursal);
-                geant.getListaSucursales().insertar(nodoSuc);
+                geant.incorporarSucursal(sucursal);
             } catch (Exception e) {
 
                 System.out.println("Error de lectura de sucursal: \n" + "linea: " + lineas2[i]);
@@ -43,6 +41,7 @@ public class Main {
 
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
                 Producto producto = new Producto(codigo, descripcion, precio, cantidad);
+                geant.incorporarProductoEnCadena(producto);
 
             } catch (Exception e) {
 

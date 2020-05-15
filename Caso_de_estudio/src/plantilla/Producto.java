@@ -6,13 +6,13 @@ public class Producto implements IProducto {
     private Comparable etiqueta;
     private Integer precio;
 
-    private int[] stock = new int[1];
+    private int[] stock;
     
     public Producto(Comparable etiqueta, String nombre, Integer precio, Integer stock){
         this.etiqueta=etiqueta;
         this.precio=precio;
         this.nombre=nombre;
-        this.stock[0]=0;
+        this.stock=new int[1];
     }
 
     //Getters y Setters
