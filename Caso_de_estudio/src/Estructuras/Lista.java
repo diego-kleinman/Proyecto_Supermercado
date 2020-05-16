@@ -6,9 +6,11 @@ import Interfaces.INodo;
 public class Lista<T> implements ILista<T> {
 
     private Nodo<T> primero;
+    private Nodo<T> ultimo;
 
     public Lista() {
         primero = null;
+        ultimo = null;
     }
 
     @Override
@@ -16,12 +18,10 @@ public class Lista<T> implements ILista<T> {
         if (this.buscar(unNodo.getEtiqueta()) == null) {
             if (esVacia()) {
                 primero = unNodo;
+                ultimo = unNodo;
             } else {
-                Nodo<T> aux = primero;
-                while (aux.getSiguiente() != null) {
-                    aux = aux.getSiguiente();
-                }
-                aux.setSiguiente(unNodo);
+                ultimo.setSiguiente(unNodo);
+                ultimo = unNodo;
             }
         }
     }
@@ -47,11 +47,21 @@ public class Lista<T> implements ILista<T> {
         if (esVacia()) {
             return false;
         }
-        if (primero.getSiguiente() == null) {
+        else if (primero.getSiguiente() == null) {
             if (primero.getEtiqueta().equals(clave)) {
                 primero = null;
+                ultimo = null;
                 return true;
             }
+        }
+        else if (ultimo.getEtiqueta().equals(clave)) {
+            Nodo<T> aux = primero;
+            while (aux.getSiguiente() != ultimo){
+                aux = aux.getSiguiente();
+            }
+            aux.setSiguiente(null);
+            ultimo=aux;
+            return true;
         }
         Nodo<T> aux = primero;
         if (aux.getEtiqueta().compareTo(clave) == 0) {
