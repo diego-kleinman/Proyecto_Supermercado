@@ -13,7 +13,7 @@ public class Printer {
             if (listaAux != null) {
                 Nodo<Producto> temp = listaAux.getPrimero();
                 while (temp != null) {
-                    productosSuc += temp.getEtiqueta() + "\n";
+                    productosSuc += temp.getEtiqueta() + "; stock: " + temp.getDato().getStock().toString() + "\n";
                     //System.out.println(temp.getEtiqueta());
                     temp = temp.getSiguiente();
                 }
@@ -38,7 +38,7 @@ public class Printer {
             if (listaAux != null) {
                 Nodo<Producto> temp = listaAux.getPrimero();
                 while (temp != null) {
-                    productosSuc += temp.getEtiqueta() + separador;
+                    productosSuc += temp.getEtiqueta() + " stock: " + temp.getDato().getStock().toString() + separador;
                     //System.out.println(temp.getEtiqueta());
                     temp = temp.getSiguiente();
                 }
@@ -63,7 +63,7 @@ public class Printer {
             if (listaAux != null) {
                 Nodo<Producto> temp = listaAux.getPrimero();
                 while (temp != null) {
-                    productosSuc += temp.getDato().getNombre() + "\n";
+                    productosSuc += temp.getDato().getNombre() + "; stock: " + temp.getDato().getStock().toString() + "\n";
                     //System.out.println(temp.getEtiqueta());
                     temp = temp.getSiguiente();
                 }
@@ -88,7 +88,7 @@ public class Printer {
             if (listaAux != null) {
                 Nodo<Producto> temp = listaAux.getPrimero();
                 while (temp != null) {
-                    productosSuc += temp.getDato().getNombre() + separador;
+                    productosSuc += temp.getDato().getNombre() + " stock: " + temp.getDato().getStock().toString() + separador;
                     //System.out.println(temp.getEtiqueta());
                     temp = temp.getSiguiente();
                 }

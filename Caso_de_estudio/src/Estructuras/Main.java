@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
 
-        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/5Sucursales.txt");
+        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/1Sucursal.txt");
         for (int i = 0; i < lineas2.length; i++) {
             String[] aux = lineas2[i].split(",");
             try {
@@ -60,8 +60,9 @@ public class Main {
         System.out.println("***************************************************************************************");
 
         Lista<Sucursal> aux = geant.getListaSucursales();
-        Printer.imprimirPorCodigo(aux);
-
+        Printer.imprimirNombres(aux, ";");
+//----------------------------------------------------------------------------------------------------------------
+          //Test de incorporar producto en una sucursal
 //        Producto test = new Producto("123", "Galletas", 103.0);
 //
 //        try {
@@ -79,25 +80,30 @@ public class Main {
 //        }
 //        Lista<Sucursal> aux2 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux2);
+        
+        //-------------------------------------------------------------------------------------------------------------
+    
         //Eliminacion de productos por txt
-        String[] lineas3 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/elimPrueba.txt");
-        for (int i = 0; i < lineas3.length; i++) {
-            String codigo = lineas3[i];
-            try {
-                geant.eliminarProductoEnCadena(codigo);
+//        String[] lineas3 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/elimPrueba.txt");
+//        for (int i = 0; i < lineas3.length; i++) {
+//            String codigo = lineas3[i];
+//            try {
+//                geant.eliminarProductoEnCadena(codigo);
+//
+//            } catch (Exception ex) {
+//
+//                System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i]);
+//
+//            }
+//
+//        }
+//        System.out.println("Los productos deseados se eliminaron correctamente correctamente");
+//        System.out.println("***************************************************************************************");
+//
+//        Lista<Sucursal> aux3 = geant.getListaSucursales();
+//        Printer.imprimirPorCodigo(aux3);
 
-            } catch (Exception ex) {
-
-                System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i]);
-
-            }
-
-        }
-        System.out.println("Los productos deseados se eliminaron correctamente correctamente");
-        System.out.println("***************************************************************************************");
-
-        Lista<Sucursal> aux3 = geant.getListaSucursales();
-        Printer.imprimirPorCodigo(aux3);
+//        -------------------------------------------------------------------------------------------------------------
 
 //        Nodo<Sucursal> aux = geant.getListaSucursales().getPrimero();
 //        while (aux != null) {

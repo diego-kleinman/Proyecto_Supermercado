@@ -71,10 +71,9 @@ public class Sucursal implements ISucursal {
 
     // Agrega stock a un producto ya existente en el almacen
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
-        Lista<Producto> listaAux = getArbolProductos().inorden();
-        Nodo<Producto> nodo = listaAux.buscar(etiqueta);
-        if (nodo != null) {
-            Producto aux = nodo.getDato();
+        TElementoAB<Producto> elem = getArbolProductos().buscar(etiqueta);
+        if (elem != null) {
+            Producto aux = elem.getDatos();
             aux.setStock(aux.getStock() + cantidad);
             return true;
         } else {

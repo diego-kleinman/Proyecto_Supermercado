@@ -76,14 +76,6 @@ public class CadenaDeSupermercados {
             }
             
         }
-//        Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
-//        
-//        while (actual != null) {
-//            Sucursal suc = actual.getDato();
-//            suc.eliminarProducto(Etiqueta);
-//            actual = actual.getSiguiente();
-//        }
-
     }
 
     public void eliminarProductoEnSucursal(Comparable codigo, String suc) throws SucursalNotFound {
@@ -127,6 +119,19 @@ public class CadenaDeSupermercados {
 
         }
 
+    }
+    
+    public void agregarStock(Comparable codigo,Integer cantidad,String suc) throws SucursalNotFound {
+        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
+
+        try {
+            aux.getDato().agregarStock(codigo,cantidad);
+        } catch (NullPointerException e) {
+            throw new SucursalNotFound();
+        }
+        
+    
+    
     }
 
 }
