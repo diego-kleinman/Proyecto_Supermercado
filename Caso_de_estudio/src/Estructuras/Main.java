@@ -17,9 +17,9 @@ public class Main {
         
         BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
         
-        //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
+        BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         
-        Printer.imprimirPorCodigo(listaSucs);
+        //Printer.imprimirPorCodigo(listaSucs);
         
         //Printer.imprimirNombres(listaSucs);
         

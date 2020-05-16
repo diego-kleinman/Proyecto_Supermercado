@@ -1,5 +1,4 @@
 package Estructuras;
-
 import Exceptions.SucursalNotFound;
 import org.apache.commons.lang3.StringUtils;
 
@@ -90,7 +89,7 @@ public class CadenaDeSupermercados {
 
     }
 
-    public Lista<Integer> VenderProductoEnSucursal(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
+    public void VenderProductoEnSucursal(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
         
         Lista output = new Lista();
         //Busco la sucursal para hacer la venta, si no la encuentro devuelvo la excepcion
@@ -103,20 +102,22 @@ public class CadenaDeSupermercados {
         //Si la encuentro me fijo si se puede vender, si se puede, hago la venta
         if (aux.getDato().sePuedeVender(codigo, cantidad)) {
             aux.getDato().vender(codigo, cantidad);
-            return null;
         } else {
             //Si no se puede vender recorro la lista de sucursales y genero el output
+            System.out.println("La venta del producto con codigo: " + codigo + " no pudo realizarse en la sucursal " + suc);
+            System.out.println("Aqui tiene una lista de las sucursales con stock disponible: ");
             Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
             while (actual != null) {
                 Sucursal sucActual = actual.getDato();
                 if (sucActual.sePuedeVender(codigo, cantidad)) {
                     TElementoAB<Producto> elem = sucActual.getArbolProductos().buscar(codigo);
-                    Nodo nuevoNodo = new Nodo(sucActual.getNombre(), elem.getDatos().getStock());
+                    Nodo nuevoNodo = new Nodo(elem.getDatos().getStock(),sucActual.getNombre());
                     output.insertar(nuevoNodo);
                 }
                 actual = actual.getSiguiente();
             }
-            return output;
+            Printer.imprimirListaSucursalesConStock(output);
+            
 
         }
 

@@ -77,7 +77,7 @@ public class Printer {
         }
 
     }
-    
+
     public static void imprimirNombres(Lista<Sucursal> listaSuc, String separador) {
         String productosSuc = "";
 
@@ -100,6 +100,24 @@ public class Printer {
 
             aux = aux.getSiguiente();
         }
+    }
+
+    public static void imprimirListaSucursalesConStock(Lista<String> listaSuc) {
+
+        String productosSuc = "";
+        Nodo<String> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            productosSuc = productosSuc + aux.getDato() + ",stock :" + aux.getEtiqueta();
+            aux = aux.getSiguiente();
+        }
+        if(productosSuc == ""){
+            System.out.println("Lo siento, no disponemos de sucursales con el stock requerido");
+        }
+        else {
+            System.out.println(productosSuc + "\n");
+        }
+        
+
     }
 
 }

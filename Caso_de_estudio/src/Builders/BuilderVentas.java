@@ -1,6 +1,7 @@
 
 package Builders;
 import Estructuras.*;
+import Exceptions.SucursalNotFound;
 
 
 public class BuilderVentas {
@@ -18,10 +19,14 @@ public class BuilderVentas {
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
                 cadena.VenderProductoEnSucursal(codigo, stock, nombreSuc);
 
-            } catch (Exception ex) {
+            } catch (SucursalNotFound ex) {
 
+                System.out.println("La sucursal: " + str[0] + " no fue encontrada en la lista de sucursales de la cadena de supermercados");
+
+            }
+            catch (Exception e) {
                 System.out.println("Error de lectura de stock: \n" + "linea: " + lineas5[i]);
-
+            
             }
 
         }
