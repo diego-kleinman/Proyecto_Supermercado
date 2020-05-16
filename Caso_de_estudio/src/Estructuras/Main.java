@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
 
-        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/30Sucursales.txt");
+        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/1Sucursal.txt");
         for (int i = 0; i < lineas2.length; i++) {
             String[] aux = lineas2[i].split(",");
             try {
@@ -40,7 +40,7 @@ public class Main {
                 // Creamos todas las variables para poder instanciar un objeto de la clase
                 // Producto
                 Comparable codigo = prod[0];
-                String descripcion = prod[1];
+                String descripcion = prod[1].replace("\"", "");
                 Double precio = Double.valueOf(prod[2]);
 
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
@@ -61,21 +61,25 @@ public class Main {
         Printer.imprimirPorCodigo(aux);
         Printer.imprimirNombres(aux);
 
-//        Producto test = new Producto("123", "Galletas", 103, 107);
-//
-//        try {
-//            geant.incorporarProductoEnSucursal(test, "sUc12");
-//        } catch (SucursalNotFound ex) {
-//            System.out.println("La sucursal no fue encontrada");
-//        }
-//
-//        Producto test2 = new Producto("123", "Galletas", 103, 107);
-//
-//        try {
-//            geant.incorporarProductoEnSucursal(test2, "sUc1");
-//        } catch (SucursalNotFound ex) {
-//            System.out.println("La sucursal no fue encontrada");
-//        }
+        Producto test = new Producto("123", "Galletas", 103.0);
+
+        try {
+            geant.incorporarProductoEnSucursal(test, "local 122");
+        } catch (SucursalNotFound ex) {
+            System.out.println("La sucursal no fue encontrada");
+        }
+
+        Producto test2 = new Producto("123", "Galletas", 103.0);
+
+        try {
+            geant.incorporarProductoEnSucursal(test2, "local 122");
+        } catch (SucursalNotFound ex) {
+            System.out.println("La sucursal no fue encontrada");
+        }
+        
+        Lista<Sucursal> aux2 = geant.getListaSucursales();
+        Printer.imprimirPorCodigo(aux2);
+        Printer.imprimirNombres(aux);
 
 //        Nodo<Sucursal> aux = geant.getListaSucursales().getPrimero();
 //        while (aux != null) {
