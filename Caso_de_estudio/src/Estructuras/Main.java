@@ -9,16 +9,16 @@ public class Main {
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
 
-        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/1Sucursal.txt");
+        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/5Sucursales.txt");
         for (int i = 0; i < lineas2.length; i++) {
             String[] aux = lineas2[i].split(",");
             try {
                 // Creamos las variables necesarias para instanciar un objeto de la clase sucursal
                 String nombre = aux[0].toUpperCase();
                 String telefono = aux[1];
-                String direccion = aux[2];
+                String direccion = StringUtils.stripAccents(aux[2]);
                 String barrio = aux[3];
-                String ciudad = aux[4];
+                String ciudad = StringUtils.stripAccents(aux[4]);
 
                 // Instanciamos el objeto sucursal
                 Sucursal sucursal = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
@@ -99,9 +99,6 @@ public class Main {
         Lista<Sucursal> aux3 = geant.getListaSucursales();
         Printer.imprimirPorCodigo(aux3);
 
-        System.out.println(StringUtils.stripAccents("hòlá"));
-       
-
 //        Nodo<Sucursal> aux = geant.getListaSucursales().getPrimero();
 //        while (aux != null) {
 //            System.out.print(aux.getDato().getNombre() + ": ");
@@ -118,15 +115,17 @@ public class Main {
 //            Printer.imprimirPorCodigo(b.getDato().getArbolProductos(), ";");
 //            b = b.getSiguiente();
 //        }
-//        Comparable test3 = "1000073";
+//        Comparable test3 = "8971892994";
 //        System.out.println("****************************************");
 //        System.out.println("Elimino producto 1000073 de la sucursal 1");
 //        try {
-//            geant.eliminarProductoEnSucursal(test3, "sUc1");
+//            geant.eliminarProductoEnSucursal(test3, "local 104");
 //            
 //        } catch (SucursalNotFound ex) {
 //            System.out.println("La sucursal no fue encontrada");
 //        }
+//        Lista<Sucursal> aux4 = geant.getListaSucursales();
+//        Printer.imprimirPorCodigo(aux4);
 //
 //        Nodo<Sucursal> aux2 = geant.getListaSucursales().getPrimero();
 //        while (aux2 != null) {

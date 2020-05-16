@@ -83,24 +83,24 @@ public class Sucursal implements ISucursal {
     }
 
     // Resta stock a un producto del almacen
-    public Integer restarStock(Comparable etiqueta, Integer cantidad) {
-        Lista<Producto> listaAux = getArbolProductos().inorden();
-        Nodo<Producto> nodo = listaAux.buscar(etiqueta);
+    public void vender(Comparable etiqueta, Integer cantidad) {
+
+        TElementoAB<Producto> aux = getArbolProductos().buscar(etiqueta);
+        Producto prod = aux.getDatos();
+        prod.setStock(prod.getStock() - cantidad);
+
+    }
+
+    public boolean sePuedeVender(Comparable etiqueta, Integer cantidad) {
+        TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
         if (nodo != null) {
-            Producto aux = nodo.getDato();
+            Producto aux = nodo.getDatos();
             if (aux.getStock() >= cantidad) {
-                aux.setStock(aux.getStock() - cantidad);
-                return aux.getStock();
-            } // Si se pretende vender más unidades de un cierto producto de las que hay en el
-            // almacen se venden todas las que
-            // hay y se setea el stock de ese producto en 0
-            else {
-                aux.setStock(0);
-                return aux.getStock();
+                return true;
             }
-        } else {
-            return -1;
+            return false;
         }
+        return false;
     }
 
     // Método que busca un producto por su código
