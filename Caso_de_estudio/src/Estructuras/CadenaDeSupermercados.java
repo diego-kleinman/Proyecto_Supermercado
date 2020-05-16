@@ -38,14 +38,13 @@ public class CadenaDeSupermercados {
         // Inserto en todas las sucursales de la listaSucursales
         while (actual != null) {
             Sucursal suc = actual.getDato();
-            if(suc.getArbolProductos().buscar(prod.getEtiqueta()) == null){
+            if (suc.getArbolProductos().buscar(prod.getEtiqueta()) == null) {
                 suc.insertarProducto(prod);
                 actual = actual.getSiguiente();
-            }
-            else {
+            } else {
                 actual = actual.getSiguiente();
             }
-            
+
         }
     }
 
@@ -67,14 +66,13 @@ public class CadenaDeSupermercados {
         // Inserto en todas las sucursales de la listaSucursales
         while (actual != null) {
             Sucursal suc = actual.getDato();
-            if(suc.getArbolProductos().buscar(Etiqueta) != null){
+            if (suc.getArbolProductos().buscar(Etiqueta) != null) {
                 suc.eliminarProducto(Etiqueta);
                 actual = actual.getSiguiente();
-            }
-            else {
+            } else {
                 actual = actual.getSiguiente();
             }
-            
+
         }
     }
 
@@ -92,6 +90,7 @@ public class CadenaDeSupermercados {
     }
 
     public Lista<Integer> VenderProductoEnSucursal(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
+        
         Lista output = new Lista();
         //Busco la sucursal para hacer la venta, si no la encuentro devuelvo la excepcion
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
@@ -111,27 +110,25 @@ public class CadenaDeSupermercados {
                 Sucursal sucActual = actual.getDato();
                 if (sucActual.sePuedeVender(codigo, cantidad)) {
                     TElementoAB<Producto> elem = sucActual.getArbolProductos().buscar(codigo);
-                    Nodo nuevoNodo = new Nodo(sucActual.getNombre(),elem.getDatos().getStock());
+                    Nodo nuevoNodo = new Nodo(sucActual.getNombre(), elem.getDatos().getStock());
                     output.insertar(nuevoNodo);
                 }
+                actual = actual.getSiguiente();
             }
             return output;
 
         }
 
     }
-    
-    public void agregarStock(Comparable codigo,Integer cantidad,String suc) throws SucursalNotFound {
-        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
 
-        try {
-            aux.getDato().agregarStock(codigo,cantidad);
-        } catch (NullPointerException e) {
-            throw new SucursalNotFound();
+    public void agregarStock(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
+        if (cantidad > 0) {
+            Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
+            try {
+                aux.getDato().agregarStock(codigo, cantidad);
+            } catch (NullPointerException e) {
+                throw new SucursalNotFound();
+            }
         }
-        
-    
-    
     }
-
 }

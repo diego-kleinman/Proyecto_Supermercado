@@ -1,6 +1,7 @@
 package Estructuras;
 
 import org.apache.commons.lang3.StringUtils;
+import Builders.*;
 
 import Exceptions.SucursalNotFound;
 
@@ -8,60 +9,22 @@ public class Main {
 
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
+        Lista<Sucursal> listaSucs = geant.getListaSucursales();
+        
+        BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
 
-        String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/1Sucursal.txt");
-        for (int i = 0; i < lineas2.length; i++) {
-            String[] aux = lineas2[i].split(",");
-            try {
-                // Creamos las variables necesarias para instanciar un objeto de la clase sucursal
-                String nombre = aux[0].toUpperCase();
-                String telefono = aux[1];
-                String direccion = StringUtils.stripAccents(aux[2]);
-                String barrio = aux[3];
-                String ciudad = StringUtils.stripAccents(aux[4]);
-
-                // Instanciamos el objeto sucursal
-                Sucursal sucursal = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
-                // Lo insertamos en la cadena de supermercados
-                geant.incorporarSucursal(sucursal);
-            } catch (Exception ex) {
-
-                System.out.println("Error de lectura de sucursal: \n" + "linea: " + lineas2[i]);
-
-            }
-
-        }
-
-        System.out.println("Las sucursales fueron incorporadas a la cadena de supermercados");
-        System.out.println("***************************************************************************************");
-
-        String[] lineas = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/20Productos.txt");
-        for (int i = 0; i < lineas.length; i++) {
-            String[] prod = lineas[i].split(",");
-            try {
-                // Creamos todas las variables para poder instanciar un objeto de la clase
-                // Producto
-                Comparable codigo = prod[0];
-                String descripcion = prod[1].replace("\"", "");
-                Double precio = Double.valueOf(prod[2]);
-
-                // Instanciamos el objeto producto con las variables creadas anteriormente.
-                Producto producto = new Producto(codigo, descripcion, precio);
-                geant.incorporarProductoEnCadena(producto);
-
-            } catch (Exception ex) {
-
-                System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i]);
-
-            }
-
-        }
-        System.out.println("Los productos deseados se incorporaron correctamente");
-        System.out.println("***************************************************************************************");
-
-        Lista<Sucursal> aux = geant.getListaSucursales();
-        Printer.imprimirNombres(aux, ";");
-//----------------------------------------------------------------------------------------------------------------
+        BuilderProductos.build("src/ArchivosDePrueba/20Productos.txt", geant);
+        
+        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
+        
+        //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
+        
+        Printer.imprimirPorCodigo(listaSucs);
+        
+        //Printer.imprimirNombres(listaSucs);
+        
+        
+        
           //Test de incorporar producto en una sucursal
 //        Producto test = new Producto("123", "Galletas", 103.0);
 //
