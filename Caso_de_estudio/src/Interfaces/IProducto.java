@@ -14,9 +14,9 @@ public interface IProducto{
      *
      * @return precio del Producto.
      */
-    public Integer getPrecio();
+    public Double getPrecio();
 
-    public void setPrecio(Integer precio);
+    public void setPrecio(Double precio);
 
     /**
      * Retorna el stock del Producto.

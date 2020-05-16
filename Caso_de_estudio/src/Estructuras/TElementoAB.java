@@ -35,16 +35,15 @@ public class TElementoAB<T> implements IElementoAB<T> {
     @SuppressWarnings("unchecked")
     @Override
     public boolean insertar(TElementoAB<T> unElemento) {
-        Comparable etiquetaActual = Integer.parseInt(this.getEtiqueta().toString());
-        Comparable etiquetaAInsertar = Integer.parseInt(unElemento.getEtiqueta().toString());
-        if (etiquetaAInsertar.compareTo(etiquetaActual) < 0) {
+        
+        if (this.getEtiqueta().compareTo(unElemento.getEtiqueta()) < 0) {
             if (hijoIzq != null) {
                 return getHijoIzq().insertar(unElemento);
             } else {
                 hijoIzq = unElemento;
                 return true;
             }
-        } else if (etiquetaAInsertar.compareTo(etiquetaActual) > 0) {
+        } else if (this.getEtiqueta().compareTo(unElemento.getEtiqueta()) > 0) {
             if (hijoDer != null) {
                 return getHijoDer().insertar(unElemento);
             } else {
@@ -98,7 +97,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
         return temp;
     }
-    
+
     public void inorden(Lista<T> unaLista) {
 
         if (getHijoIzq() != null) {
@@ -146,6 +145,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
         return temp;
     }
+
     @Override
     public void inOrden(Lista<T> unaLista) {
 
@@ -270,57 +270,55 @@ public class TElementoAB<T> implements IElementoAB<T> {
         return hojas[0];
 
     }
-    
+
     public TElementoAB<T> eliminar(Comparable unaEtiqueta) {
-        Comparable etiquetaActual = Integer.parseInt(this.getEtiqueta().toString());
-        Comparable etiquetaAInsertar = Integer.parseInt(unaEtiqueta.toString());
-        
+        Comparable etiquetaActual = this.getEtiqueta().toString();
+        Comparable etiquetaAInsertar = unaEtiqueta.toString();
+
         if (etiquetaAInsertar.compareTo(etiquetaActual) < 0) {
             if (this.hijoIzq != null) {
                 this.hijoIzq = this.hijoIzq.eliminar(unaEtiqueta);
             }
             return this;
         }
-        
+
         if (etiquetaAInsertar.compareTo(etiquetaActual) > 0) {
             if (this.hijoDer != null) {
                 this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
             }
             return this;
         }
-        
+
         return this.quitaElNodo();
-        
+
     }
-    
+
     public TElementoAB<T> quitaElNodo() {
-        
+
         if (this.hijoIzq == null) {
             return this.hijoDer;
         }
-        
-        
+
         if (this.hijoDer == null) {
             return this.hijoIzq;
         }
-        
+
         TElementoAB<T> elHijo = this.hijoIzq;
         TElementoAB<T> elPadre = this;
-        
+
         while (elHijo.hijoDer != null) {
             elPadre = elHijo;
             elHijo = elHijo.hijoDer;
         }
-        
+
         if (elPadre != this) {
             elPadre.hijoDer = elHijo.hijoIzq;
-            elHijo.hijoIzq= hijoIzq;
+            elHijo.hijoIzq = hijoIzq;
         }
-        
+
         elHijo.hijoDer = hijoDer;
         return elHijo;
-        
-        
+
     }
 
 }

@@ -2,67 +2,104 @@ package Estructuras;
 
 public class Printer {
 
-//    public static void Imprimir(Lista<Producto> lista) {
-//
-//        if (!lista.esVacia()) {
-//            Nodo<Producto> temp = lista.getPrimero();
-//            while (temp != null) {
-//                System.out.println(temp.getEtiqueta());
-//                temp = temp.getSiguiente();
-//            }
-//        }
-//
-//    }
-    public static void ImprimirPorCodigo(TArbolBB<Producto> arbol) {
-        
-        Lista<Producto> listaAux = arbol.inorden();
-        if (!listaAux.esVacia()) {
-            Nodo<Producto> temp = listaAux.getPrimero();
-            while (temp != null) {
-                System.out.println(temp.getEtiqueta());
-                temp = temp.getSiguiente();
+    public static void imprimirPorCodigo(Lista<Sucursal> listaSuc) {
+
+        String productosSuc = "";
+
+        Nodo<Sucursal> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            TArbolBB arbol = aux.getDato().getArbolProductos();
+            Lista<Producto> listaAux = arbol.inorden();
+            if (listaAux != null) {
+                Nodo<Producto> temp = listaAux.getPrimero();
+                while (temp != null) {
+                    productosSuc += temp.getEtiqueta() + "\n";
+                    //System.out.println(temp.getEtiqueta());
+                    temp = temp.getSiguiente();
+                }
+                System.out.println(aux.getDato().getNombre() + "\n" + productosSuc);
+                productosSuc = "";
+            } else {
+                System.out.println(aux.getDato().getNombre());
             }
+
+            aux = aux.getSiguiente();
         }
-       
+
     }
 
-    public static void imprimirPorCodigo(TArbolBB<Producto> arbol, String separador) {
-        String aux = "";
-        Lista<Producto> listaAux = arbol.inorden();
-        if (!listaAux.esVacia()) {
-            Nodo<Producto> temp = listaAux.getPrimero();
-            while (temp != null) {
-                aux += temp.getEtiqueta() + separador;
-                temp = temp.getSiguiente();
+    public static void imprimirPorCodigo(Lista<Sucursal> listaSuc, String separador) {
+        String productosSuc = "";
+
+        Nodo<Sucursal> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            TArbolBB arbol = aux.getDato().getArbolProductos();
+            Lista<Producto> listaAux = arbol.inorden();
+            if (listaAux != null) {
+                Nodo<Producto> temp = listaAux.getPrimero();
+                while (temp != null) {
+                    productosSuc += temp.getEtiqueta() + separador;
+                    //System.out.println(temp.getEtiqueta());
+                    temp = temp.getSiguiente();
+                }
+                System.out.println(aux.getDato().getNombre() + ": " + productosSuc);
+                productosSuc = "";
+            } else {
+                System.out.println(aux.getDato().getNombre());
             }
+
+            aux = aux.getSiguiente();
         }
-        System.out.println(aux);
+    }
+
+    public static void imprimirNombres(Lista<Sucursal> listaSuc) {
+
+        String productosSuc = "";
+
+        Nodo<Sucursal> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            TArbolBB arbol = aux.getDato().getArbolProductos();
+            Lista<Producto> listaAux = arbol.inorden();
+            if (listaAux != null) {
+                Nodo<Producto> temp = listaAux.getPrimero();
+                while (temp != null) {
+                    productosSuc += temp.getDato().getNombre() + "\n";
+                    //System.out.println(temp.getEtiqueta());
+                    temp = temp.getSiguiente();
+                }
+                System.out.println(aux.getDato().getNombre() + "\n" + productosSuc);
+                productosSuc = "";
+            } else {
+                System.out.println(aux.getDato().getNombre());
+            }
+
+            aux = aux.getSiguiente();
+        }
+
     }
     
-    public static void ImprimirNombres(TArbolBB<Producto> arbol) {
-        
-        Lista<Producto> listaAux = arbol.inorden();
-        if (!listaAux.esVacia()) {
-            Nodo<Producto> temp = listaAux.getPrimero();
-            while (temp != null) {
-                System.out.println(temp.getDato().getNombre());
-                temp = temp.getSiguiente();
-            }
-        }
-       
-    }
+    public static void imprimirNombres(Lista<Sucursal> listaSuc, String separador) {
+        String productosSuc = "";
 
-    public static void imprimirNombres(TArbolBB<Producto> arbol, String separador) {
-        String aux = "";
-        Lista<Producto> listaAux = arbol.inorden();
-        if (!listaAux.esVacia()) {
-            Nodo<Producto> temp = listaAux.getPrimero();
-            while (temp != null) {
-                aux += temp.getDato().getNombre() + separador;
-                temp = temp.getSiguiente();
+        Nodo<Sucursal> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            TArbolBB arbol = aux.getDato().getArbolProductos();
+            Lista<Producto> listaAux = arbol.inorden();
+            if (listaAux != null) {
+                Nodo<Producto> temp = listaAux.getPrimero();
+                while (temp != null) {
+                    productosSuc += temp.getDato().getNombre() + separador;
+                    //System.out.println(temp.getEtiqueta());
+                    temp = temp.getSiguiente();
+                }
+                System.out.println(aux.getDato().getNombre() + ": " + productosSuc);
+                productosSuc = "";
+            } else {
+                System.out.println(aux.getDato().getNombre());
             }
+
+            aux = aux.getSiguiente();
         }
-        System.out.println(aux);
     }
 
 }
