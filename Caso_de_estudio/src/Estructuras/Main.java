@@ -1,4 +1,5 @@
 package Estructuras;
+
 import org.apache.commons.lang3.StringUtils;
 
 import Exceptions.SucursalNotFound;
@@ -7,9 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
-        
-       
-
 
         String[] lineas2 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/1Sucursal.txt");
         for (int i = 0; i < lineas2.length; i++) {
@@ -81,7 +79,6 @@ public class Main {
 //        }
 //        Lista<Sucursal> aux2 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux2);
-
         //Eliminacion de productos por txt
         String[] lineas3 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/elimPrueba.txt");
         for (int i = 0; i < lineas3.length; i++) {
@@ -101,6 +98,9 @@ public class Main {
 
         Lista<Sucursal> aux3 = geant.getListaSucursales();
         Printer.imprimirPorCodigo(aux3);
+
+        System.out.println(StringUtils.stripAccents("hòlá"));
+       
 
 //        Nodo<Sucursal> aux = geant.getListaSucursales().getPrimero();
 //        while (aux != null) {
