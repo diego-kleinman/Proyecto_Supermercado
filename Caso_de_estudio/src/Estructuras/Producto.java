@@ -7,7 +7,6 @@ public class Producto implements IProducto {
     private String nombre;
     private Comparable etiqueta;
     private Double precio;
-
     private int[] stock = new int[1];
     
     public Producto(Comparable etiqueta, String nombre, Double precio){
@@ -62,6 +61,12 @@ public class Producto implements IProducto {
         String aux = this.nombre.replace(" ", "");
         String aux2 = producto.getNombre().replace(" ","");
         return aux.compareTo(aux2);
+    }
+    
+    public Producto clonar(){
+    
+        return new Producto(this.getEtiqueta(),this.getNombre(),this.getPrecio());
+    
     }
 
     

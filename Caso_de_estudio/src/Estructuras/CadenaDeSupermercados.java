@@ -39,7 +39,8 @@ public class CadenaDeSupermercados {
         while (actual != null) {
             Sucursal suc = actual.getDato();
             if (suc.getArbolProductos().buscar(prod.getEtiqueta()) == null) {
-                suc.insertarProducto(prod);
+                //Producto insert = new Producto(prod.getEtiqueta(),prod.getNombre(),prod.getPrecio());
+                suc.insertarProducto(prod.clonar());
                 actual = actual.getSiguiente();
             } else {
                 actual = actual.getSiguiente();
