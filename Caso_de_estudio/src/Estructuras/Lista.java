@@ -11,17 +11,18 @@ public class Lista<T> implements ILista<T> {
         primero = null;
     }
 
-
     @Override
     public void insertar(Nodo<T> unNodo) {
-        if (esVacia()) {
-            primero = unNodo;
-        } else {
-            Nodo<T> aux = primero;
-            while (aux.getSiguiente() != null) {
-                aux = aux.getSiguiente();
+        if (this.buscar(unNodo.getEtiqueta()) == null) {
+            if (esVacia()) {
+                primero = unNodo;
+            } else {
+                Nodo<T> aux = primero;
+                while (aux.getSiguiente() != null) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(unNodo);
             }
-            aux.setSiguiente(unNodo);
         }
     }
 

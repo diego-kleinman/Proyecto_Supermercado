@@ -36,14 +36,14 @@ public class TElementoAB<T> implements IElementoAB<T> {
     @Override
     public boolean insertar(TElementoAB<T> unElemento) {
         
-        if (this.getEtiqueta().compareTo(unElemento.getEtiqueta()) < 0) {
+        if (unElemento.getEtiqueta().compareTo(etiqueta) < 0) {
             if (hijoIzq != null) {
                 return getHijoIzq().insertar(unElemento);
             } else {
                 hijoIzq = unElemento;
                 return true;
             }
-        } else if (this.getEtiqueta().compareTo(unElemento.getEtiqueta()) > 0) {
+        } else if (unElemento.getEtiqueta().compareTo(etiqueta) > 0) {
             if (hijoDer != null) {
                 return getHijoDer().insertar(unElemento);
             } else {
@@ -272,17 +272,15 @@ public class TElementoAB<T> implements IElementoAB<T> {
     }
 
     public TElementoAB<T> eliminar(Comparable unaEtiqueta) {
-        Comparable etiquetaActual = this.getEtiqueta().toString();
-        Comparable etiquetaAInsertar = unaEtiqueta.toString();
 
-        if (etiquetaAInsertar.compareTo(etiquetaActual) < 0) {
+        if (unaEtiqueta.compareTo(this.etiqueta) < 0) {
             if (this.hijoIzq != null) {
                 this.hijoIzq = this.hijoIzq.eliminar(unaEtiqueta);
             }
             return this;
         }
 
-        if (etiquetaAInsertar.compareTo(etiquetaActual) > 0) {
+        if (unaEtiqueta.compareTo(this.etiqueta) > 0) {
             if (this.hijoDer != null) {
                 this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
             }
