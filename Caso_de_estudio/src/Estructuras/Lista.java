@@ -15,15 +15,15 @@ public class Lista<T> implements ILista<T> {
 
     @Override
     public void insertar(Nodo<T> unNodo) {
-        if (this.buscar(unNodo.getEtiqueta()) == null) {
-            if (esVacia()) {
-                primero = unNodo;
-                ultimo = unNodo;
-            } else {
-                ultimo.setSiguiente(unNodo);
-                ultimo = unNodo;
-            }
+
+        if (esVacia()) {
+            primero = unNodo;
+            ultimo = unNodo;
+        } else {
+            ultimo.setSiguiente(unNodo);
+            ultimo = unNodo;
         }
+
     }
 
     @Override
@@ -46,21 +46,19 @@ public class Lista<T> implements ILista<T> {
     public boolean eliminar(Comparable clave) {
         if (esVacia()) {
             return false;
-        }
-        else if (primero.getSiguiente() == null) {
+        } else if (primero.getSiguiente() == null) {
             if (primero.getEtiqueta().equals(clave)) {
                 primero = null;
                 ultimo = null;
                 return true;
             }
-        }
-        else if (ultimo.getEtiqueta().equals(clave)) {
+        } else if (ultimo.getEtiqueta().equals(clave)) {
             Nodo<T> aux = primero;
-            while (aux.getSiguiente() != ultimo){
+            while (aux.getSiguiente() != ultimo) {
                 aux = aux.getSiguiente();
             }
             aux.setSiguiente(null);
-            ultimo=aux;
+            ultimo = aux;
             return true;
         }
         Nodo<T> aux = primero;

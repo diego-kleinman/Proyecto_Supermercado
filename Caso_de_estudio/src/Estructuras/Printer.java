@@ -7,12 +7,12 @@ public class Printer {
         String productosSuc = "";
 
         Nodo<Sucursal> aux = listaSuc.getPrimero();
-        while (aux != null) {
+        while (aux != null) { //30 veces
             TArbolBB arbol = aux.getDato().getArbolProductos();
-            Lista<Producto> listaAux = arbol.inorden();
+            Lista<Producto> listaAux = arbol.inorden(); 
             if (listaAux != null) {
                 Nodo<Producto> temp = listaAux.getPrimero();
-                while (temp != null) {
+                while (temp != null) {  //O(M productos)
                     productosSuc += temp.getEtiqueta() + "; stock: " + temp.getDato().getStock().toString() + "\n";
                     //System.out.println(temp.getEtiqueta());
                     temp = temp.getSiguiente();

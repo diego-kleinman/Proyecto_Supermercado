@@ -19,16 +19,16 @@ public class Main {
         
         //Test de tamaño del arbol
         //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
-        System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());
+        //System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());
         
-        //Printer.imprimirPorCodigo(listaSucs);
+        Printer.imprimirArbol(listaSucs.getPrimero().getDato().getArbolProductos());
         
         //Printer.imprimirArbol(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos());
         //geant.indicarExistenciasTotales("1403796890");
 
         //geant.indicarExistenciasTotalesPorSucursal("1403796890");
 
-        //Printer.imprimirPorCodigo(listaSucs);
+        Printer.imprimirPorCodigo(listaSucs);
 
 //Printer.imprimirPorCodigo(listaSucs);
         //Printer.imprimirNombres(listaSucs);
