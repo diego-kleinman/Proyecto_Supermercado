@@ -191,24 +191,28 @@ public class CadenaDeSupermercados {
     }
 
     public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound {
-        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
+        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
         TArbolBB<Integer> salida = new TArbolBB<>();
         try {
             aux.getDato();
         } catch (NullPointerException e) {
             throw new SucursalNotFound();
         }
-        Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
-        Nodo<Producto> actual = listaAux.getPrimero();
-        while (actual != null) {
-            Producto prod = actual.getDato();
-            TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(), prod.getStock());
-            salida.insertar(insert);
-            actual = actual.getSiguiente();
+        try {
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden(); //O(M)
+            Nodo<Producto> actual = listaAux.getPrimero();
+            while (actual != null) { //O(M)
+                Producto prod = actual.getDato();
+                TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(), prod.getStock());
+                salida.insertar(insert); //O(log M)
+                actual = actual.getSiguiente();
+            }
+            System.out.println("Sucursal: " + suc);
+            Printer.imprimirArbolInteger(salida);
+            System.out.println("\n");
+        } catch (NullPointerException ex) {
+            System.out.println("La sucursal no tiene productos");
         }
-        System.out.println("Sucursal: " + suc);
-        Printer.imprimirArbolInteger(salida);
-        System.out.println("\n");
 
     }
 
@@ -223,17 +227,15 @@ public class CadenaDeSupermercados {
             //Recorro todos los productos de la sucursal en la que estoy parado
             while (actual != null) {
                 Producto prod = actual.getDato();
-                TElementoAB<Integer> elem = new TElementoAB(prod.getNombre(), prod.getStock());
                 //Si el arbol de salida ya tiene el producto que quiero meterle, le quiero agregar
-                TElementoAB<Integer> elem2 = salida.buscar(elem.getEtiqueta());
+                TElementoAB<Integer> elem2 = salida.buscar(prod.getNombre());
                 if (elem2 != null) {
                     Comparable etiqueta = elem2.getEtiqueta();
                     Integer datos = elem2.getDatos() + prod.getStock();
                     salida.eliminar(elem2.getEtiqueta());
                     TElementoAB temp = new TElementoAB(etiqueta, datos);
                     salida.insertar(temp);
-                }
-                else {
+                } else {
                     TElementoAB<Integer> elem3 = new TElementoAB(prod.getNombre(), prod.getStock());
                     salida.insertar(elem3);
                 }

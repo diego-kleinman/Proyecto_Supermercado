@@ -13,10 +13,23 @@ public class Main {
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
         BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
-        BuilderProductos.build("src/ArchivosDePrueba/20productos.txt", geant);
-        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
+        BuilderProductos.buildSucursal("src/ArchivosDePrueba/productosPosta.txt", geant,"local 122");
+        //BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
+        BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
-
+        //BuilderEliminar.eliminar("src/ArchivosDePrueba/elimPrueba.txt", geant);
+        
+//        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
+//        while(nodoSuc != null){
+//            try{
+//                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre());
+//            }
+//            catch(Exception e){
+//            }    
+//        }
+        
+        
+        
          //Venta manual
 //        try {
 //            geant.VenderProductoEnSucursal("1403796890", 80, "local 122");
@@ -25,19 +38,16 @@ public class Main {
 //        }
 //       ----------------------------------------------------------------------------------------------------
          //Productos de una sucursal ordenados por nombre y con su stock
-//        try {
-//            geant.productosSucursalOrdenadosPorNombre("local 122");
-//        } catch (SucursalNotFound ex) {
-//            System.out.println("La sucursal no fue encontrada");
-//        }
+        try {
+            geant.productosSucursalOrdenadosPorNombre("local 122");
+        } catch (SucursalNotFound ex) {
+            System.out.println("La sucursal no fue encontrada");
+        }
 
         //Productos totales de la cadena de supermercados, ordenados por nombre y con su stock total
-        geant.productosTotalesOrdenadosPorNombre();
+        //geant.productosTotalesOrdenadosPorNombre();
         
-        
-        //Probar después llamando al metodo indicarExistenciasTotales generando un arbol ordenado por nombre y con dato= codigo
-        //e iterando sobre todos los códigos el indicarExistencias totales, imprimiendo el nombre y las existencias
-
+        //geant.indicarExistenciasPorSucursal("1403796890");
 
         //Test de tamaño del arbol
         //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
@@ -67,22 +77,7 @@ public class Main {
 //        Lista<Sucursal> aux2 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux2);
         //-------------------------------------------------------------------------------------------------------------
-        //Eliminacion de productos por txt
-//        String[] lineas3 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/elimPrueba.txt");
-//        for (int i = 0; i < lineas3.length; i++) {
-//            String codigo = lineas3[i];
-//            try {
-//                geant.eliminarProductoEnCadena(codigo);
-//
-//            } catch (Exception ex) {
-//
-//                System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i]);
-//
-//            }
-//
-//        }
-//        System.out.println("Los productos deseados se eliminaron correctamente correctamente");
-//        System.out.println("***************************************************************************************");
+        
 //
 //        Lista<Sucursal> aux3 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux3);
