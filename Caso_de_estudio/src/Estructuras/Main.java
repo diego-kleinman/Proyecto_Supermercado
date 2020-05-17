@@ -21,7 +21,7 @@ public class Main {
         BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
         
         Lista<Sucursal> aux3 = geant.getListaSucursales();
-        Printer.imprimirNombres(aux3,"||");
+        Printer.imprimirPorCodigo(aux3);
 //        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
 //        while(nodoSuc != null){
 //            try{
