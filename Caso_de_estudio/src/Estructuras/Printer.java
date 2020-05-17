@@ -118,7 +118,7 @@ public class Printer {
 
     }
 
-    public static void imprimirExistenciasPorSucursal(Comparable codigo,Lista<Integer> lista) {
+    public static void imprimirExistenciasPorSucursal(Comparable codigo, Lista<Integer> lista) {
         System.out.println("Las existencias del producto: " + codigo.toString() + " por sucursal son: \n");
         Nodo<Integer> aux = lista.getPrimero();
         while (aux != null) {
@@ -130,6 +130,18 @@ public class Printer {
 
     public static void imprimirExistenciasTotales(Comparable codigo, int numero) {
         System.out.println("Las existencias totales del producto: " + codigo.toString() + " son " + numero + "\n");
+    }
+
+    public static void imprimirArbol(TArbolBB<Producto> arbol) {
+
+        String productosSuc = "";
+        Lista<Producto> listaSuc = arbol.inorden();
+        Nodo<Producto> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            System.out.println(aux.getEtiqueta() + "; stock: " + aux.getDato().getStock().toString());
+            aux = aux.getSiguiente();
+        }
+
     }
 
 }

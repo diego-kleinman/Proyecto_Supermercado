@@ -16,7 +16,14 @@ public class Main {
         BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/productosPosta.txt", geant);
         BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPosta.txt", geant);
         //BuilderVentas.buildArchivoOrdenado("src/ArchivosDePrueba/ventasPrueba.txt", geant);
-
+        
+        //Test de tamaño del arbol
+        //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
+        System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());
+        
+        //Printer.imprimirPorCodigo(listaSucs);
+        
+        //Printer.imprimirArbol(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos());
         //geant.indicarExistenciasTotales("1403796890");
 
         //geant.indicarExistenciasTotalesPorSucursal("1403796890");
