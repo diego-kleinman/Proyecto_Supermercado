@@ -7,7 +7,7 @@ public class Printer {
         Nodo<Sucursal> aux = listaSuc.getPrimero();
         while (aux != null) {
             System.out.println("Sucursal : " + aux.getDato().getNombre());
-            TArbolBB arbol = aux.getDato().getArbolProductos();
+            TArbolBB<Producto> arbol = aux.getDato().getArbolProductos();
             Printer.imprimirArbolCodigo(arbol);
             aux = aux.getSiguiente();
         }
@@ -17,7 +17,7 @@ public class Printer {
         Nodo<Sucursal> aux = listaSuc.getPrimero();
         while (aux != null) {
             System.out.println("Sucursal : " + aux.getDato().getNombre());
-            TArbolBB arbol = aux.getDato().getArbolProductos();
+            TArbolBB<Producto> arbol = aux.getDato().getArbolProductos();
             Printer.imprimirArbolCodigoSeparador(arbol, separador);
             aux = aux.getSiguiente();
         }
@@ -27,7 +27,7 @@ public class Printer {
         Nodo<Sucursal> aux = listaSuc.getPrimero();
         while (aux != null) {
             System.out.println("Sucursal : " + aux.getDato().getNombre());
-            TArbolBB arbol = aux.getDato().getArbolProductos();
+            TArbolBB<Producto> arbol = aux.getDato().getArbolProductos();
             Printer.imprimirArbolNombre(arbol);
             aux = aux.getSiguiente();
         }
@@ -38,11 +38,11 @@ public class Printer {
         Nodo<Sucursal> aux = listaSuc.getPrimero();
         while (aux != null) {
             System.out.println("Sucursal : " + aux.getDato().getNombre());
-            TArbolBB arbol = aux.getDato().getArbolProductos();
-            Printer.imprimirArbolNombreSeparador(arbol,separador);
+            TArbolBB<Producto> arbol = aux.getDato().getArbolProductos();
+            Printer.imprimirArbolNombreSeparador(arbol, separador);
             aux = aux.getSiguiente();
         }
-      
+
     }
 
     public static void imprimirListaSucursalesConStock(TArbolBB<String> arbol) {
@@ -76,52 +76,81 @@ public class Printer {
     }
 
     private static void imprimirArbolCodigo(TArbolBB<Producto> arbol) {
-        Lista<Producto> listaSuc = arbol.inorden();
-        Nodo<Producto> aux = listaSuc.getPrimero();
-        while (aux != null) {
-            System.out.println(aux.getEtiqueta() + " stock: " + aux.getDato().getStock().toString());
-            aux = aux.getSiguiente();
+        try {
+            Lista<Producto> listaSuc = arbol.inorden();
+            Nodo<Producto> aux = listaSuc.getPrimero();
+            while (aux != null) {
+                System.out.println(aux.getEtiqueta() + " stock: " + aux.getDato().getStock().toString());
+                aux = aux.getSiguiente();
+            }
+        } catch (NullPointerException ex) {
+            System.out.println("La sucursal no tiene productos");
         }
+
     }
 
     private static void imprimirArbolCodigoSeparador(TArbolBB<Producto> arbol, String separador) {
+        try {
+            Lista<Producto> listaSuc = arbol.inorden();
+            Nodo<Producto> aux = listaSuc.getPrimero();
+            while (aux != null) {
+                System.out.print(aux.getEtiqueta() + " stock: " + aux.getDato().getStock().toString() + separador);
+                aux = aux.getSiguiente();
+            }
 
-        Lista<Producto> listaSuc = arbol.inorden();
-        Nodo<Producto> aux = listaSuc.getPrimero();
-        while (aux != null) {
-            System.out.print(aux.getEtiqueta() + " stock: " + aux.getDato().getStock().toString() + separador);
-            aux = aux.getSiguiente();
+        } catch (NullPointerException ex) {
+            System.out.println("La sucursal no tiene productos");
         }
+
     }
 
     private static void imprimirArbolNombre(TArbolBB<Producto> arbol) {
-        Lista<Producto> listaSuc = arbol.inorden();
-        Nodo<Producto> aux = listaSuc.getPrimero();
-        while (aux != null) {
-            Producto prod = aux.getDato();
-            System.out.println(prod.getNombre() + " stock: " + prod.getStock().toString());
-            aux = aux.getSiguiente();
+
+        try {
+            Lista<Producto> listaSuc = arbol.inorden();
+            Nodo<Producto> aux = listaSuc.getPrimero();
+            while (aux != null) {
+                Producto prod = aux.getDato();
+                System.out.println(prod.getNombre() + " stock: " + prod.getStock().toString());
+                aux = aux.getSiguiente();
+            }
+
+        } catch (NullPointerException ex) {
+            System.out.println("La sucursal no tiene productos");
         }
+
     }
 
     private static void imprimirArbolNombreSeparador(TArbolBB<Producto> arbol, String separador) {
-        Lista<Producto> listaSuc = arbol.inorden();
-        Nodo<Producto> aux = listaSuc.getPrimero();
-        while (aux != null) {
-            Producto prod = aux.getDato();
-            System.out.print(prod.getNombre() + " stock: " + prod.getStock().toString() + separador);
-            aux = aux.getSiguiente();
+        try {
+            Lista<Producto> listaSuc = arbol.inorden();
+            Nodo<Producto> aux = listaSuc.getPrimero();
+            while (aux != null) {
+                Producto prod = aux.getDato();
+                System.out.print(prod.getNombre() + " stock: " + prod.getStock().toString() + separador);
+                aux = aux.getSiguiente();
+            }
+
+        } catch (NullPointerException ex) {
+            System.out.println("La sucursal no tiene productos");
         }
+
     }
-    
+
     public static void imprimirArbolInteger(TArbolBB<Integer> arbol) {
-        Lista<Integer> listaSuc = arbol.inorden();
-        Nodo<Integer> aux = listaSuc.getPrimero();
-        while (aux != null) {
-            Integer stock = aux.getDato();
-            System.out.println(aux.getEtiqueta() + " stock: " + stock.toString());
-            aux = aux.getSiguiente();
+        try {
+            Lista<Integer> listaSuc = arbol.inorden();
+            Nodo<Integer> aux = listaSuc.getPrimero();
+            while (aux != null) {
+                Integer stock = aux.getDato();
+                System.out.println(aux.getEtiqueta() + " stock: " + stock.toString());
+                aux = aux.getSiguiente();
+            }
+
+        } catch (NullPointerException ex) {
+            System.out.println("El arbol no tiene productos");
         }
+
     }
 
 }

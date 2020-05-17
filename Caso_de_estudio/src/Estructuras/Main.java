@@ -13,12 +13,15 @@ public class Main {
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
         BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
-        BuilderProductos.buildSucursal("src/ArchivosDePrueba/productosPosta.txt", geant,"local 122");
+        BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
         //BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
-        BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
+        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         //BuilderEliminar.eliminar("src/ArchivosDePrueba/elimPrueba.txt", geant);
+        BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
         
+        Lista<Sucursal> aux3 = geant.getListaSucursales();
+        Printer.imprimirNombres(aux3,"||");
 //        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
 //        while(nodoSuc != null){
 //            try{
@@ -38,11 +41,11 @@ public class Main {
 //        }
 //       ----------------------------------------------------------------------------------------------------
          //Productos de una sucursal ordenados por nombre y con su stock
-        try {
-            geant.productosSucursalOrdenadosPorNombre("local 122");
-        } catch (SucursalNotFound ex) {
-            System.out.println("La sucursal no fue encontrada");
-        }
+//        try {
+//            geant.productosSucursalOrdenadosPorNombre("local 122");
+//        } catch (SucursalNotFound ex) {
+//            System.out.println("La sucursal no fue encontrada");
+//        }
 
         //Productos totales de la cadena de supermercados, ordenados por nombre y con su stock total
         //geant.productosTotalesOrdenadosPorNombre();
