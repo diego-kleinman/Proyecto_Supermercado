@@ -16,17 +16,25 @@ public class Main {
         BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/20Productos.txt", geant);
         BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPrueba.txt", geant);
         //BuilderVentas.buildArchivoOrdenado("src/ArchivosDePrueba/ventasPrueba.txt", geant);
-        try {
-            geant.productosSucursalOrdenadosPorNombre("local 122");
-        } catch (SucursalNotFound ex) {
-            System.out.println("La sucursal no fue encontrada");
-        }
-        try {
-            geant.productosSucursalOrdenadosPorNombre("local 102");
-        } catch (SucursalNotFound ex) {
-            System.out.println("La sucursal no fue encontrada");
-        }
 
+         //Venta manual
+//        try {
+//            geant.VenderProductoEnSucursal("1403796890", 80, "local 122");
+//        } catch (SucursalNotFound ex) {
+//            System.out.println("La sucursal no fue encontrada");
+//        }
+//       ----------------------------------------------------------------------------------------------------
+        
+//        try {
+//            geant.productosSucursalOrdenadosPorNombre("local 122");
+//        } catch (SucursalNotFound ex) {
+//            System.out.println("La sucursal no fue encontrada");
+//        }
+//        try {
+//            geant.productosSucursalOrdenadosPorNombre("local 102");
+//        } catch (SucursalNotFound ex) {
+//            System.out.println("La sucursal no fue encontrada");
+//        }
         //Test de tamaño del arbol
         //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
         //System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());
@@ -35,7 +43,7 @@ public class Main {
         //Printer.imprimirNombres(listaSucs);
         //Printer.imprimirArbol(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos());
         //geant.indicarExistenciasTotales("1403796890");
-        //geant.indicarExistenciasTotalesPorSucursal("1403796890");
+        //geant.indicarExistenciasPorSucursal("1403796890");
         //Test de incorporar producto en una sucursal
 //        Producto test = new Producto("123", "Galletas", 103.0);
 //
