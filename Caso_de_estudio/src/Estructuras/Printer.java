@@ -113,5 +113,15 @@ public class Printer {
             aux = aux.getSiguiente();
         }
     }
+    
+    public static void imprimirArbolInteger(TArbolBB<Integer> arbol) {
+        Lista<Integer> listaSuc = arbol.inorden();
+        Nodo<Integer> aux = listaSuc.getPrimero();
+        while (aux != null) {
+            Integer stock = aux.getDato();
+            System.out.println(aux.getEtiqueta() + " stock: " + stock.toString());
+            aux = aux.getSiguiente();
+        }
+    }
 
 }

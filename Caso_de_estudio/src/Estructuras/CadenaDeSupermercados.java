@@ -170,7 +170,7 @@ public class CadenaDeSupermercados {
 
     }
     
-    public void indicarExistenciasTotalesPorSucursal(Comparable Etiqueta) {
+    public void indicarExistenciasPorSucursal(Comparable Etiqueta) {
         Lista<Integer> result = new Lista();
         
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
@@ -188,6 +188,25 @@ public class CadenaDeSupermercados {
         }
         
         Printer.imprimirExistenciasPorSucursal(Etiqueta,result);
-
+    }
+    
+    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound{
+        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
+        TArbolBB<Integer> salida = new TArbolBB<>();
+        try {
+            aux.getDato();
+        } catch (NullPointerException e) {
+            throw new SucursalNotFound();
+        }
+        Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+        Nodo<Producto> actual = listaAux.getPrimero();
+        while (actual != null){
+            Producto prod = actual.getDato();
+            TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(),prod.getStock());
+            salida.insertar(insert);
+            actual = actual.getSiguiente();
+        }
+        Printer.imprimirArbolInteger(salida);
+    
     }
 }
