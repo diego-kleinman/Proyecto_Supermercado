@@ -12,9 +12,9 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.buildArchivoOrdenado("src/ArchivosDePrueba/1Sucursal.txt", geant);
-        BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/productosPosta.txt", geant);
-        BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPosta.txt", geant);
+        BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
+        //BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/20Productos.txt", geant);
+        //BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPrueba.txt", geant);
         //BuilderVentas.buildArchivoOrdenado("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         
         //Test de tamaño del arbol
@@ -28,7 +28,7 @@ public class Main {
 
         //geant.indicarExistenciasTotalesPorSucursal("1403796890");
 
-        //Printer.imprimirPorCodigo(listaSucs);
+        Printer.imprimirPorCodigo(listaSucs);
 
 //Printer.imprimirPorCodigo(listaSucs);
         //Printer.imprimirNombres(listaSucs);
