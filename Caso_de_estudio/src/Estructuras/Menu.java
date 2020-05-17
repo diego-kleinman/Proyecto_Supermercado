@@ -12,11 +12,15 @@ public class Menu {
         boolean flag = true;
 
         while (flag) {
-            System.out.println("Menu de operaciones");
-            System.out.println("1: hola");
-            System.out.println("2: como");
-            System.out.println("3: andas");
-            System.out.println("0: salir del menu");
+            System.out.println("Menu principal:");
+            System.out.println("1: Incorporar sucursales");
+            System.out.println("2: Incorporar productos");
+            System.out.println("3: Agregar Stock");
+            System.out.println("4: Simular ventas");
+            System.out.println("5: Eliminacion de productos");
+            System.out.println("6: Operaciones de listados");
+            System.out.println("7: Salir a menu anterior");
+            System.out.println("0: Salir");
 
             respuesta = entrada.nextInt();
 
@@ -28,6 +32,18 @@ public class Menu {
                     System.out.println("como");
                     break;
                 case 3:
+                    System.out.println("andas");
+                    break;
+                case 4:
+                    System.out.println("andas");
+                    break;
+                case 5:
+                    System.out.println("andas");
+                    break;
+                case 6:
+                    System.out.println("andas");
+                    break;
+                case 7:
                     System.out.println("andas");
                     break;
                 case 0:
