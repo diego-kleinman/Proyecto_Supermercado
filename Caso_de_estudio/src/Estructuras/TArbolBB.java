@@ -14,10 +14,11 @@ public class TArbolBB<T> implements IArbolBB<T> {
     public TArbolBB() {
         raiz = null;
     }
-    
+
     public TElementoAB<T> getRaiz() {
         return this.raiz;
     }
+
     /**
      * @param unElemento
      * @return
@@ -48,37 +49,39 @@ public class TArbolBB<T> implements IArbolBB<T> {
      * @return recorrida en inorden del arbol, null en caso de ser vacío
      */
     /**
-    * Imprime en PreOrden los elementos del árbol, separados por guiones.
-    * Esta clase llama al metodo preOrden de la clase TElementoAB
-    * @return String conteniendo el preorden separado por guiones.
-    */
-   @Override
-   public String preOrden() {
-      if (raiz == null) {
-         return null;
-      } else {
-         return raiz.preOrden();
-      }
-   }
+     * Imprime en PreOrden los elementos del árbol, separados por guiones. Esta
+     * clase llama al metodo preOrden de la clase TElementoAB
+     *
+     * @return String conteniendo el preorden separado por guiones.
+     */
+    @Override
+    public String preOrden() {
+        if (raiz == null) {
+            return null;
+        } else {
+            return raiz.preOrden();
+        }
+    }
 
-   /**
-    * Imprime en InOrden los elementos del árbol, separados por guiones.
-    * Esta clase llama al metodo inOrden de la clase TElementoAB
-    * @return String conteniendo el preorden separado por guiones.
-    */
-   @Override
-   public String inOrden() {
+    /**
+     * Imprime en InOrden los elementos del árbol, separados por guiones. Esta
+     * clase llama al metodo inOrden de la clase TElementoAB
+     *
+     * @return String conteniendo el preorden separado por guiones.
+     */
+    @Override
+    public String inOrden() {
 
-      if (raiz == null) {
-         return null;
-      } else {
-         return raiz.inOrden();
-      }
-   }
-   
+        if (raiz == null) {
+            return null;
+        } else {
+            return raiz.inOrden();
+        }
+    }
+
     @Override
     public Lista<T> inorden() {
-        Lista <T> listaInorden = null;
+        Lista<T> listaInorden = null;
         if (!esVacio()) {
             listaInorden = new Lista<T>();
             raiz.inorden(listaInorden);
@@ -86,19 +89,20 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return listaInorden;
     }
 
-   /**
-    * Imprime en PostOrden los elementos del árbol, separados por guiones.
-    * Esta clase llama al metodo postOrden de la clase TElementoAB
-    * @return String conteniendo el preorden separado por guiones.
-    */
-   @Override
-   public String postOrden() {
-      if (raiz == null) {
-         return null;
-      } else {
-         return raiz.postOrden();
-      }
-   }
+    /**
+     * Imprime en PostOrden los elementos del árbol, separados por guiones. Esta
+     * clase llama al metodo postOrden de la clase TElementoAB
+     *
+     * @return String conteniendo el preorden separado por guiones.
+     */
+    @Override
+    public String postOrden() {
+        if (raiz == null) {
+            return null;
+        } else {
+            return raiz.postOrden();
+        }
+    }
 
     /**
      * @return recorrida en preOrden del arbol, null en caso de ser vacío
@@ -126,7 +130,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
         if (this.raiz == null) {
             return -1;
         }
-        return raiz.obtenerAltura() -1;
+        return raiz.obtenerAltura() - 1;
     }
 
     @Override
@@ -152,13 +156,13 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     @Override
     public int obtenerCantidadHojas() {
-        if (raiz==null) {
+        if (raiz == null) {
             return 0;
         } else {
             return raiz.obtenerCantidadHojas();
         }
     }
-    
+
     public boolean eliminar(Comparable unaEtiqueta) {
         if (this.raiz != null) {
             this.raiz = this.raiz.eliminar(unaEtiqueta);

@@ -1,4 +1,5 @@
 package Estructuras;
+
 import Exceptions.SucursalNotFound;
 import org.apache.commons.lang3.StringUtils;
 
@@ -90,8 +91,8 @@ public class CadenaDeSupermercados {
     }
 
     public void VenderProductoEnSucursal(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
-        
-        Lista output = new Lista();
+
+        TArbolBB<String> output = new TArbolBB();
         //Busco la sucursal para hacer la venta, si no la encuentro devuelvo la excepcion
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
         try {
@@ -109,15 +110,31 @@ public class CadenaDeSupermercados {
             Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
             while (actual != null) {
                 Sucursal sucActual = actual.getDato();
+                //Si en la sucursal actual se puede vender, la función "sePuedeVender" incluye el chequeo de que el producto exista en
+                //el arbol de productos de la sucursal
                 if (sucActual.sePuedeVender(codigo, cantidad)) {
                     TElementoAB<Producto> elem = sucActual.getArbolProductos().buscar(codigo);
-                    Nodo nuevoNodo = new Nodo(elem.getDatos().getStock(),sucActual.getNombre());
-                    output.insertar(nuevoNodo);
+
+                    //Quiero buscar un elemento que tenga como etiqueta el stock de la sucursal en la cual estoy parado
+                    TElementoAB<String> elem2 = output.buscar(elem.getDatos().getStock());
+
+                    //Si en el arbol de salida ya hay algun TElementoAB que tenga el mismo stock del producto que tiene la sucursal que estoy parado
+                    //agrego el nombre de la sucursal que estoy parado al TElementoAB del arbol que tiene el stock previamente mencionado
+                    if (elem2 != null) {
+                        Comparable etiqueta = elem2.getEtiqueta();
+                        String datos = elem2.getDatos() + ";" + sucActual.getNombre();
+                        output.eliminar(elem.getDatos().getStock());
+                        TElementoAB temp = new TElementoAB(etiqueta,datos);
+                        output.insertar(temp);
+
+                    } else {
+                        TElementoAB nuevoElem = new TElementoAB(elem.getDatos().getStock(), sucActual.getNombre());
+                        output.insertar(nuevoElem);
+                    }
                 }
                 actual = actual.getSiguiente();
             }
             Printer.imprimirListaSucursalesConStock(output);
-            
 
         }
 

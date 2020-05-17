@@ -102,21 +102,19 @@ public class Printer {
         }
     }
 
-    public static void imprimirListaSucursalesConStock(Lista<String> listaSuc) {
-
-        String productosSuc = "";
-        Nodo<String> aux = listaSuc.getPrimero();
-        while (aux != null) {
-            productosSuc = productosSuc + aux.getDato() + ",stock :" + aux.getEtiqueta();
-            aux = aux.getSiguiente();
-        }
-        if(productosSuc == ""){
+    public static void imprimirListaSucursalesConStock(TArbolBB<String> arbol) {
+        if (arbol.esVacio()) {
             System.out.println("Lo siento, no disponemos de sucursales con el stock requerido");
-        }
-        else {
+        } else {
+            Lista<String> listaSuc = arbol.inorden();
+            String productosSuc = "";
+            Nodo<String> aux = listaSuc.getPrimero();
+            while (aux != null) {
+                productosSuc = productosSuc + aux.getDato() + ",stock :" + aux.getEtiqueta() + " ||";
+                aux = aux.getSiguiente();
+            }
             System.out.println(productosSuc + "\n");
         }
-        
 
     }
 
