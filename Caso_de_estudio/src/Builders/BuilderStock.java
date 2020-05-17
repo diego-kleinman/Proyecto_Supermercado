@@ -1,13 +1,12 @@
-
 package Builders;
 
 import Estructuras.*;
-
+import Exceptions.SucursalNotFound;
 
 public class BuilderStock {
-    
+
     public static void buildArchivoDesordenado(String ruta, CadenaDeSupermercados cadena) {
-    String[] lineas5 = ManejadorArchivosGenerico.leerArchivo(ruta);
+        String[] lineas5 = ManejadorArchivosGenerico.leerArchivo(ruta);
         for (int i = 0; i < lineas5.length; i++) {
             String[] str = lineas5[i].split(",");
             try {
@@ -20,6 +19,8 @@ public class BuilderStock {
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
                 cadena.agregarStock(codigo, stock, nombreSuc);
 
+            } catch (SucursalNotFound ex) {
+
             } catch (Exception ex) {
 
                 System.out.println("Error de lectura de stock: \n" + "linea: " + lineas5[i]);
@@ -30,10 +31,10 @@ public class BuilderStock {
         System.out.println("Los stocks del archivo: " + ruta + " fueron agregados con éxito");
         System.out.println("***************************************************************************************\n");
     }
-    
+
     public static void buildArchivoOrdenado(String ruta, CadenaDeSupermercados cadena) {
-    String[] lineas5 = ManejadorArchivosGenerico.leerArchivo(ruta);
-    IntercambiadorDeOrden.desordenar(lineas5);
+        String[] lineas5 = ManejadorArchivosGenerico.leerArchivo(ruta);
+        IntercambiadorDeOrden.desordenar(lineas5);
         for (int i = 0; i < lineas5.length; i++) {
             String[] str = lineas5[i].split(",");
             try {
@@ -46,6 +47,8 @@ public class BuilderStock {
                 // Instanciamos el objeto producto con las variables creadas anteriormente.
                 cadena.agregarStock(codigo, stock, nombreSuc);
 
+            } catch (SucursalNotFound ex) {
+
             } catch (Exception ex) {
 
                 System.out.println("Error de lectura de stock: \n" + "linea: " + lineas5[i]);
@@ -56,5 +59,5 @@ public class BuilderStock {
         System.out.println("Los stocks del archivo: " + ruta + " fueron agregados con éxito");
         System.out.println("***************************************************************************************\n");
     }
-    
+
 }

@@ -34,19 +34,20 @@ public class Printer {
         Nodo<Sucursal> aux = listaSuc.getPrimero();
         while (aux != null) {
             TArbolBB arbol = aux.getDato().getArbolProductos();
-            Lista<Producto> listaAux = arbol.inorden();
-            if (listaAux != null) {
-                Nodo<Producto> temp = listaAux.getPrimero();
-                while (temp != null) {
-                    productosSuc += temp.getEtiqueta() + " stock: " + temp.getDato().getStock().toString() + separador;
-                    //System.out.println(temp.getEtiqueta());
-                    temp = temp.getSiguiente();
-                }
-                System.out.println(aux.getDato().getNombre() + ": " + productosSuc);
-                productosSuc = "";
-            } else {
-                System.out.println(aux.getDato().getNombre());
-            }
+            Printer.imprimirArbol(arbol);
+//            Lista<Producto> listaAux = arbol.inorden();
+//            if (listaAux != null) {
+//                Nodo<Producto> temp = listaAux.getPrimero();
+//                while (temp != null) {
+//                    productosSuc += temp.getEtiqueta() + " stock: " + temp.getDato().getStock().toString() + separador;
+//                    //System.out.println(temp.getEtiqueta());
+//                    temp = temp.getSiguiente();
+//                }
+//                System.out.println(aux.getDato().getNombre() + ": " + productosSuc);
+//                productosSuc = "";
+//            } else {
+//                System.out.println(aux.getDato().getNombre());
+//            }
 
             aux = aux.getSiguiente();
         }

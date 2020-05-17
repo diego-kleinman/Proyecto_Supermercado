@@ -12,7 +12,7 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.buildArchivoOrdenado("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
+        BuilderSucursales.buildArchivoOrdenado("src/ArchivosDePrueba/1Sucursal.txt", geant);
         BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/productosPosta.txt", geant);
         BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPosta.txt", geant);
         //BuilderVentas.buildArchivoOrdenado("src/ArchivosDePrueba/ventasPrueba.txt", geant);
@@ -21,14 +21,14 @@ public class Main {
         //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
         //System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());
         
-        Printer.imprimirArbol(listaSucs.getPrimero().getDato().getArbolProductos());
+        //Printer.imprimirArbol(listaSucs.getPrimero().getDato().getArbolProductos());
         
         //Printer.imprimirArbol(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos());
         //geant.indicarExistenciasTotales("1403796890");
 
         //geant.indicarExistenciasTotalesPorSucursal("1403796890");
 
-        Printer.imprimirPorCodigo(listaSucs);
+        //Printer.imprimirPorCodigo(listaSucs);
 
 //Printer.imprimirPorCodigo(listaSucs);
         //Printer.imprimirNombres(listaSucs);

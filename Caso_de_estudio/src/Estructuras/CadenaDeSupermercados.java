@@ -33,10 +33,11 @@ public class CadenaDeSupermercados {
 
     }
 
-    public void incorporarProductoEnCadena(Producto prod) {
+    public void incorporarProductoEnCadena(Producto prod){
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
         // Inserto en todas las sucursales de la listaSucursales
         while (actual != null) {
+
             Sucursal suc = actual.getDato();
             if (suc.getArbolProductos().buscar(prod.getEtiqueta()) == null) {
                 //Producto insert = new Producto(prod.getEtiqueta(),prod.getNombre(),prod.getPrecio());
