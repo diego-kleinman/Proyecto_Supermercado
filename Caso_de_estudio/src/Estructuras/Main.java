@@ -12,9 +12,9 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
-        BuilderProductos.build("src/ArchivosDePrueba/productosPosta.txt", geant);
-        BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
+        BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
+        BuilderProductos.build("src/ArchivosDePrueba/20productos.txt", geant);
+        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
 
          //Venta manual
@@ -24,17 +24,21 @@ public class Main {
 //            System.out.println("La sucursal no fue encontrada");
 //        }
 //       ----------------------------------------------------------------------------------------------------
-        
+         //Productos de una sucursal ordenados por nombre y con su stock
 //        try {
 //            geant.productosSucursalOrdenadosPorNombre("local 122");
 //        } catch (SucursalNotFound ex) {
 //            System.out.println("La sucursal no fue encontrada");
 //        }
-//        try {
-//            geant.productosSucursalOrdenadosPorNombre("local 102");
-//        } catch (SucursalNotFound ex) {
-//            System.out.println("La sucursal no fue encontrada");
-//        }
+
+        //Productos totales de la cadena de supermercados, ordenados por nombre y con su stock total
+        geant.productosTotalesOrdenadosPorNombre();
+        
+        
+        //Probar después llamando al metodo indicarExistenciasTotales generando un arbol ordenado por nombre y con dato= codigo
+        //e iterando sobre todos los códigos el indicarExistencias totales, imprimiendo el nombre y las existencias
+
+
         //Test de tamaño del arbol
         //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
         //System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());

@@ -33,7 +33,7 @@ public class CadenaDeSupermercados {
 
     }
 
-    public void incorporarProductoEnCadena(Producto prod){
+    public void incorporarProductoEnCadena(Producto prod) {
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
         // Inserto en todas las sucursales de la listaSucursales
         while (actual != null) {
@@ -169,28 +169,28 @@ public class CadenaDeSupermercados {
         Printer.imprimirExistenciasTotales(Etiqueta, result);
 
     }
-    
+
     public void indicarExistenciasPorSucursal(Comparable Etiqueta) {
         Lista<Integer> result = new Lista();
-        
+
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
         // Inserto en todas las sucursales de la listaSucursales
         while (actual != null) {
             Sucursal suc = actual.getDato();
             TElementoAB<Producto> aux = suc.getArbolProductos().buscar(Etiqueta);
             if (aux != null) {
-                Nodo<Integer> nodo = new Nodo(suc.getNombre(),aux.getDatos().getStock());
+                Nodo<Integer> nodo = new Nodo(suc.getNombre(), aux.getDatos().getStock());
                 result.insertar(nodo);
                 actual = actual.getSiguiente();
             } else {
                 actual = actual.getSiguiente();
             }
         }
-        
-        Printer.imprimirExistenciasPorSucursal(Etiqueta,result);
+
+        Printer.imprimirExistenciasPorSucursal(Etiqueta, result);
     }
-    
-    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound{
+
+    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound {
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
         TArbolBB<Integer> salida = new TArbolBB<>();
         try {
@@ -200,15 +200,50 @@ public class CadenaDeSupermercados {
         }
         Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
         Nodo<Producto> actual = listaAux.getPrimero();
-        while (actual != null){
+        while (actual != null) {
             Producto prod = actual.getDato();
-            TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(),prod.getStock());
+            TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(), prod.getStock());
             salida.insertar(insert);
             actual = actual.getSiguiente();
         }
         System.out.println("Sucursal: " + suc);
         Printer.imprimirArbolInteger(salida);
         System.out.println("\n");
-    
+
+    }
+
+    public void productosTotalesOrdenadosPorNombre() {
+        Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
+        //Instancio un arbol de salida
+        TArbolBB<Integer> salida = new TArbolBB<>();
+        //Recorro toda la lista de sucursales
+        while (aux != null) {
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+            Nodo<Producto> actual = listaAux.getPrimero();
+            //Recorro todos los productos de la sucursal en la que estoy parado
+            while (actual != null) {
+                Producto prod = actual.getDato();
+                TElementoAB<Integer> elem = new TElementoAB(prod.getNombre(), prod.getStock());
+                //Si el arbol de salida ya tiene el producto que quiero meterle, le quiero agregar
+                TElementoAB<Integer> elem2 = salida.buscar(elem.getEtiqueta());
+                if (elem2 != null) {
+                    Comparable etiqueta = elem2.getEtiqueta();
+                    Integer datos = elem2.getDatos() + prod.getStock();
+                    salida.eliminar(elem2.getEtiqueta());
+                    TElementoAB temp = new TElementoAB(etiqueta, datos);
+                    salida.insertar(temp);
+                }
+                else {
+                    TElementoAB<Integer> elem3 = new TElementoAB(prod.getNombre(), prod.getStock());
+                    salida.insertar(elem3);
+                }
+                actual = actual.getSiguiente();
+            }
+
+            aux = aux.getSiguiente();
+        }
+        System.out.println("Stock total de la cadena de supermercados ordenado por nombre de producto:");
+        Printer.imprimirArbolInteger(salida);
+
     }
 }
