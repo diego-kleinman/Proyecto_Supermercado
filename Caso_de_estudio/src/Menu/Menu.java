@@ -33,7 +33,7 @@ public class Menu {
                     MenuIncorporarSucursales.display(geant);
                     break;
                 case 2:
-                    System.out.println("como");
+                    MenuIncorporarProductos.display(geant);
                     break;
                 case 3:
                     System.out.println("andas");

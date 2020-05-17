@@ -13,13 +13,18 @@ public class Main {
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
         BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
-        BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
-        //BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
+
+        //BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
+        try {
+            BuilderProductos.buildCadena("src/ArchivosDePrueba/20Productoss.txt", geant);
+        } catch (Exception ex) {
+        }
+
         BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         //BuilderEliminar.eliminar("src/ArchivosDePrueba/elimPrueba.txt", geant);
         BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
-        
+
         Lista<Sucursal> aux3 = geant.getListaSucursales();
         Printer.imprimirPorCodigo(aux3);
 //        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
@@ -30,28 +35,23 @@ public class Main {
 //            catch(Exception e){
 //            }    
 //        }
-        
-        
-        
-         //Venta manual
+
+        //Venta manual
 //        try {
 //            geant.VenderProductoEnSucursal("1403796890", 80, "local 122");
 //        } catch (SucursalNotFound ex) {
 //            System.out.println("La sucursal no fue encontrada");
 //        }
 //       ----------------------------------------------------------------------------------------------------
-         //Productos de una sucursal ordenados por nombre y con su stock
+        //Productos de una sucursal ordenados por nombre y con su stock
 //        try {
 //            geant.productosSucursalOrdenadosPorNombre("local 122");
 //        } catch (SucursalNotFound ex) {
 //            System.out.println("La sucursal no fue encontrada");
 //        }
-
         //Productos totales de la cadena de supermercados, ordenados por nombre y con su stock total
         //geant.productosTotalesOrdenadosPorNombre();
-        
         //geant.indicarExistenciasPorSucursal("1403796890");
-
         //Test de tamaño del arbol
         //System.out.println(listaSucs.getPrimero().getSiguiente().getDato().getArbolProductos().obtenerTamanio());
         //System.out.println(listaSucs.getPrimero().getDato().getArbolProductos().inOrden());
@@ -80,7 +80,6 @@ public class Main {
 //        Lista<Sucursal> aux2 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux2);
         //-------------------------------------------------------------------------------------------------------------
-        
 //
 //        Lista<Sucursal> aux3 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux3);

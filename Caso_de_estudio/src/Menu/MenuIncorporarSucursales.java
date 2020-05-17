@@ -1,7 +1,5 @@
 package Menu;
-
 import Estructuras.CadenaDeSupermercados;
-import Estructuras.Printer;
 import Estructuras.Sucursal;
 import Builders.BuilderSucursales;
 
@@ -36,14 +34,14 @@ public class MenuIncorporarSucursales {
                         System.out.println("Ingrese barrio de la sucursal: ");
                         String barrio = scannerStr.nextLine();
                         System.out.println("Ingrese ciudad de la sucursal: ");
-                        String ciudad = scannerStr.nextLine();
-                        Sucursal suc = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
+                        String ciudad = scannerStr.nextLine();                    
                         try {
+                            Sucursal suc = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
                             cadena.incorporarSucursal(suc);
                             System.out.println("La sucursal fue incorporada con éxito \n");
                             break;
                         } catch (Exception ex) {
-                            System.out.println("Hubo un error en el ingreso de la sucursal deseada \n intentelo nuevamente");
+                            System.out.println("Hubo un error en el ingreso de la sucursal deseada, intentelo nuevamente  \n ");
                             break;
                         }
 
