@@ -1,10 +1,14 @@
 package Menu;
+import Estructuras.*;
+import Builders.*;
 
 import java.util.Scanner;
 
 public class Menu {
 
     public static void main(String[] args) {
+        
+        CadenaDeSupermercados geant = new CadenaDeSupermercados();
 
         Scanner entrada = new Scanner(System.in);
 
@@ -26,7 +30,7 @@ public class Menu {
 
             switch (respuesta) {
                 case 1:
-                    System.out.println("hola");
+                    MenuIncorporarSucursales.display(geant);
                     break;
                 case 2:
                     System.out.println("como");

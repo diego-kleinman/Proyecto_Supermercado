@@ -3,7 +3,6 @@ package Estructuras;
 public class Printer {
 
     public static void imprimirPorCodigo(Lista<Sucursal> listaSuc) {
-
         Nodo<Sucursal> aux = listaSuc.getPrimero();
         while (aux != null) {
             System.out.println("Sucursal : " + aux.getDato().getNombre());
