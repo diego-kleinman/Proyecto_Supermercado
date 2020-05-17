@@ -13,8 +13,8 @@ public class Main {
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
         BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
-        //BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/20Productos.txt", geant);
-        //BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPrueba.txt", geant);
+        BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/productosPosta.txt", geant);
+        BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPosta.txt", geant);
         //BuilderVentas.buildArchivoOrdenado("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         
         //Test de tamaño del arbol
