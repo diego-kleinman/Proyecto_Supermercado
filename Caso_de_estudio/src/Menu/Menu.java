@@ -1,4 +1,4 @@
-package Estructuras;
+package Menu;
 
 import java.util.Scanner;
 
