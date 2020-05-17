@@ -4,34 +4,28 @@ import org.apache.commons.lang3.StringUtils;
 import Builders.*;
 
 import Exceptions.SucursalNotFound;
+import java.io.FileNotFoundException;
 
 public class Main {
 
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
-        
-        BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
 
-        BuilderProductos.build("src/ArchivosDePrueba/20Productos.txt", geant);
-        
-        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
-        
-        BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
-        
-        geant.indicarExistenciasTotales("1403796890");
-        
-        geant.indicarExistenciasTotalesPorSucursal("1403796890");
-        
-        
+        BuilderSucursales.buildArchivoOrdenado("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
+        BuilderProductos.buildArchivoOrdenado("src/ArchivosDePrueba/productosPosta.txt", geant);
+        BuilderStock.buildArchivoOrdenado("src/ArchivosDePrueba/stockPosta.txt", geant);
+        //BuilderVentas.buildArchivoOrdenado("src/ArchivosDePrueba/ventasPrueba.txt", geant);
+
+        //geant.indicarExistenciasTotales("1403796890");
+
+        //geant.indicarExistenciasTotalesPorSucursal("1403796890");
+
+        //Printer.imprimirPorCodigo(listaSucs);
 
 //Printer.imprimirPorCodigo(listaSucs);
-        
         //Printer.imprimirNombres(listaSucs);
-        
-        
-        
-          //Test de incorporar producto en una sucursal
+        //Test de incorporar producto en una sucursal
 //        Producto test = new Producto("123", "Galletas", 103.0);
 //
 //        try {
@@ -49,9 +43,7 @@ public class Main {
 //        }
 //        Lista<Sucursal> aux2 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux2);
-        
         //-------------------------------------------------------------------------------------------------------------
-    
         //Eliminacion de productos por txt
 //        String[] lineas3 = ManejadorArchivosGenerico.leerArchivo("src/ArchivosDePrueba/elimPrueba.txt");
 //        for (int i = 0; i < lineas3.length; i++) {
@@ -71,9 +63,7 @@ public class Main {
 //
 //        Lista<Sucursal> aux3 = geant.getListaSucursales();
 //        Printer.imprimirPorCodigo(aux3);
-
 //        -------------------------------------------------------------------------------------------------------------
-
 //        Nodo<Sucursal> aux = geant.getListaSucursales().getPrimero();
 //        while (aux != null) {
 //            System.out.print(aux.getDato().getNombre() + ": ");
