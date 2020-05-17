@@ -206,7 +206,9 @@ public class CadenaDeSupermercados {
             salida.insertar(insert);
             actual = actual.getSiguiente();
         }
+        System.out.println("Sucursal: " + suc);
         Printer.imprimirArbolInteger(salida);
+        System.out.println("\n");
     
     }
 }
