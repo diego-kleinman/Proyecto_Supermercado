@@ -118,4 +118,18 @@ public class Printer {
 
     }
 
+    public static void imprimirExistenciasPorSucursal(Comparable codigo,Lista<Integer> lista) {
+        System.out.println("Las existencias del producto: " + codigo.toString() + " por sucursal son: \n");
+        Nodo<Integer> aux = lista.getPrimero();
+        while (aux != null) {
+            String nombreSuc = aux.getEtiqueta().toString();
+            System.out.println(nombreSuc + " stock: " + aux.getDato());
+            aux = aux.getSiguiente();
+        }
+    }
+
+    public static void imprimirExistenciasTotales(Comparable codigo, int numero) {
+        System.out.println("Las existencias totales del producto: " + codigo.toString() + " son " + numero + "\n");
+    }
+
 }

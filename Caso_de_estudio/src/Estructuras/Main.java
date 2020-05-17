@@ -19,7 +19,13 @@ public class Main {
         
         BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         
-        //Printer.imprimirPorCodigo(listaSucs);
+        geant.indicarExistenciasTotales("1403796890");
+        
+        geant.indicarExistenciasTotalesPorSucursal("1403796890");
+        
+        
+
+//Printer.imprimirPorCodigo(listaSucs);
         
         //Printer.imprimirNombres(listaSucs);
         

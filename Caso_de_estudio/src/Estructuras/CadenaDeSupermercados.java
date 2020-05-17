@@ -124,7 +124,7 @@ public class CadenaDeSupermercados {
                         Comparable etiqueta = elem2.getEtiqueta();
                         String datos = elem2.getDatos() + ";" + sucActual.getNombre();
                         output.eliminar(elem.getDatos().getStock());
-                        TElementoAB temp = new TElementoAB(etiqueta,datos);
+                        TElementoAB temp = new TElementoAB(etiqueta, datos);
                         output.insertar(temp);
 
                     } else {
@@ -149,5 +149,44 @@ public class CadenaDeSupermercados {
                 throw new SucursalNotFound();
             }
         }
+    }
+
+    public void indicarExistenciasTotales(Comparable Etiqueta) {
+        int result = 0;
+        Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
+        // Inserto en todas las sucursales de la listaSucursales
+        while (actual != null) {
+            Sucursal suc = actual.getDato();
+            TElementoAB<Producto> aux = suc.getArbolProductos().buscar(Etiqueta);
+            if (aux != null) {
+                result = result + aux.getDatos().getStock();
+                actual = actual.getSiguiente();
+            } else {
+                actual = actual.getSiguiente();
+            }
+        }
+        Printer.imprimirExistenciasTotales(Etiqueta, result);
+
+    }
+    
+    public void indicarExistenciasTotalesPorSucursal(Comparable Etiqueta) {
+        Lista<Integer> result = new Lista();
+        
+        Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
+        // Inserto en todas las sucursales de la listaSucursales
+        while (actual != null) {
+            Sucursal suc = actual.getDato();
+            TElementoAB<Producto> aux = suc.getArbolProductos().buscar(Etiqueta);
+            if (aux != null) {
+                Nodo<Integer> nodo = new Nodo(suc.getNombre(),aux.getDatos().getStock());
+                result.insertar(nodo);
+                actual = actual.getSiguiente();
+            } else {
+                actual = actual.getSiguiente();
+            }
+        }
+        
+        Printer.imprimirExistenciasPorSucursal(Etiqueta,result);
+
     }
 }
