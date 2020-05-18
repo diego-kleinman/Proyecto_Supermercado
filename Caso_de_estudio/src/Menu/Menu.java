@@ -36,7 +36,7 @@ public class Menu {
                     MenuIncorporarProductos.display(geant);
                     break;
                 case 3:
-                    System.out.println("andas");
+                    MenuAgregarStock.display(geant);
                     break;
                 case 4:
                     System.out.println("andas");

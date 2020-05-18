@@ -21,7 +21,7 @@ public class MenuIncorporarProductos {
         boolean flag = true;
 
         while (flag) {
-            System.out.println("Menu sucursales:");
+            System.out.println("Menu Productos:");
             System.out.println("1: Incorporar producto manualmente a la cadena de supermercados (en todas las sucursales)");
             System.out.println("2: Incorporar producto manualmente en una sucursal específica");
             System.out.println("3: Incorporar productos desde archivo a la cadena de supermercados (en todas las sucursales)");
@@ -43,7 +43,6 @@ public class MenuIncorporarProductos {
                             Producto prod = new Producto(codigo, descripcion, precio);
                             cadena.incorporarProductoEnCadena(prod);
                             System.out.println("El producto fue ingresado con exito a la cadena de supermercados \n");
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
                             break;
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la cadena de supermercados \n");
@@ -62,7 +61,6 @@ public class MenuIncorporarProductos {
                         try {
                             Producto prod = new Producto(codigo2, descripcion2, precio2);
                             cadena.incorporarProductoEnSucursal(prod, nombreSuc);
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
                             break;
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la sucursal \n verifique los datos ingresados");
@@ -77,7 +75,6 @@ public class MenuIncorporarProductos {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderProductos.buildCadena(ruta, cadena);
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
                             break;
                         } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla los requerimientos necesarios");
@@ -94,7 +91,6 @@ public class MenuIncorporarProductos {
                         String nombreSuc2 = scannerStr.nextLine();
                         try {
                             BuilderProductos.buildSucursal(ruta2, cadena, nombreSuc2);
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
                             break;
                         } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla los requerimientos necesarios");
