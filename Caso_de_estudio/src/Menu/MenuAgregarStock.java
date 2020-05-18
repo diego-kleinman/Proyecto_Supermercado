@@ -30,14 +30,14 @@ public class MenuAgregarStock {
                                 + "forma X/y/z.txt , no de la forma X\\y\\z.txt): \n"
                                 + "Ingrese ruta del archivo de stock");
                         String ruta = scannerStr.nextLine();
-                        try{
+                        try {
                             BuilderStock.build(ruta, cadena);
-                            break;
-                        }
-                        catch(Exception ex){
+
+                        } catch (Exception ex) {
                             System.out.println("Hubo un error al cargar el archivo, revise que esté en el formato correcto");
-                            break;
+
                         }
+                        break;
                     case 0:
                         flag = false;
                         break;

@@ -39,12 +39,12 @@ public class MenuIncorporarSucursales {
                             Sucursal suc = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
                             cadena.incorporarSucursal(suc);
                             System.out.println("La sucursal fue incorporada con éxito \n");
-                            break;
+                            
                         } catch (Exception ex) {
                             System.out.println("Hubo un error en el ingreso de la sucursal deseada, intentelo nuevamente  \n ");
-                            break;
+                            
                         }
-
+                        break;
                     case 2:
                         System.out.println("Recuerde que el formato de las lineas del archivo debe ser: nombre,telefono,direccion,barrio,ciudad ;"
                                 + "(con la extension '.txt' incluida) ; la ruta puede ser relativa o absoluta y debe ser de la forma "
@@ -53,12 +53,12 @@ public class MenuIncorporarSucursales {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderSucursales.build(ruta, cadena);
-                            break;
+                            
                         } catch (Exception ex) {
                             System.out.println("Ocurrio un error inesperado al ingresar el archivo, revise que tenga el formato correcto");
-                            break;
+                            
                         }
-
+                        break;
                     case 0:
                         flag = false;
                         break;

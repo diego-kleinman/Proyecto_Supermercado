@@ -43,12 +43,12 @@ public class MenuIncorporarProductos {
                             Producto prod = new Producto(codigo, descripcion, precio);
                             cadena.incorporarProductoEnCadena(prod);
                             System.out.println("El producto fue ingresado con exito a la cadena de supermercados \n");
-                            break;
+                            
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la cadena de supermercados \n");
-                            break;
+                            
                         }
-
+                        break;
                     case 2:
                         System.out.println("Ingrese codigo del producto: ");
                         String codigo2 = scannerStr.nextLine();
@@ -61,12 +61,12 @@ public class MenuIncorporarProductos {
                         try {
                             Producto prod = new Producto(codigo2, descripcion2, precio2);
                             cadena.incorporarProductoEnSucursal(prod, nombreSuc);
-                            break;
+                            
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la sucursal \n verifique los datos ingresados");
-                            break;
+                            
                         }
-
+                        break;
                     case 3:
                         System.out.println("Recuerde que el formato de las lineas del archivo debe ser: codigo,\"nombre\",precio ;"
                                 + "(con la extension '.txt' incluida) ; la ruta puede ser relativa o absoluta y debe ser de la forma "
@@ -75,12 +75,12 @@ public class MenuIncorporarProductos {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderProductos.buildCadena(ruta, cadena);
-                            break;
+                            
                         } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla los requerimientos necesarios");
-                            break;
+                            
                         }
-
+                        break;
                     case 4:
                         System.out.println("Recuerde que el formato de las lineas del archivo debe ser: codigo,\"nombre\",precio ;"
                                 + "(con la extension '.txt' incluida) ; la ruta puede ser relativa o absoluta y debe ser de la forma "
@@ -91,11 +91,12 @@ public class MenuIncorporarProductos {
                         String nombreSuc2 = scannerStr.nextLine();
                         try {
                             BuilderProductos.buildSucursal(ruta2, cadena, nombreSuc2);
-                            break;
+
                         } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla los requerimientos necesarios");
-                            break;
+                            
                         }
+                        break;
                     case 0:
                         flag = false;
                         break;

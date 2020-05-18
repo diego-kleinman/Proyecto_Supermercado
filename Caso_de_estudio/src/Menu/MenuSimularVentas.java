@@ -31,11 +31,10 @@ public class MenuSimularVentas {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderVentas.build(ruta, cadena);
-                            break;
                         } catch (Exception ex) {
                             System.out.println("Hubo un error al cargar el archivo, revise que esté en el formato correcto");
-                            break;
                         }
+                        break;
                     case 2:
                         System.out.println("Ingrese codigo del producto: ");
                         String codigo = scannerStr.nextLine();
@@ -43,14 +42,12 @@ public class MenuSimularVentas {
                         Integer cantidad = Integer.valueOf(scannerStr.nextLine());
                         System.out.println("Ingrese sucursal: ");
                         String nombreSuc = scannerStr.nextLine();
-                        try{
+                        try {
                             cadena.VenderProductoEnSucursal(codigo, cantidad, nombreSuc);
-                            break;
-                        }
-                        catch(Exception ex){
+                        } catch (Exception ex) {
                             System.out.println("Hubo un error al simular la venta, intente nuevamente");
-                            break;
                         }
+                        break;
                     case 0:
                         flag = false;
                         break;

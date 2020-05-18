@@ -34,21 +34,21 @@ public class MenuEliminarProductos {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderEliminar.eliminarEnCadena(ruta, cadena);
-                            break;
                         } catch (Exception ex) {
                             System.out.println("Hubo un error al cargar el archivo, revise que esté en el formato correcto");
-                            break;
                         }
+                        break;
                     case 2:
                         System.out.println("Ingrese código a eliminar:");
                         String codigo = scannerStr.nextLine();
                         try {
                             cadena.eliminarProductoEnCadena(codigo);
-                            break;
                         } catch (Exception ex) {
                             System.out.println("Error al eliminar el producto,repita la operacion");
-                            break;
                         }
+                        break;
+                    case 3:
+
                     case 0:
                         flag = false;
                         break;
