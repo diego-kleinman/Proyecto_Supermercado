@@ -6,6 +6,8 @@ import Estructuras.Printer;
 import Estructuras.Producto;
 import Estructuras.Sucursal;
 import Exceptions.SucursalNotFound;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuIncorporarProductos {
@@ -58,16 +60,14 @@ public class MenuIncorporarProductos {
                         String nombreSuc = scannerStr.nextLine();
                         try {
                             Producto prod = new Producto(codigo2, descripcion2, precio2);
-                            cadena.incorporarProductoEnSucursal(prod,nombreSuc);
+                            cadena.incorporarProductoEnSucursal(prod, nombreSuc);
                             System.out.println("El producto fue ingresado con exito a la cadena de supermercados \n");
                             Printer.imprimirPorCodigo(cadena.getListaSucursales());
                             break;
-                        } 
-                        catch (SucursalNotFound ex){
+                        } catch (SucursalNotFound ex) {
                             System.out.println("La sucursal indicada no fue encontrada, verifiquela + \n");
                             break;
-                        }
-                        catch (Exception ex) {
+                        } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la sucursal \n verifique los datos ingresados");
                             break;
                         }
@@ -78,15 +78,13 @@ public class MenuIncorporarProductos {
                                 + "forma X/y/z.txt , no de la forma X\\y\\z.txt): \n"
                                 + "Ingrese ruta del archivo de productos");
                         String ruta = scannerStr.nextLine();
-                        try{
+                        try {
                             BuilderProductos.buildCadena(ruta, cadena);
                             break;
-                        }
-                        catch (Exception ex){
+                        } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla los requerimientos necesarios");
                             break;
                         }
-                        
 
                     case 4:
 

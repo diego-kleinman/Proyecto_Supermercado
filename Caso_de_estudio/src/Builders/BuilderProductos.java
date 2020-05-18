@@ -1,10 +1,12 @@
 package Builders;
 
 import Estructuras.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class BuilderProductos {
 
-    public static void buildCadena(String ruta, CadenaDeSupermercados cadena) throws Exception {
+    public static void buildCadena(String ruta, CadenaDeSupermercados cadena) throws FileNotFoundException, IOException {
         try {
             String[] lineas = ManejadorArchivosGenerico.leerArchivo(ruta);
             IntercambiadorDeOrden.desordenar(lineas);
@@ -23,19 +25,21 @@ public class BuilderProductos {
 
                 } catch (Exception ex) {
                     System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i] + "\n");
-                    throw ex;
 
                 }
             }
             System.out.println("Los productos del archivo: " + ruta + " fueron incorporados correctamente");
             System.out.println("***************************************************************************************\n");
-            
-        } catch (Exception ex) {
+
+        } 
+            catch (Exception ex) {
             System.out.println(ex.getStackTrace());
             System.out.println("Los productos no fueron ingresados");
         }
 
-    }
+        }
+
+    
 
     public static void buildSucursal(String ruta, CadenaDeSupermercados cadena, String nombreSuc) {
 

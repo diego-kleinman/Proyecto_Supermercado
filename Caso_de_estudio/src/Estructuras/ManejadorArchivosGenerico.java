@@ -31,7 +31,6 @@ public class ManejadorArchivosGenerico {
         } catch (IOException e) {
             System.out.println("Error al escribir el archivo "
                     + nombreCompletoArchivo);
-            e.printStackTrace();
         }
     }
 
@@ -48,17 +47,16 @@ public class ManejadorArchivosGenerico {
             }
             br.close();
             fr.close();
+            System.out.println("Archivo: " + nombreCompletoArchivo + " leido satisfactoriamente");
         } catch (FileNotFoundException e) {
             System.out.println("Error al leer el archivo "
                     + nombreCompletoArchivo);
-            e.printStackTrace();
+            
         } catch (IOException e) {
             System.out.println("Error al leer el archivo "
                     + nombreCompletoArchivo);
-            e.printStackTrace();
+            
         }
-        System.out.println("Archivo: " + nombreCompletoArchivo + " leido satisfactoriamente");
-
         return listaLineasArchivo.toArray(new String[0]);
     }
 }

@@ -20,13 +20,13 @@ public class Main {
         } catch (Exception ex) {
         }
 
-        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
+        //BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         //BuilderEliminar.eliminar("src/ArchivosDePrueba/elimPrueba.txt", geant);
-        BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
+        //BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
 
-        Lista<Sucursal> aux3 = geant.getListaSucursales();
-        Printer.imprimirPorCodigo(aux3);
+        //Lista<Sucursal> aux3 = geant.getListaSucursales();
+        //Printer.imprimirPorCodigo(aux3);
 //        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
 //        while(nodoSuc != null){
 //            try{
