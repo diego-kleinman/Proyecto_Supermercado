@@ -104,6 +104,7 @@ public class CadenaDeSupermercados {
         //Si la encuentro me fijo si se puede vender, si se puede, hago la venta
         if (aux.getDato().sePuedeVender(codigo, cantidad)) {
             aux.getDato().vender(codigo, cantidad);
+            System.out.println("Producto vendido con éxito");
         } else {
             //Si no se puede vender recorro la lista de sucursales y genero el output
             System.out.println("La venta del producto con codigo: " + codigo + " no pudo realizarse en la sucursal " + suc);

@@ -12,16 +12,17 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
-        BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
-        BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
+        BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
+        BuilderProductos.buildCadena("src/ArchivosDePrueba/20Productos.txt", geant);
+        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
+        BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         
-        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
-        try{
-                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre());
-            }
-            catch(Exception e){
-            }    
+//        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
+//        try{
+//                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre());
+//            }
+//            catch(Exception e){
+//            }    
         
         //BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
 //        try {

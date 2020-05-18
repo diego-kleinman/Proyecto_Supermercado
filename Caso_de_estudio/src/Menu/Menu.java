@@ -39,7 +39,7 @@ public class Menu {
                     MenuAgregarStock.display(geant);
                     break;
                 case 4:
-                    System.out.println("andas");
+                    MenuSimularVentas.display(geant);
                     break;
                 case 5:
                     System.out.println("andas");
