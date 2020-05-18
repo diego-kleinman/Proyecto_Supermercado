@@ -12,15 +12,24 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
-
+        BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
+        BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
+        BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
+        
+        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
+        try{
+                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre());
+            }
+            catch(Exception e){
+            }    
+        
         //BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
-        try {
-            BuilderProductos.buildCadena("src/ArchivosDePrueba/20Productoss.txt", geant);
-        } catch (Exception ex) {
-        }
+//        try {
+//            BuilderProductos.buildCadena("src/ArchivosDePrueba/20Productoss.txt", geant);
+//        } catch (Exception ex) {
+//        }
 
-        //BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
+        
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         //BuilderEliminar.eliminar("src/ArchivosDePrueba/elimPrueba.txt", geant);
         //BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
