@@ -48,7 +48,32 @@ public class MenuEliminarProductos {
                         }
                         break;
                     case 3:
-
+                        System.out.println("Recuerde que el formato de las lineas del archivo debe ser: codigo de producto;"
+                                + "(con la extension '.txt' incluida) ; la ruta puede ser relativa o absoluta y debe ser de la forma "
+                                + "forma X/y/z.txt , no de la forma X\\y\\z.txt): \n"
+                                + "Ingrese ruta del archivo de eliminacion");
+                        String ruta2 = scannerStr.nextLine();
+                        System.out.println("Ingrese sucursal en la cual eliminar:");
+                        String nombreSuc = scannerStr.nextLine();
+                        try {
+                            BuilderEliminar.eliminarEnSucursal(ruta2, cadena, nombreSuc);
+                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
+                        } catch (Exception ex) {
+                            System.out.println("Hubo un error al ejecutar la eliminacion, compruebe los campos ingresados");
+                        }
+                        break;
+                    case 4:
+                        System.out.println("Ingrese código a eliminar:");
+                        String codigo2 = scannerStr.nextLine();
+                        System.out.println("Ingrese sucursal en la cual eliminar:");
+                        String nombreSuc2 = scannerStr.nextLine();
+                        try {
+                            cadena.eliminarProductoEnSucursal(codigo2, nombreSuc2);
+                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
+                        } catch (Exception ex) {
+                            System.out.println("Error al eliminar el producto,repita la operacion");
+                        }
+                        break;
                     case 0:
                         flag = false;
                         break;
