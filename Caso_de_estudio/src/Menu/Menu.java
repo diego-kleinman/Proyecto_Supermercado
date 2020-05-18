@@ -43,7 +43,7 @@ public class Menu {
                     MenuEliminarProductos.display(geant);
                     break;
                 case 6:
-                    System.out.println("andas");
+                    System.out.println("falta hacer");
                     break;
                 case 0:
                     flag = false;
