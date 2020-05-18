@@ -29,8 +29,7 @@ public class BuilderStock {
             }
 
         }
-        System.out.println("Los stocks del archivo: " + ruta + " fueron agregados con éxito");
-        System.out.println("***************************************************************************************\n");
+
     }
 
 }

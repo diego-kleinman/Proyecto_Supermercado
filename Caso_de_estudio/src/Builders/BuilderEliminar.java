@@ -21,8 +21,7 @@ public class BuilderEliminar {
             }
 
         }
-        System.out.println("Los productos deseados se eliminaron correctamente correctamente");
-        System.out.println("***************************************************************************************");
+
     }
     
     public static void eliminarEnSucursal(String ruta,CadenaDeSupermercados cadena,String nombreSuc) {
@@ -40,7 +39,6 @@ public class BuilderEliminar {
             }
 
         }
-        System.out.println("Los productos deseados se eliminaron correctamente correctamente");
-        System.out.println("***************************************************************************************");
+
     }
 }

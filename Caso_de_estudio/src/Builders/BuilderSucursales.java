@@ -29,8 +29,6 @@ public class BuilderSucursales {
             }
 
         }
-        System.out.println("Las sucursales del archivo : " + ruta + " fueron incorporadas a la cadena de supermercados");
-        System.out.println("***************************************************************************************\n");
 
     }
 

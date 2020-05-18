@@ -50,7 +50,7 @@ public class ManejadorArchivosGenerico {
             System.out.println("Archivo: " + nombreCompletoArchivo + " leido satisfactoriamente");
         } catch (FileNotFoundException e) {
             System.out.println("Error al leer el archivo "
-                    + nombreCompletoArchivo);
+                    + nombreCompletoArchivo + "\n");
             
         } catch (IOException e) {
             System.out.println("Error al leer el archivo "

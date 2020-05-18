@@ -30,7 +30,6 @@ public class BuilderVentas {
             }
 
         }
-        System.out.println("Las ventas del archivo: " + ruta + " fueron realizadas con éxito");
-        System.out.println("***************************************************************************************\n");
+
     }
 }

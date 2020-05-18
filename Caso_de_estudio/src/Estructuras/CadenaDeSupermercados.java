@@ -50,14 +50,14 @@ public class CadenaDeSupermercados {
         }
     }
 
-    public void incorporarProductoEnSucursal(Producto prod, String suc) throws SucursalNotFound {
+    public void incorporarProductoEnSucursal(Producto prod, String suc){
 
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
 
         try {
             aux.getDato().insertarProducto(prod);
         } catch (NullPointerException e) {
-            throw new SucursalNotFound();
+            System.out.println("La sucursal no fue encontrada, el producto no fue agregado");
 
         }
 

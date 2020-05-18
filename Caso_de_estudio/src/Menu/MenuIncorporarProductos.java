@@ -61,11 +61,6 @@ public class MenuIncorporarProductos {
                         try {
                             Producto prod = new Producto(codigo2, descripcion2, precio2);
                             cadena.incorporarProductoEnSucursal(prod, nombreSuc);
-                            System.out.println("El producto fue ingresado con exito a la cadena de supermercados \n");
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
-                            break;
-                        } catch (SucursalNotFound ex) {
-                            System.out.println("La sucursal indicada no fue encontrada, verifiquela + \n");
                             break;
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la sucursal \n verifique los datos ingresados");
@@ -87,7 +82,20 @@ public class MenuIncorporarProductos {
                         }
 
                     case 4:
-
+                        System.out.println("Recuerde que el formato de las lineas del archivo debe ser: codigo,\"nombre\",precio ;"
+                                + "(con la extension '.txt' incluida) ; la ruta puede ser relativa o absoluta y debe ser de la forma "
+                                + "forma X/y/z.txt , no de la forma X\\y\\z.txt): \n"
+                                + "Ingrese ruta del archivo de productos");
+                        String ruta2 = scannerStr.nextLine();
+                        System.out.println("Ingrese nombre de la sucursal: ");
+                        String nombreSuc2 = scannerStr.nextLine();
+                        try {
+                            BuilderProductos.buildSucursal(ruta2, cadena, nombreSuc2);
+                            break;
+                        } catch (Exception ex) {
+                            System.out.println("Error al ingresar el archivo, asegurese de que cumpla los requerimientos necesarios");
+                            break;
+                        }
                     case 0:
                         flag = false;
                         break;

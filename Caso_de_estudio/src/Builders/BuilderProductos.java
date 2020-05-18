@@ -1,12 +1,11 @@
 package Builders;
 
 import Estructuras.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import Exceptions.SucursalNotFound;
 
 public class BuilderProductos {
 
-    public static void buildCadena(String ruta, CadenaDeSupermercados cadena) throws FileNotFoundException, IOException {
+    public static void buildCadena(String ruta, CadenaDeSupermercados cadena) {
         try {
             String[] lineas = ManejadorArchivosGenerico.leerArchivo(ruta);
             IntercambiadorDeOrden.desordenar(lineas);
@@ -22,27 +21,20 @@ public class BuilderProductos {
                     // Instanciamos el objeto producto con las variables creadas anteriormente.
                     Producto producto = new Producto(codigo, descripcion, precio);
                     cadena.incorporarProductoEnCadena(producto);
-
                 } catch (Exception ex) {
                     System.out.println("Error de lectura de producto: \n" + "linea: " + lineas[i] + "\n");
 
                 }
             }
-            System.out.println("Los productos del archivo: " + ruta + " fueron incorporados correctamente");
-            System.out.println("***************************************************************************************\n");
 
-        } 
-            catch (Exception ex) {
-            System.out.println(ex.getStackTrace());
-            System.out.println("Los productos no fueron ingresados");
+        } catch (Exception ex) {
+            System.out.println("Error inesperado");
         }
 
-        }
+    }
 
-    
-
-    public static void buildSucursal(String ruta, CadenaDeSupermercados cadena, String nombreSuc) {
-
+    public static void buildSucursal(String ruta, CadenaDeSupermercados cadena, String nombreSuc){
+        
         String[] lineas = ManejadorArchivosGenerico.leerArchivo(ruta);
         IntercambiadorDeOrden.desordenar(lineas);
         for (int i = 0; i < lineas.length; i++) {
@@ -65,8 +57,6 @@ public class BuilderProductos {
             }
 
         }
-        System.out.println("Los productos del archivo: " + ruta + " fueron incorporados correctamente");
-        System.out.println("***************************************************************************************\n");
     }
 
 }
