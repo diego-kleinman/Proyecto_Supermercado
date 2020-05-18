@@ -119,7 +119,7 @@ public class Sucursal implements ISucursal {
     }
 
     public boolean eliminarProducto(Comparable clave) {
-        this.getArbolProductos().eliminar(clave); // El metodo eliminar es de tipo Void
+        this.getArbolProductos().eliminar(clave); 
         return true;
     }
 

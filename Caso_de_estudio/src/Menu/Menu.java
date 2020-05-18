@@ -1,6 +1,5 @@
 package Menu;
 import Estructuras.*;
-import Builders.*;
 
 import java.util.Scanner;
 
@@ -23,7 +22,6 @@ public class Menu {
             System.out.println("4: Simular ventas");
             System.out.println("5: Eliminacion de productos");
             System.out.println("6: Operaciones de listados");
-            System.out.println("7: Salir a menu anterior");
             System.out.println("0: Salir");
 
             respuesta = entrada.nextInt();
@@ -42,12 +40,9 @@ public class Menu {
                     MenuSimularVentas.display(geant);
                     break;
                 case 5:
-                    System.out.println("andas");
+                    MenuEliminarProductos.display(geant);
                     break;
                 case 6:
-                    System.out.println("andas");
-                    break;
-                case 7:
                     System.out.println("andas");
                     break;
                 case 0:
