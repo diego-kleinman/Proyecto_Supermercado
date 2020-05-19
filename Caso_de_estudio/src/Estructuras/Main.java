@@ -1,16 +1,13 @@
 package Estructuras;
 import Builders.*;
 
-import Exceptions.SucursalNotFound;
-import java.io.FileNotFoundException;
-
 public class Main {
 
     public static void main(String[] args) {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
+        BuilderSucursales.build("src/ArchivosDePrueba/1Sucursal.txt", geant);
         BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
         BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);

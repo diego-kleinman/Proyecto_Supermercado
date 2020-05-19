@@ -215,7 +215,7 @@ public class CadenaDeSupermercados {
 //        }
 //
 //    }
-    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound {
+    public void productosSucursalOrdenadosPorNombre(String suc,String ruta) throws SucursalNotFound {
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
 
         try {
@@ -225,8 +225,7 @@ public class CadenaDeSupermercados {
         }
         try {
             TArbolBB<Integer> salida = aux.getDato().getArbolProductos().inorden2();
-            System.out.println("Sucursal: " + suc);
-            salida.inordenQueImprime();
+            salida.inordenQueImprime(suc,ruta);
             System.out.println("\n");
         } catch (NullPointerException ex) {
             System.out.println("La sucursal no tiene productos");
