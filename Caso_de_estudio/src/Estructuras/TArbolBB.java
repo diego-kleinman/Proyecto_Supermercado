@@ -46,24 +46,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
     }
 
     /**
-     * @return recorrida en inorden del arbol, null en caso de ser vacío
-     */
-    /**
-     * Imprime en PreOrden los elementos del árbol, separados por guiones. Esta
-     * clase llama al metodo preOrden de la clase TElementoAB
-     *
-     * @return String conteniendo el preorden separado por guiones.
-     */
-    @Override
-    public String preOrden() {
-        if (raiz == null) {
-            return null;
-        } else {
-            return raiz.preOrden();
-        }
-    }
-
-    /**
      * Imprime en InOrden los elementos del árbol, separados por guiones. Esta
      * clase llama al metodo inOrden de la clase TElementoAB
      *
@@ -89,20 +71,23 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return listaInorden;
     }
 
-
-    /**
-     * Imprime en PostOrden los elementos del árbol, separados por guiones. Esta
-     * clase llama al metodo postOrden de la clase TElementoAB
-     *
-     * @return String conteniendo el preorden separado por guiones.
-     */
-    @Override
-    public String postOrden() {
-        if (raiz == null) {
-            return null;
-        } else {
-            return raiz.postOrden();
+    public TArbolBB<Integer> inorden2() {
+        TArbolBB<Integer> arbol = null;
+        if (!esVacio()) {
+            arbol = new TArbolBB<Integer>();
+            raiz.inorden2(arbol);
         }
+        return arbol;
+    }
+
+    public void inordenQueImprime() {
+        String[] array = new String[this.obtenerTamanio()];
+        int[] contador = new int[1];
+        contador[0] = 0;
+        if (!esVacio()) {
+            raiz.inordenQueImprime(array,contador);
+        }
+        ManejadorArchivosGenerico.escribirArchivo("Proyecto_Supermercado/Caso_de_estudio/src/ArchivosDePrueba/salida.txt", array);
     }
 
     /**

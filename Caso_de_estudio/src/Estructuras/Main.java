@@ -1,6 +1,4 @@
 package Estructuras;
-
-import org.apache.commons.lang3.StringUtils;
 import Builders.*;
 
 import Exceptions.SucursalNotFound;
@@ -12,17 +10,17 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/ArchivosDePrueba/5Sucursales.txt", geant);
-        BuilderProductos.buildCadena("src/ArchivosDePrueba/20Productos.txt", geant);
-        BuilderStock.build("src/ArchivosDePrueba/stockPrueba.txt", geant);
-        BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
+        BuilderSucursales.build("Proyecto_Supermercado/Caso_de_estudio/src/ArchivosDePrueba/1Sucursal.txt", geant);
+        BuilderProductos.buildCadena("Proyecto_Supermercado/Caso_de_estudio/src/ArchivosDePrueba/productosPosta.txt", geant);
+        BuilderStock.build("Proyecto_Supermercado/Caso_de_estudio/src/ArchivosDePrueba/stockPosta.txt", geant);
+        //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         
-//        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
-//        try{
-//                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre());
-//            }
-//            catch(Exception e){
-//            }    
+        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
+        try{
+                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre());
+            }
+            catch(Exception e){
+            }    
         
         //BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
 //        try {

@@ -111,55 +111,34 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
-    @Override
-    public String preOrden() {
-
-        String temp = "";
-
-        temp += this.getEtiqueta();
+    public void inorden2(TArbolBB<Integer> arbol) {
 
         if (getHijoIzq() != null) {
-            temp += "," + getHijoIzq().preOrden();
+            getHijoIzq().inorden2(arbol);
         }
+        Producto prod = (Producto) this.getDatos();
+        TElementoAB<Integer> elem = new TElementoAB<Integer>(prod.getNombre(), prod.getStock());
+        arbol.insertar(elem);
 
         if (getHijoDer() != null) {
-            temp += "," + getHijoDer().preOrden();
+            getHijoDer().inorden2(arbol);
         }
-        return temp;
     }
 
-    @Override
-    public String postOrden() {
-
-        String temp = "";
+    public void inordenQueImprime(String[] array, int[] contador) {
 
         if (getHijoIzq() != null) {
-            temp += getHijoIzq().postOrden() + ",";
+            getHijoIzq().inordenQueImprime(array,contador);
         }
+
+        Integer stock = (Integer) this.getDatos();
+        array[contador[0]] = this.getEtiqueta() + " stock: " + stock.toString();
+        contador[0] = contador[0] + 1;
 
         if (getHijoDer() != null) {
-            temp += getHijoDer().postOrden() + ",";
+            getHijoDer().inordenQueImprime(array,contador);
         }
-
-        temp += this.getEtiqueta();
-
-        return temp;
-    }
-
-    @Override
-    public void inOrden(Lista<T> unaLista) {
-
-        if (getHijoIzq() != null) {
-            getHijoIzq().inOrden(unaLista);
-        }
-
-        Nodo aux = new Nodo(this.getEtiqueta(), null);
-        unaLista.insertar(aux);
-
-        if (getHijoDer() != null) {
-            getHijoDer().inOrden(unaLista);
-        }
-
+        
     }
 
     @Override
@@ -177,6 +156,10 @@ public class TElementoAB<T> implements IElementoAB<T> {
     @Override
     public T getDatos() {
         return datos;
+    }
+
+    public void setDatos(T dato) {
+        this.datos = dato;
     }
 
     @Override

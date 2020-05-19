@@ -1,7 +1,6 @@
 package Builders;
 
 import Estructuras.*;
-import org.apache.commons.lang3.StringUtils;
 
 public class BuilderSucursales {
 
@@ -14,9 +13,9 @@ public class BuilderSucursales {
                 // Creamos las variables necesarias para instanciar un objeto de la clase sucursal
                 String nombre = aux[0].toUpperCase();
                 String telefono = aux[1];
-                String direccion = StringUtils.stripAccents(aux[2]);
+                String direccion = aux[2];
                 String barrio = aux[3];
-                String ciudad = StringUtils.stripAccents(aux[4]);
+                String ciudad = aux[4];
 
                 // Instanciamos el objeto sucursal
                 Sucursal sucursal = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
