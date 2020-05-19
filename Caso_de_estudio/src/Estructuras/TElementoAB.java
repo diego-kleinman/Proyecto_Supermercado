@@ -78,6 +78,43 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
+    public void inorden2(TArbolBB<Integer> arbol, int[] array) {
+
+        if (getHijoIzq() != null) {
+            getHijoIzq().inorden2(arbol, array);
+        }
+        Producto prod = (Producto) this.getDatos();
+        //Hay productos que tienen el mismo nombre pero distinto código
+        if (arbol.buscar(prod.getNombre()) != null) {
+            TElementoAB<Integer> elem = new TElementoAB<Integer>(prod.getNombre() + array[0], prod.getStock());
+            arbol.insertar(elem);
+            array[0] += 1;
+        } else {
+            TElementoAB<Integer> elem = new TElementoAB<Integer>(prod.getNombre(), prod.getStock());
+            arbol.insertar(elem);
+        }
+
+        if (getHijoDer() != null) {
+            getHijoDer().inorden2(arbol, array);
+        }
+    }
+
+    public void inordenQueImprime(String[] array, int[] contador) {
+
+        if (getHijoIzq() != null) {
+            getHijoIzq().inordenQueImprime(array, contador);
+        }
+
+        Integer stock = (Integer) this.getDatos();
+        array[contador[0]] = this.getEtiqueta() + " stock: " + stock.toString();
+        contador[0] = contador[0] + 1;
+
+        if (getHijoDer() != null) {
+            getHijoDer().inordenQueImprime(array, contador);
+        }
+
+    }
+
     /**
      * @return recorrida en inorden del subArbol que cuelga del elemento actual
      */

@@ -172,5 +172,27 @@ public class TArbolBB<T> implements IArbolBB<T> {
             return false;
         }
     }
+    
+     public TArbolBB<Integer> inorden2() {
+        TArbolBB<Integer> arbol = null;
+        int[] array = new int[1];
+        array[0] = 0;
+        if (!esVacio()) {
+            arbol = new TArbolBB<Integer>();
+            raiz.inorden2(arbol,array);
+        }
+        return arbol;
+    }
+
+    public void inordenQueImprime(String suc,String ruta) {
+        String[] array = new String[this.obtenerTamanio() + 1];
+        array[0] = suc.toUpperCase();
+        int[] contador = new int[1];
+        contador[0] = 1;
+        if (!esVacio()) {
+            raiz.inordenQueImprime(array,contador);
+        }
+        ManejadorArchivosGenerico.escribirArchivo(ruta, array);
+    }
 
 }
