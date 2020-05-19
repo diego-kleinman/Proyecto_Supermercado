@@ -71,7 +71,7 @@ public interface IElementoAB<T> {
      *
      * @param unaLista
      */
-    public void inOrden(Lista<T> unaLista);
+    public void inorden(Lista<T> unaLista);
 
     /**
      * Retorna los datos contenidos en el elemento.
@@ -105,7 +105,5 @@ public interface IElementoAB<T> {
 	 */
 	public int obtenerCantidadHojas();
         
-        public String preOrden();
-        public String postOrden();
 
 }

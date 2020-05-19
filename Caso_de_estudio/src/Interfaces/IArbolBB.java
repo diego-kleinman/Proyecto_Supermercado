@@ -68,8 +68,6 @@ public interface IArbolBB<T> {
 	 */
 	public int obtenerCantidadHojas();
         
-        public String preOrden();
-        public String postOrden();
 	
 	
 }

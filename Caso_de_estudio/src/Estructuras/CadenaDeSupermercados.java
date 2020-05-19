@@ -1,7 +1,6 @@
 package Estructuras;
 
 import Exceptions.SucursalNotFound;
-import org.apache.commons.lang3.StringUtils;
 
 public class CadenaDeSupermercados {
 
@@ -50,7 +49,7 @@ public class CadenaDeSupermercados {
         }
     }
 
-    public void incorporarProductoEnSucursal(Producto prod, String suc){
+    public void incorporarProductoEnSucursal(Producto prod, String suc) {
 
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
 
@@ -191,7 +190,32 @@ public class CadenaDeSupermercados {
         Printer.imprimirExistenciasPorSucursal(Etiqueta, result);
     }
 
-    public void productosSucursalOrdenadosPorNombre(String suc,String ruta) throws SucursalNotFound {
+//    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound {
+//        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
+//        TArbolBB<Integer> salida = new TArbolBB<>();
+//        try {
+//            aux.getDato();
+//        } catch (NullPointerException e) {
+//            throw new SucursalNotFound();
+//        }
+//        try {
+//            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden(); //O(M)
+//            Nodo<Producto> actual = listaAux.getPrimero();
+//            while (actual != null) { //O(M)
+//                Producto prod = actual.getDato();
+//                TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(), prod.getStock());
+//                salida.insertar(insert); //O(log M)
+//                actual = actual.getSiguiente();
+//            }
+//            System.out.println("Sucursal: " + suc);
+//            Printer.imprimirArbolInteger(salida);
+//            System.out.println("\n");
+//        } catch (NullPointerException ex) {
+//            System.out.println("La sucursal no tiene productos");
+//        }
+//
+//    }
+    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound {
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
 
         try {
@@ -201,8 +225,8 @@ public class CadenaDeSupermercados {
         }
         try {
             TArbolBB<Integer> salida = aux.getDato().getArbolProductos().inorden2();
-            salida.inordenQueImprime(suc,ruta);
-            System.out.println("Archivo salida generado correctamente");
+            System.out.println("Sucursal: " + suc);
+            salida.inordenQueImprime();
             System.out.println("\n");
         } catch (NullPointerException ex) {
             System.out.println("La sucursal no tiene productos");
