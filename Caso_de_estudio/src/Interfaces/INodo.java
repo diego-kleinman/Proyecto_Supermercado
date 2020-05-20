@@ -29,14 +29,6 @@ public interface INodo<T> {
      */
     
     
-    
-    public void imprimir();
-
-    /**
-     * Imprime la etiqueta del nodo
-     */
-    
-    public void imprimirEtiqueta();
 
     
     /**

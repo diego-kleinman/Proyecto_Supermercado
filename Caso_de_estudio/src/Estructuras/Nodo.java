@@ -28,16 +28,6 @@ public class Nodo<T> implements INodo<T> {
         return this.etiqueta;
     }
 
-    @Override
-    public void imprimir() {
-        System.out.println(dato.toString());
-    }
-
-    @Override
-    public void imprimirEtiqueta() {
-        System.out.println(this.etiqueta);
-    }
-
     public Nodo<T> clonar() {
         return new Nodo<>(this.etiqueta, this.dato);
     }

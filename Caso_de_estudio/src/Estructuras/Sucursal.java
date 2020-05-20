@@ -53,7 +53,6 @@ public class Sucursal implements ISucursal {
         return contadorMonto;
     }
 
-    /////////////////// LISTO INSERTAR////////////////////////
     public void insertarProducto(Producto unProducto) {
 
         // Instanciamos un producto auxiliar a partir de la etiqueta (código) del
@@ -102,8 +101,6 @@ public class Sucursal implements ISucursal {
         return false;
     }
 
-    // Método que busca un producto por su código
-    ///////////////////////// Buscar listo///////////////////////7
     public Producto buscarPorCodigo(Comparable etiqueta) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
         if (nodo != null) {
@@ -114,46 +111,9 @@ public class Sucursal implements ISucursal {
         }
     }
 
-    public int cantidadProductos() {
-        return this.getArbolProductos().obtenerTamanio();
-    }
-
     public boolean eliminarProducto(Comparable clave) {
         this.getArbolProductos().eliminar(clave); 
         return true;
-    }
-
-    public Producto buscarPorDescripcionDeProducto(String nombre) {
-        Lista<Producto> listaAux = getArbolProductos().inorden();
-        if (listaAux.esVacia()) {
-            return null;
-        } else {
-            Nodo<Producto> aux = listaAux.getPrimero();
-            while (aux != null) {
-                Producto prod = aux.getDato();
-                String prod1 = prod.getNombre().replace(" ", "");
-                String prod2 = nombre.replace(" ", "").toLowerCase();
-                if (prod1.replace(" ", "").equals(prod2)) {
-                    return prod;
-                }
-                aux = aux.getSiguiente();
-            }
-        }
-        return null;
-
-    }
-
-    public String imprimir(Nodo<Producto> nodoPrimerNodo) {
-        String aux = "";
-        Lista<Producto> listaAux = getArbolProductos().inorden();
-        if (!listaAux.esVacia()) {
-            Nodo<Producto> temp = nodoPrimerNodo;
-            while (temp != null) {
-                System.out.println(temp.getDato().getNombre());
-                temp = temp.getSiguiente();
-            }
-        }
-        return aux;
     }
 
 }

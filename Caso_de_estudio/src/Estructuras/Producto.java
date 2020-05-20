@@ -48,20 +48,6 @@ public class Producto implements IProducto {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
-
-    /*Método que se ejecuta sobre un producto y compara con otro producto que le entra por parámetro
-    Hicimos éste método para evitar crear nodos especiales en los cuales su etiqueta fuera los productos asociados
-    ya que la etiqueta de un nodo es de tipo Comparable y se puede comparar.
-    Este método nos desliga de crear nodos especiales, podemos utilizar los nodos que ingresamos al principio al programa
-    en el archivo de altas y simplemente casteando sus productos asociados ejecutar éste método.
-    Creemos que es una implementación mejor a crear nodos especiales ya que nos libera de tener que ingresar nodos particulares
-    para comparar*/
-    
-    public int compareToByName(Producto producto) {
-        String aux = this.nombre.replace(" ", "");
-        String aux2 = producto.getNombre().replace(" ","");
-        return aux.compareTo(aux2);
-    }
     
     public Producto clonar(){
     
