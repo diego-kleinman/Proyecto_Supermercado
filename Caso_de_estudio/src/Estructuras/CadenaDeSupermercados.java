@@ -122,11 +122,7 @@ public class CadenaDeSupermercados {
                     //Si en el arbol de salida ya hay algun TElementoAB que tenga el mismo stock del producto que tiene la sucursal que estoy parado
                     //agrego el nombre de la sucursal que estoy parado al TElementoAB del arbol que tiene el stock previamente mencionado
                     if (elem2 != null) {
-                        Comparable etiqueta = elem2.getEtiqueta();
-                        String datos = elem2.getDatos() + ";" + sucActual.getNombre();
-                        output.eliminar(elem.getDatos().getStock());
-                        TElementoAB temp = new TElementoAB(etiqueta, datos);
-                        output.insertar(temp);
+                          elem2.setDatos(elem2.getDatos()+ ";" + sucActual.getNombre());
 
                     } else {
                         TElementoAB nuevoElem = new TElementoAB(elem.getDatos().getStock(), sucActual.getNombre());
@@ -222,11 +218,7 @@ public class CadenaDeSupermercados {
                 //Si el arbol de salida ya tiene el producto que quiero meterle, le quiero agregar
                 TElementoAB<Integer> elem2 = salida.buscar(prod.getNombre());
                 if (elem2 != null) {
-                    Comparable etiqueta = elem2.getEtiqueta();
-                    Integer datos = elem2.getDatos() + prod.getStock();
-                    salida.eliminar(elem2.getEtiqueta());
-                    TElementoAB temp = new TElementoAB(etiqueta, datos);
-                    salida.insertar(temp);
+                    elem2.setDatos(elem2.getDatos() + prod.getStock());
                 } else {
                     TElementoAB<Integer> elem3 = new TElementoAB(prod.getNombre(), prod.getStock());
                     salida.insertar(elem3);
