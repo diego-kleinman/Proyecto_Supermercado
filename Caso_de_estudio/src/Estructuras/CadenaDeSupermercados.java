@@ -4,9 +4,9 @@ import Exceptions.SucursalNotFound;
 
 public class CadenaDeSupermercados {
 
-    private Lista<Sucursal> listaSucursales;
-    private Lista<Lista<Producto>> listaCiudades;
-    private Lista<Lista<Producto>> listaBarrios;
+    private final Lista<Sucursal> listaSucursales;
+    private final Lista<TArbolBB<Producto>> listaCiudades;
+    private final Lista<TArbolBB<Producto>> listaBarrios;
 
     public CadenaDeSupermercados() {
         listaSucursales = new Lista<>();
@@ -18,11 +18,11 @@ public class CadenaDeSupermercados {
         return listaSucursales;
     }
 
-    public Lista<Lista<Producto>> getListaCiudades() {
+    public Lista<TArbolBB<Producto>> getListaCiudades() {
         return listaCiudades;
     }
 
-    public Lista<Lista<Producto>> getListaBarrios() {
+    public Lista<TArbolBB<Producto>> getListaBarrios() {
         return listaBarrios;
     }
 
@@ -203,8 +203,7 @@ public class CadenaDeSupermercados {
         }
 
     }
-
-    public void productosTotalesOrdenadosPorNombre() {
+     public void productosTotalesOrdenadosPorNombre(String nombre) {
         Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
         //Instancio un arbol de salida
         TArbolBB<Integer> salida = new TArbolBB<>();
@@ -228,8 +227,9 @@ public class CadenaDeSupermercados {
 
             aux = aux.getSiguiente();
         }
-        System.out.println("Stock total de la cadena de supermercados ordenado por nombre de producto:");
-        Printer.imprimirArbolInteger(salida);
+        
+        salida.inordenQueImprime("Stock total de la cadena de supermercados ordenado por nombre de producto:", "src/ArchivosDePrueba/" + nombre + ".txt");
 
     }
+
 }

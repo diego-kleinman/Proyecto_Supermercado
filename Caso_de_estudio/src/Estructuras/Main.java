@@ -19,7 +19,7 @@ public class Main {
 //            catch(Exception e){
 //            }
         
-       geant.productosTotalesOrdenadosPorNombre();
+       geant.productosTotalesOrdenadosPorNombre("SalidaTotal");
         
         //BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
 //        try {

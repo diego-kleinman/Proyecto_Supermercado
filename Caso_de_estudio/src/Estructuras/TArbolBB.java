@@ -71,15 +71,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return listaInorden;
     }
 
-    public void inordenQueImprime() {
-        String[] array = new String[this.obtenerTamanio()];
-        int[] contador = new int[1];
-        contador[0] = 0;
-        if (!esVacio()) {
-            raiz.inordenQueImprime(array,contador);
-        }
-        ManejadorArchivosGenerico.escribirArchivo("Proyecto_Supermercado/Caso_de_estudio/src/ArchivosDePrueba/salida.txt", array);
-    }
 
     /**
      * @return recorrida en preOrden del arbol, null en caso de ser vacío
