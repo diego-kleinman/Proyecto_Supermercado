@@ -21,30 +21,37 @@ public class Sucursal implements ISucursal {
         this.ciudad = ciudad;
     }
 
+    @Override
     public String getDireccion() {
         return this.direccion;
     }
 
+    @Override
     public String getTelefono() {
         return this.telefono;
     }
 
+    @Override
     public String getNombre() {
         return this.nombre;
     }
 
+    @Override
     public String getBarrio() {
         return barrio;
     }
 
+    @Override
     public String getCiudad() {
         return ciudad;
     }
 
+    @Override
     public TArbolBB<Producto> getArbolProductos() {
         return this.arbolProductos;
     }
 
+    @Override
     public int getMontoTotal() {
         Nodo<Producto> aux = getArbolProductos().inorden().getPrimero();
         int contadorMonto = 0;
@@ -56,6 +63,7 @@ public class Sucursal implements ISucursal {
         return contadorMonto;
     }
 
+    @Override
     public void insertarProducto(Producto unProducto) {
 
         // Instanciamos un producto auxiliar a partir de la etiqueta (código) del
@@ -72,10 +80,11 @@ public class Sucursal implements ISucursal {
     }
 
     // Agrega stock a un producto ya existente en el almacen
+    @Override
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
         TElementoAB<Producto> elem = getArbolProductos().buscar(etiqueta);
 
-        if (cantidad < 0 || elem == null) {
+        if (elem == null) {
             return false;
         } else {
             Producto aux = elem.getDatos();
@@ -85,8 +94,8 @@ public class Sucursal implements ISucursal {
         }
 
     }
-    // Resta stock a un producto del almacen
 
+    @Override
     public void vender(Comparable etiqueta, Integer cantidad) {
 
         TElementoAB<Producto> aux = getArbolProductos().buscar(etiqueta);
@@ -95,6 +104,7 @@ public class Sucursal implements ISucursal {
 
     }
 
+    @Override
     public boolean sePuedeVender(Comparable etiqueta, Integer cantidad) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
         if (nodo != null) {
@@ -107,6 +117,7 @@ public class Sucursal implements ISucursal {
         return false;
     }
 
+    @Override
     public Producto buscarPorCodigo(Comparable etiqueta) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
         if (nodo != null) {
@@ -117,6 +128,7 @@ public class Sucursal implements ISucursal {
         }
     }
 
+    @Override
     public boolean eliminarProducto(Comparable clave) {
         this.getArbolProductos().eliminar(clave);
         return true;

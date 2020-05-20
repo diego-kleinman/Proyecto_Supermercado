@@ -4,12 +4,11 @@ import Interfaces.INodo;
 
 public class Nodo<T> implements INodo<T> {
 
-    
     private final Comparable etiqueta;
     private T dato;
     private Nodo<T> siguiente = null;
 
-    public Nodo(Comparable etiqueta, T dato ) {
+    public Nodo(Comparable etiqueta, T dato) {
         this.etiqueta = etiqueta;
         this.dato = dato;
     }
@@ -29,25 +28,6 @@ public class Nodo<T> implements INodo<T> {
         return this.etiqueta;
     }
 
-    public Nodo<T> clonar() {
-        return new Nodo<>(this.etiqueta, this.dato);
-    }
-
-    /**
-     *
-     * @param unNodo
-     * @return
-     */
-
-    public boolean equals(Nodo unNodo) {
-        return this.dato.equals(unNodo.getDato());
-    }
-
-    @Override
-    public int compareTo(Comparable etiqueta) {
-        return this.etiqueta.compareTo(etiqueta);
-    }
-
     @Override
     public Nodo<T> getSiguiente() {
         return this.siguiente;
@@ -56,6 +36,19 @@ public class Nodo<T> implements INodo<T> {
     @Override
     public void setSiguiente(Nodo<T> nodo) {
         this.siguiente = nodo;
+    }
+
+    public Nodo<T> clonar() {
+        return new Nodo<>(this.etiqueta, this.dato);
+    }
+
+    public boolean equals(Nodo unNodo) {
+        return this.dato.equals(unNodo.getDato());
+    }
+
+    @Override
+    public int compareTo(Comparable etiqueta) {
+        return this.etiqueta.compareTo(etiqueta);
     }
 
 }

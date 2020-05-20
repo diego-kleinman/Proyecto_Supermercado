@@ -14,6 +14,20 @@ public class Lista<T> implements ILista<T> {
     }
 
     @Override
+    public boolean esVacia() {
+        return primero == null;
+    }
+
+    public Nodo<T> getPrimero() {
+        return primero;
+    }
+
+    @Override
+    public void setPrimero(Nodo<T> unNodo) {
+        this.primero = unNodo;
+    }
+
+    @Override
     public void insertar(Nodo<T> unNodo) {
 
         if (esVacia()) {
@@ -97,17 +111,4 @@ public class Lista<T> implements ILista<T> {
         return contador;
     }
 
-    @Override
-    public boolean esVacia() {
-        return primero == null;
-    }
-
-    public Nodo<T> getPrimero() {
-        return primero;
-    }
-
-    @Override
-    public void setPrimero(Nodo<T> unNodo) {
-        this.primero = unNodo;
-    }
 }

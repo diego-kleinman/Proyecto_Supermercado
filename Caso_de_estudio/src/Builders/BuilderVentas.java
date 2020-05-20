@@ -1,6 +1,5 @@
 package Builders;
 
-
 import Estructuras.CadenaDeSupermercados;
 import Estructuras.IntercambiadorDeOrden;
 import Estructuras.ManejadorArchivosGenerico;
@@ -18,10 +17,12 @@ public class BuilderVentas {
                 // Producto
                 String nombreSuc = str[0];
                 Comparable codigo = str[1];
-                Integer stock = Integer.valueOf(str[2]);
+                Integer nroVenta = Integer.valueOf(str[2]);
 
-                // Instanciamos el objeto producto con las variables creadas anteriormente.
-                cadena.VenderProductoEnSucursal(codigo, stock, nombreSuc);
+                if (nroVenta > 0) {
+                    // Instanciamos el objeto producto con las variables creadas anteriormente.
+                    cadena.VenderProductoEnSucursal(codigo, nroVenta, nombreSuc);
+                }
 
             } catch (SucursalNotFound ex) {
 
