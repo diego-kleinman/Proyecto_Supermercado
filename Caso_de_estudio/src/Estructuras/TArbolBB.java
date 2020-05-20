@@ -149,13 +149,13 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
     }
     
-     public TArbolBB<Integer> inorden2() {
+     public TArbolBB<Integer> inordenQueDevuelveArbolPorNombre() {
         TArbolBB<Integer> arbol = null;
         int[] array = new int[1];
         array[0] = 0;
         if (!esVacio()) {
             arbol = new TArbolBB<Integer>();
-            raiz.inorden2(arbol,array);
+            raiz.inordenQueDevuelveArbolPorNombre(arbol,array);
         }
         return arbol;
     }

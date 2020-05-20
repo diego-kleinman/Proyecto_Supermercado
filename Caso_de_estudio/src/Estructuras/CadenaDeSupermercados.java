@@ -190,31 +190,6 @@ public class CadenaDeSupermercados {
         Printer.imprimirExistenciasPorSucursal(Etiqueta, result);
     }
 
-//    public void productosSucursalOrdenadosPorNombre(String suc) throws SucursalNotFound {
-//        Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
-//        TArbolBB<Integer> salida = new TArbolBB<>();
-//        try {
-//            aux.getDato();
-//        } catch (NullPointerException e) {
-//            throw new SucursalNotFound();
-//        }
-//        try {
-//            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden(); //O(M)
-//            Nodo<Producto> actual = listaAux.getPrimero();
-//            while (actual != null) { //O(M)
-//                Producto prod = actual.getDato();
-//                TElementoAB<Integer> insert = new TElementoAB(prod.getNombre(), prod.getStock());
-//                salida.insertar(insert); //O(log M)
-//                actual = actual.getSiguiente();
-//            }
-//            System.out.println("Sucursal: " + suc);
-//            Printer.imprimirArbolInteger(salida);
-//            System.out.println("\n");
-//        } catch (NullPointerException ex) {
-//            System.out.println("La sucursal no tiene productos");
-//        }
-//
-//    }
     public void productosSucursalOrdenadosPorNombre(String suc,String ruta) throws SucursalNotFound {
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
 
@@ -224,8 +199,8 @@ public class CadenaDeSupermercados {
             throw new SucursalNotFound();
         }
         try {
-            TArbolBB<Integer> salida = aux.getDato().getArbolProductos().inorden2();
-            salida.inordenQueImprime(suc,ruta);
+            TArbolBB<Integer> salida = aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
+            salida.inordenQueImprime(suc, "src/ArchivosDePrueba/" + ruta + ".txt");
             System.out.println("\n");
         } catch (NullPointerException ex) {
             System.out.println("La sucursal no tiene productos");

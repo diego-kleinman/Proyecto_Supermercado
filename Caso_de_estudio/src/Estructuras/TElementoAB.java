@@ -78,10 +78,10 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
-    public void inorden2(TArbolBB<Integer> arbol, int[] array) {
+    public void inordenQueDevuelveArbolPorNombre(TArbolBB<Integer> arbol, int[] array) {
 
         if (getHijoIzq() != null) {
-            getHijoIzq().inorden2(arbol, array);
+            getHijoIzq().inordenQueDevuelveArbolPorNombre(arbol, array);
         }
         Producto prod = (Producto) this.getDatos();
         //Hay productos que tienen el mismo nombre pero distinto código
@@ -95,7 +95,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
 
         if (getHijoDer() != null) {
-            getHijoDer().inorden2(arbol, array);
+            getHijoDer().inordenQueDevuelveArbolPorNombre(arbol, array);
         }
     }
 

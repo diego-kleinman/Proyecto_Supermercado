@@ -14,7 +14,7 @@ public class Main {
         
         Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
         try{
-                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre(),"src/ArchivosDePrueba/salida.txt");
+                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre(),"salida");
             }
             catch(Exception e){
             }    
