@@ -5,25 +5,13 @@ import Exceptions.SucursalNotFound;
 public class CadenaDeSupermercados {
 
     private final Lista<Sucursal> listaSucursales;
-    private final Lista<TArbolBB<Producto>> listaCiudades;
-    private final Lista<TArbolBB<Producto>> listaBarrios;
 
     public CadenaDeSupermercados() {
         listaSucursales = new Lista<>();
-        listaCiudades = new Lista<>();
-        listaBarrios = new Lista<>();
     }
 
     public Lista<Sucursal> getListaSucursales() {
         return listaSucursales;
-    }
-
-    public Lista<TArbolBB<Producto>> getListaCiudades() {
-        return listaCiudades;
-    }
-
-    public Lista<TArbolBB<Producto>> getListaBarrios() {
-        return listaBarrios;
     }
 
     public void incorporarSucursal(Sucursal suc) {

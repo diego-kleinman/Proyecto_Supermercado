@@ -17,6 +17,7 @@ public class Producto implements IProducto {
     }
 
     //Getters y Setters
+    @Override
     public Comparable getEtiqueta(){
         return this.etiqueta;
     }
@@ -25,26 +26,32 @@ public class Producto implements IProducto {
         this.etiqueta=etiqueta;
     }
 
+    @Override
     public Double getPrecio(){
     return this.precio;
     }
 
+    @Override
     public void setPrecio(Double precio){
         this.precio = precio;
     }
 
+    @Override
     public Integer getStock(){
         return this.stock[0];
     }
 
+    @Override
     public void setStock(Integer stock){
         this.stock[0]=stock;
     }
 
+    @Override
     public String getNombre(){
         return this.nombre;
     }
   
+    @Override
     public void setNombre(String nombre){
         this.nombre = nombre;
     }

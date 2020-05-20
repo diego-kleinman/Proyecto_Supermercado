@@ -30,6 +30,31 @@ public class TElementoAB<T> implements IElementoAB<T> {
         return hijoDer;
     }
 
+    @Override
+    public Comparable getEtiqueta() {
+        return etiqueta;
+    }
+
+    @Override
+    public T getDatos() {
+        return datos;
+    }
+
+    public void setDatos(T dato) {
+        this.datos = dato;
+    }
+
+    @Override
+    public void setHijoIzq(TElementoAB<T> elemento) {
+        this.hijoIzq = elemento;
+
+    }
+
+    @Override
+    public void setHijoDer(TElementoAB<T> elemento) {
+        this.hijoDer = elemento;
+    }
+
     /**
      * @param unElemento
      * @return
@@ -88,11 +113,11 @@ public class TElementoAB<T> implements IElementoAB<T> {
         Producto prod = (Producto) this.getDatos();
         //Hay productos que tienen el mismo nombre pero distinto código
         if (arbol.buscar(prod.getNombre()) != null) {
-            TElementoAB<Integer> elem = new TElementoAB<Integer>(prod.getNombre() + array[0], prod.getStock());
+            TElementoAB<Integer> elem = new TElementoAB<>(prod.getNombre() + array[0], prod.getStock());
             arbol.insertar(elem);
             array[0] += 1;
         } else {
-            TElementoAB<Integer> elem = new TElementoAB<Integer>(prod.getNombre(), prod.getStock());
+            TElementoAB<Integer> elem = new TElementoAB<>(prod.getNombre(), prod.getStock());
             arbol.insertar(elem);
         }
 
@@ -129,31 +154,6 @@ public class TElementoAB<T> implements IElementoAB<T> {
         if (getHijoDer() != null) {
             getHijoDer().inorden(unaLista);
         }
-    }
-
-    @Override
-    public Comparable getEtiqueta() {
-        return etiqueta;
-    }
-
-    @Override
-    public T getDatos() {
-        return datos;
-    }
-
-    public void setDatos(T dato) {
-        this.datos = dato;
-    }
-
-    @Override
-    public void setHijoIzq(TElementoAB<T> elemento) {
-        this.hijoIzq = elemento;
-
-    }
-
-    @Override
-    public void setHijoDer(TElementoAB<T> elemento) {
-        this.hijoDer = elemento;
     }
 
     @Override

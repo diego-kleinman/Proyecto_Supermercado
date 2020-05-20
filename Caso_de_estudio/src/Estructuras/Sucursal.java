@@ -5,15 +5,13 @@ import Interfaces.IProducto;
 
 public class Sucursal implements ISucursal {
 
-    private String nombre;
-    private String telefono;
-    private String direccion;
-    private String barrio;
-    private String ciudad;
-    private TArbolBB<Producto> arbolProductos;
+    private final String nombre;
+    private final String telefono;
+    private final String direccion;
+    private final String barrio;
+    private final String ciudad;
+    private final TArbolBB<Producto> arbolProductos;
 
-    // En el constructor del almacen instanciamos 3 listas vacías para luego poner
-    // los productos correspondientes
     public Sucursal(String direccion, String telefono, String nombre, String barrio, String ciudad) {
         this.arbolProductos = new TArbolBB<>();
         this.nombre = nombre;
@@ -23,7 +21,6 @@ public class Sucursal implements ISucursal {
         this.ciudad = ciudad;
     }
 
-    // Getters y Setters
     public String getDireccion() {
         return this.direccion;
     }
@@ -36,12 +33,18 @@ public class Sucursal implements ISucursal {
         return this.nombre;
     }
 
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
     public TArbolBB<Producto> getArbolProductos() {
         return this.arbolProductos;
     }
 
-    // Método que obtiene el mónto total de productos del almacen, actúa sobre el
-    // arbol de productos
     public int getMontoTotal() {
         Nodo<Producto> aux = getArbolProductos().inorden().getPrimero();
         int contadorMonto = 0;
@@ -71,16 +74,19 @@ public class Sucursal implements ISucursal {
     // Agrega stock a un producto ya existente en el almacen
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
         TElementoAB<Producto> elem = getArbolProductos().buscar(etiqueta);
-        if (elem != null) {
+
+        if (cantidad < 0 || elem == null) {
+            return false;
+        } else {
             Producto aux = elem.getDatos();
             aux.setStock(aux.getStock() + cantidad);
             return true;
-        } else {
-            return false;
-        }
-    }
 
+        }
+
+    }
     // Resta stock a un producto del almacen
+
     public void vender(Comparable etiqueta, Integer cantidad) {
 
         TElementoAB<Producto> aux = getArbolProductos().buscar(etiqueta);
@@ -112,7 +118,7 @@ public class Sucursal implements ISucursal {
     }
 
     public boolean eliminarProducto(Comparable clave) {
-        this.getArbolProductos().eliminar(clave); 
+        this.getArbolProductos().eliminar(clave);
         return true;
     }
 

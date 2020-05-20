@@ -1,6 +1,8 @@
 package Builders;
 
-import Estructuras.*;
+import Estructuras.CadenaDeSupermercados;
+import Estructuras.ManejadorArchivosGenerico;
+import Estructuras.Sucursal;
 
 public class BuilderSucursales {
 

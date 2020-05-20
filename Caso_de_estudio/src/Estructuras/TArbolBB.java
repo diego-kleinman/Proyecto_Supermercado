@@ -6,11 +6,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     private TElementoAB<T> raiz;
 
-    /**
-     * Separador utilizado entre elemento y elemento al imprimir la lista
-     */
-    public static final String SEPARADOR_ELEMENTOS_IMPRESOS = "-";
-
     public TArbolBB() {
         raiz = null;
     }
@@ -57,13 +52,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return listaInorden;
     }
 
-
-    /**
-     * @return recorrida en preOrden del arbol, null en caso de ser vacío
-     */
-    /**
-     * @return
-     */
     public boolean esVacio() {
         return (raiz == null);
     }
@@ -92,7 +80,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
         int[] array = new int[1];
         array[0] = 0;
         if (!esVacio()) {
-            arbol = new TArbolBB<Integer>();
+            arbol = new TArbolBB<>();
             raiz.inordenQueDevuelveArbolPorNombre(arbol,array);
         }
         return arbol;

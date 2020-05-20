@@ -14,6 +14,7 @@ public class Nodo<T> implements INodo<T> {
         this.dato = dato;
     }
 
+    @Override
     public T getDato() {
         return this.dato;
     }
