@@ -20,10 +20,12 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     }
 
+    @Override
     public TElementoAB<T> getHijoIzq() {
         return hijoIzq;
     }
 
+    @Override
     public TElementoAB<T> getHijoDer() {
         return hijoDer;
     }
@@ -115,26 +117,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     }
 
-    /**
-     * @return recorrida en inorden del subArbol que cuelga del elemento actual
-     */
     @Override
-    public String inOrden() {
-
-        String temp = "";
-
-        if (getHijoIzq() != null) {
-            temp += getHijoIzq().inOrden() + ",";
-        }
-
-        temp += this.getEtiqueta();
-
-        if (getHijoDer() != null) {
-            temp += "," + getHijoDer().inOrden();
-        }
-        return temp;
-    }
-
     public void inorden(Lista<T> unaLista) {
 
         if (getHijoIzq() != null) {
@@ -148,18 +131,9 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
-    
-
     @Override
     public Comparable getEtiqueta() {
         return etiqueta;
-    }
-
-    /**
-     * @return
-     */
-    public String imprimir() {
-        return (etiqueta.toString());
     }
 
     @Override
@@ -182,31 +156,6 @@ public class TElementoAB<T> implements IElementoAB<T> {
         this.hijoDer = elemento;
     }
 
-    public boolean esHoja() {
-        if (this.getHijoDer() == null && this.getHijoIzq() == null) {
-            return true;
-        }
-        return false;
-    }
-
-    public int getMaximo(int a, int b) {
-        return (a > b) ? a : b;
-    }
-
-    @Override
-    public int obtenerAltura() {
-        int a = 1;
-        int b = 1;
-        if (hijoIzq != null) {
-            a += hijoIzq.obtenerAltura();
-        }
-
-        if (hijoDer != null) {
-            b += hijoDer.obtenerAltura();
-        }
-        return Integer.max(a, b);
-    }
-
     @Override
     public int obtenerTamanio() {
         int tamaño = 1;
@@ -217,50 +166,6 @@ public class TElementoAB<T> implements IElementoAB<T> {
             tamaño += hijoIzq.obtenerTamanio();
         }
         return tamaño;
-    }
-
-    @Override
-    public int obtenerNivel(Comparable unaEtiqueta) {
-        int nivel = 0;
-
-        if (Integer.parseInt(unaEtiqueta.toString()) == Integer.parseInt(this.getEtiqueta().toString())) {
-            return nivel;
-        } else {
-            if (Integer.parseInt(unaEtiqueta.toString()) < Integer.parseInt(this.getEtiqueta().toString())) {
-                if (this.getHijoIzq() != null) {
-                    nivel = 1 + this.getHijoIzq().obtenerNivel(unaEtiqueta);
-                }
-            } else {
-                if (this.getHijoDer() != null) {
-                    nivel = 1 + this.getHijoDer().obtenerNivel(unaEtiqueta);
-                }
-            }
-        }
-        // En caso de que llegue a una hoja y no encuentre la etiqueta, retorna -1 y
-        // empieza a restar en la recursión
-        // Si encuentra la etiqueta retorna el nivel actual y se va sumando en la
-        // recusión hasta retornar el nivel final.
-        return (nivel == 0 ? -1 : nivel);
-    }
-
-    @Override
-    public int obtenerCantidadHojas() {
-        int[] hojas = new int[1];
-
-        if (this.esHoja()) {
-            return hojas[0] += 1;
-        }
-
-        if (this.getHijoIzq() != null) {
-            hojas[0] += this.getHijoIzq().obtenerCantidadHojas();
-        }
-
-        if (this.getHijoDer() != null) {
-            hojas[0] += this.getHijoDer().obtenerCantidadHojas();
-        }
-
-        return hojas[0];
-
     }
 
     public TElementoAB<T> eliminar(Comparable unaEtiqueta) {

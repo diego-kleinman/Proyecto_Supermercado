@@ -23,6 +23,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
      * @param unElemento
      * @return
      */
+    @Override
     public boolean insertar(TElementoAB<T> unElemento) {
         if (esVacio()) {
             raiz = unElemento;
@@ -37,6 +38,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
      * @return
      */
     @SuppressWarnings("unchecked")
+    @Override
     public TElementoAB<T> buscar(Comparable unaEtiqueta) {
         if (esVacio()) {
             return null;
@@ -45,27 +47,11 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
     }
 
-    /**
-     * Imprime en InOrden los elementos del árbol, separados por guiones. Esta
-     * clase llama al metodo inOrden de la clase TElementoAB
-     *
-     * @return String conteniendo el preorden separado por guiones.
-     */
-    @Override
-    public String inOrden() {
-
-        if (raiz == null) {
-            return null;
-        } else {
-            return raiz.inOrden();
-        }
-    }
-
     @Override
     public Lista<T> inorden() {
         Lista<T> listaInorden = null;
         if (!esVacio()) {
-            listaInorden = new Lista<T>();
+            listaInorden = new Lista<>();
             raiz.inorden(listaInorden);
         }
         return listaInorden;
@@ -82,25 +68,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return (raiz == null);
     }
 
-    /**
-     * @return True si habían elementos en el árbol, false en caso contrario
-     */
-    public boolean vaciar() {
-        if (!esVacio()) {
-            raiz = null;
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public int obtenerAltura() {
-        if (this.raiz == null) {
-            return -1;
-        }
-        return raiz.obtenerAltura() - 1;
-    }
-
     @Override
     public int obtenerTamanio() {
         if (!esVacio()) {
@@ -109,26 +76,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
             return 0;
         }
 
-    }
-
-    @Override
-    public int obtenerNivel(Comparable unaEtiqueta) {
-
-        if (esVacio()) {
-            return 0;
-        } else {
-            return raiz.obtenerNivel(unaEtiqueta);
-
-        }
-    }
-
-    @Override
-    public int obtenerCantidadHojas() {
-        if (raiz == null) {
-            return 0;
-        } else {
-            return raiz.obtenerCantidadHojas();
-        }
     }
 
     public boolean eliminar(Comparable unaEtiqueta) {
