@@ -257,15 +257,19 @@ public class CadenaDeSupermercados {
 
             } //Si la ciudad no está aún en la salida
             else {
-                contadorLineas++; //Cuento nombre de ciudad
-                //TArbolBB<Integer> arbol = aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
+                contadorLineas++; // Cuento nombre de ciudad
+                // TArbolBB<Integer> arbol =
+                // aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
                 TArbolBB<Integer> arbol = new TArbolBB<>();
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {
-                    contadorLineas++; //Cuento cantidad de productos
                     Producto prod = nodoActual.getDato();
                     TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getNombre(), prod.getStock());
-                    arbol.insertar(elem3);
+                    if (arbol.buscar(prod.getNombre()) == null) {
+                        arbol.insertar(elem3);
+                        contadorLineas++; // Cuento cantidad de productos
+                    }
+
                     nodoActual = nodoActual.getSiguiente();
                 }
                 Nodo<TArbolBB<Integer>> ciudadNueva = new Nodo<>(aux.getDato().getCiudad(), arbol);
