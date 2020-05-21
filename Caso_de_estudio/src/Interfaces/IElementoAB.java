@@ -27,16 +27,16 @@ public interface IElementoAB<T> {
     public TElementoAB<T> getHijoDer();
 
     /**
-     * Asigna el hijo izquierdo del nodo.
+     * Asigna el hijo izquierdo del nodo
      *
-     * @return Elemento a ser asignado como hijo izquierdo.
+     * @param elemento
      */
     public void setHijoIzq(TElementoAB<T> elemento);
 
     /**
-     * Asigna el hijo derecho del nodo.
+     * Asigna el hijo derecho del nodo
      *
-     * @return Elemento a ser asignado como hijo derecho.
+     * @param elemento
      */
     public void setHijoDer(TElementoAB<T> elemento);
 
@@ -48,8 +48,6 @@ public interface IElementoAB<T> {
      */
     public TElementoAB<T> buscar(Comparable unaEtiqueta);
 
- 
-
     /**
      * Inserta un elemento dentro del arbol.
      *
@@ -58,9 +56,8 @@ public interface IElementoAB<T> {
      */
     public boolean insertar(TElementoAB<T> elemento);
 
-
-     /**
-     * pone las etiquetas del recorrido en inorden en una linkedlist.
+    /**
+     * pone las etiquetas del recorrido en inorden en una Lista.
      *
      * @param unaLista
      */
@@ -72,13 +69,12 @@ public interface IElementoAB<T> {
      * @return
      */
     public T getDatos();
-	
 
-	/**
-	 * Retorna el tamaño del arbol cuya raiz es la del nodo actual.
-	 * @return tamaño del subarbol.
-	 */
-	public int obtenerTamanio();
-        
+    /**
+     * Retorna el tamaño del arbol cuya raiz es la del nodo actual.
+     *
+     * @return tamaño del subarbol.
+     */
+    public int obtenerTamanio();
 
 }

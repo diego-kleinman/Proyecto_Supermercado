@@ -27,12 +27,12 @@ public class MenuSimularVentas {
                         System.out.println("Recuerde que el formato de las lineas del archivo debe ser: nombre de sucursal,codigo de producto,cantidad a vender;"
                                 + "(con la extension '.txt' incluida) ; la ruta puede ser relativa o absoluta y debe ser de la forma "
                                 + "forma X/y/z.txt , no de la forma X\\y\\z.txt): \n"
-                                + "Ingrese ruta del archivo de ventas");
+                                + "Ingrese ruta del archivo de ventas:");
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderVentas.build(ruta, cadena);
                         } catch (Exception ex) {
-                            System.out.println("Hubo un error al cargar el archivo, revise que esté en el formato correcto");
+                            System.out.println("Hubo un error al cargar el archivo, asegurese de que cumpla con el formato correcto");
                         }
                         break;
                     case 2:

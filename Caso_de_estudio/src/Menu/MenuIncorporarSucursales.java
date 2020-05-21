@@ -53,9 +53,10 @@ public class MenuIncorporarSucursales {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderSucursales.build(ruta, cadena);
+                            System.out.println("Las sucursales fueron ingresadas con éxito");
                             
                         } catch (Exception ex) {
-                            System.out.println("Ocurrio un error inesperado al ingresar el archivo, revise que tenga el formato correcto");
+                            System.out.println("Ocurrio un error inesperado al ingresar el archivo, asegurese de que cumpla con el formato correcto");
                             
                         }
                         break;

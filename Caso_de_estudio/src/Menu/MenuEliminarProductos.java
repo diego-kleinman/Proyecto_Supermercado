@@ -2,7 +2,6 @@ package Menu;
 
 import Builders.BuilderEliminar;
 import Estructuras.CadenaDeSupermercados;
-import Estructuras.Printer;
 import java.util.Scanner;
 
 public class MenuEliminarProductos {
@@ -34,8 +33,9 @@ public class MenuEliminarProductos {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderEliminar.eliminarEnCadena(ruta, cadena);
+                            System.out.println("Eliminaciones realizadas con éxito");
                         } catch (Exception ex) {
-                            System.out.println("Hubo un error al cargar el archivo, revise que esté en el formato correcto");
+                            System.out.println("Hubo un error al cargar el archivo, asegurese de que cumpla con el formato correcto");
                         }
                         break;
                     case 2:
@@ -43,6 +43,7 @@ public class MenuEliminarProductos {
                         String codigo = scannerStr.nextLine();
                         try {
                             cadena.eliminarProductoEnCadena(codigo);
+                            System.out.println("Eliminado con éxito");
                         } catch (Exception ex) {
                             System.out.println("Error al eliminar el producto,repita la operacion");
                         }
@@ -57,9 +58,9 @@ public class MenuEliminarProductos {
                         String nombreSuc = scannerStr.nextLine();
                         try {
                             BuilderEliminar.eliminarEnSucursal(ruta2, cadena, nombreSuc);
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
+                            System.out.println("Eliminado con éxito");
                         } catch (Exception ex) {
-                            System.out.println("Hubo un error al ejecutar la eliminacion, compruebe los campos ingresados");
+                            System.out.println("Hubo un error al cargar el archivo, asegurese de que cumpla con el formato correcto");
                         }
                         break;
                     case 4:
@@ -69,7 +70,7 @@ public class MenuEliminarProductos {
                         String nombreSuc2 = scannerStr.nextLine();
                         try {
                             cadena.eliminarProductoEnSucursal(codigo2, nombreSuc2);
-                            Printer.imprimirPorCodigo(cadena.getListaSucursales());
+                            System.out.println("Eliminado con éxito");
                         } catch (Exception ex) {
                             System.out.println("Error al eliminar el producto,repita la operacion");
                         }

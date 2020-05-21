@@ -283,7 +283,7 @@ public class CadenaDeSupermercados {
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", output);
 
     }
-    
+
     public void productosTotalesOrdenadosPorBarrio(String nombre) {
         int contadorLineas = 0;
         Nodo<Sucursal> aux = this.listaSucursales.getPrimero();

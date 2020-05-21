@@ -1,6 +1,5 @@
 package Menu;
 
-import Builders.BuilderStock;
 import Estructuras.CadenaDeSupermercados;
 import java.util.Scanner;
 
@@ -19,7 +18,7 @@ public class MenuListadosYBusquedas {
             System.out.println("1: Indicar las existencias de un producto en la cadena de supermercados");
             System.out.println("2: Indicar las existencias de un producto ordenadas por sucursal");
             System.out.println("3: Listar todos los productos registrados ordenados por nombre y con su stock en la cadena de supermercados");
-            System.out.println("4: Listar todos los productos de una sucursal ordenados por nombre y con su stock en esa sucursal");
+            System.out.println("4: Listar todos los productos registrados en una sucursal ordenados por nombre y con su stock en esa sucursal");
             System.out.println("5: Listar todos los productos registrados ordenados por ciudad y con su stock en esa ciudad");
             System.out.println("6: Listar todos los productos registrados ordenados por barrio y con su stock en ese barrio");
             System.out.println("0: Salir");
@@ -77,21 +76,21 @@ public class MenuListadosYBusquedas {
                         String nombre3 = scannerStr.nextLine();
                         try {
                             cadena.productosTotalesOrdenadosPorCiudad(nombre3);
-                            System.out.println("Archivo generado con éxito");
+                            System.out.println("Se generó el archivo con éxito");
                         } catch (Exception ex) {
                             System.out.println("Ocurrió un error inesperado, intente nuevamente");
                         }
-
+                        break;
                     case 6:
                         System.out.println("Ingrese un nombre para su archivo de salida (El mismo se encontrará en la carpeta 'Archivos') :");
                         String nombre4 = scannerStr.nextLine();
                         try {
                             cadena.productosTotalesOrdenadosPorBarrio(nombre4);
-                            System.out.println("Archivo generado con éxito");
+                            System.out.println("Se generó el archivo con éxito");
                         } catch (Exception ex) {
                             System.out.println("Ocurrió un error inesperado, intente nuevamente");
                         }
-
+                        break;
                     case 0:
                         flag = false;
                         break;

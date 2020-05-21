@@ -51,17 +51,7 @@ public class Sucursal implements ISucursal {
         return this.arbolProductos;
     }
 
-    @Override
-    public int getMontoTotal() {
-        Nodo<Producto> aux = getArbolProductos().inorden().getPrimero();
-        int contadorMonto = 0;
-        while (aux != null) {
-            Producto prod = aux.getDato();
-            contadorMonto += prod.getPrecio() * prod.getStock();
-            aux = aux.getSiguiente();
-        }
-        return contadorMonto;
-    }
+
 
     @Override
     public void insertarProducto(Producto unProducto) {
@@ -103,7 +93,7 @@ public class Sucursal implements ISucursal {
         prod.setStock(prod.getStock() - cantidad);
 
     }
-
+    
     @Override
     public boolean sePuedeVender(Comparable etiqueta, Integer cantidad) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);

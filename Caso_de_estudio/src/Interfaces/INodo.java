@@ -4,45 +4,32 @@ import Estructuras.Nodo;
 
 public interface INodo<T> {
 
-    
     /**
      * devuelve el dato del nodo
-     * @return 
+     *
+     * @return
      */
     public T getDato();
-    
+
     /**
      * devuelve el siguiente del nodo
-     * @return 
+     *
+     * @return
      */
     public Nodo<T> getSiguiente();
-    
-    
+
     /**
-     * "engancha" otro nodo a continuacion
-     * 
+     * "engancha" el nodo con otro nodo a continuacion
+     *
      */
     public void setSiguiente(Nodo<T> nodo);
-    
-    /**
-     * Imprime los datos del nodo
-     */
-    
-    
 
-    
     /**
-     * Retorna la etiqueta del nodo
+     * Devuelve la etiqueta del nodo
      *
-     * @return etiqueta del nodo
+     * @return
      */
     public Comparable getEtiqueta();
-//	/**
-//	 *
-//	 * @param unNodo
-//	 * @return devueve -1 si this tiene una clave menor, 0 si son iguales, 1 si es mayor
-//	 */
-//	public int compareTo(INodo<E> unNodo);
 
     /**
      *

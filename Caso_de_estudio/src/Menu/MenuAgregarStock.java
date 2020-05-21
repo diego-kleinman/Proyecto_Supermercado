@@ -30,9 +30,10 @@ public class MenuAgregarStock {
                         String ruta = scannerStr.nextLine();
                         try {
                             BuilderStock.build(ruta, cadena);
+                            System.out.println("El stock fue cargado correctamente en la cadena de supermercados");
 
                         } catch (Exception ex) {
-                            System.out.println("Hubo un error al cargar el archivo, revise que esté en el formato correcto");
+                            System.out.println("Hubo un error al cargar el archivo, revise que cumpla con el formato correcto");
 
                         }
                         break;

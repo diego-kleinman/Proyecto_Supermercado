@@ -10,7 +10,7 @@ public interface IArbolBB<T> {
      * clave indicada en "unElemento", retorna falso.
      *
      * @param unElemento Elemento a insertar
-     * @return Exito de la operaci�n
+     * @return Exito de la operacion
      */
     public boolean insertar(TElementoAB<T> unElemento);
 
@@ -24,17 +24,14 @@ public interface IArbolBB<T> {
     public TElementoAB<T> buscar(Comparable unaEtiqueta);
 
     /**
-     *
-     *
      * @return una Lista con los elementos del recorrido.
-     *
      */
     public Lista<T> inorden();
 
     /**
-     * Retorna el tama�o del arbol.
+     * Retorna el tamanio del arbol.
      *
-     * @return Tama�o del arbol.
+     * @return Tamanio del arbol.
      */
     public int obtenerTamanio();
 

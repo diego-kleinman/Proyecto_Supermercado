@@ -51,7 +51,7 @@ public class Menu {
                     break;
                 case 7:
                     try {
-                        BuilderSucursales.build("src/Archivos/5sucursales.txt", geant);
+                        BuilderSucursales.build("src/Archivos/sucursales.txt", geant);
                         BuilderProductos.buildCadena("src/Archivos/productos.txt", geant);
                         BuilderStock.build("src/Archivos/stock.txt", geant);
                     } catch (Exception ex) {

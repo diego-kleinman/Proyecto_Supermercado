@@ -27,10 +27,8 @@ public interface ILista<T> {
      */
     public boolean eliminar(Comparable clave);
 
-
     /**
-     * Retorna la cantidad de elementos de la lista. En caso de que la lista
-     * este vac�a, retornar 0.
+     * Retorna la cantidad de elementos de la lista.
      *
      * @return Cantidad de elementos de la lista.
      */
@@ -42,7 +40,12 @@ public interface ILista<T> {
      * @return Si tiene elementos o no.
      */
     public boolean esVacia();
-    
-    public void setPrimero( Nodo<T> unNodo);    
+
+    /**
+     * Asigna el primer nodo de la lista
+     *
+     * @param unNodo - el nodo indicado
+     */
+    public void setPrimero(Nodo<T> unNodo);
 
 }
