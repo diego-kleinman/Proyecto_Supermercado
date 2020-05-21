@@ -11,7 +11,15 @@ public class Sucursal implements ISucursal {
     private final String barrio;
     private final String ciudad;
     private final TArbolBB<Producto> arbolProductos;
-
+    
+    /**
+     * Constructor de la clase sucursal
+     * @param direccion Direccion
+     * @param telefono Teléfono
+     * @param nombre Nombre
+     * @param barrio Barrio
+     * @param ciudad Ciudad
+     */
     public Sucursal(String direccion, String telefono, String nombre, String barrio, String ciudad) {
         this.arbolProductos = new TArbolBB<>();
         this.nombre = nombre;
@@ -56,12 +64,12 @@ public class Sucursal implements ISucursal {
     @Override
     public void insertarProducto(Producto unProducto) {
 
-        // Instanciamos un producto auxiliar a partir de la etiqueta (código) del
+        // Instancio un producto auxiliar a partir de la etiqueta (código) del
         // producto recibido como parámetro
         // En caso de no existir quedará null.
-        IProducto prodAux = buscarPorCodigo(unProducto.getEtiqueta());
+        Producto prodAux = buscarPorCodigo(unProducto.getEtiqueta());
 
-        // Si no encontramos el producto en la lista, lo incorporamos a la sucursal
+        // Si no encuentro el producto en la lista, lo incorporo a la sucursal
         if (prodAux == null) {
             TElementoAB<Producto> aux = new TElementoAB<>(unProducto.getEtiqueta(), unProducto);
             this.arbolProductos.insertar(aux);
@@ -69,11 +77,13 @@ public class Sucursal implements ISucursal {
 
     }
 
-    // Agrega stock a un producto ya existente en el almacen
     @Override
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
+        
+        //Busco el producto
         TElementoAB<Producto> elem = getArbolProductos().buscar(etiqueta);
-
+        
+        //Si no lo encuentro no hago nada, si lo encuentro asigno su stock al que tenía antes + el que le quiero agregar
         if (elem == null) {
             return false;
         } else {
