@@ -225,7 +225,62 @@ public class CadenaDeSupermercados {
         String[] array = salida.inordenQueDevuelveArray();
         array[0] = "Stock total de la cadena de supermercados ordenado por nombre de producto:";
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", array);
-
     }
 
+    public void productosTotalesOrdenadosPorCiudad(String nombre) {
+        int contadorLineas = 0;
+        Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
+        //Instancio un arbol de salida, va a tener códigos de producto como etiqueta y stock como dato
+        Lista<TArbolBB<Integer>> lista = new Lista<>();
+        //Recorro toda la lista de sucursales
+        while (aux != null) {
+
+            
+            
+            Nodo<TArbolBB<Integer>> ciudadActual = lista.buscar(aux.getDato().getCiudad());
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+            //Busco la ciudad en la lista de salida, si la encuentro modifico los productos del arbol de esa ciudad
+            if (ciudadActual != null) {
+                TArbolBB<Integer> arbolCiudadActual = ciudadActual.getDato().inordenQueDevuelveArbolPorNombre();
+                
+                //Recorro todos los productos de la sucursal en la que estoy parado
+                Nodo<Producto> nodoActual = listaAux.getPrimero();
+                while (nodoActual != null) {
+                    Producto prod = nodoActual.getDato();
+                    TElementoAB<Integer> elem = ciudadActual.getDato().buscar(prod.getEtiqueta());
+                    //Si el producto ya esta en el arbol de la ciudad en la lista de salida aumento su stock
+                    if (elem != null) {
+                        elem.setDatos(elem.getDatos() + prod.getStock());
+                    } //Si no está aún en el arbol lo agrego
+                    else {
+                        contadorLineas++; //un producto más
+                        TElementoAB<Integer> elem2 = new TElementoAB<>(prod.getEtiqueta(), prod.getStock());
+                        ciudadActual.getDato().insertar(elem2);
+                    }
+                    nodoActual = nodoActual.getSiguiente();
+                }
+
+            } //Si la ciudad no está aún en la salida
+            else {
+                contadorLineas++; //Cuento nombre de ciudad
+                TArbolBB<Integer> arbol = new TArbolBB<>();
+                Nodo<Producto> nodoActual = listaAux.getPrimero();
+                while (nodoActual != null) {
+                    contadorLineas++; //Cuento cantidad de productos
+                    Producto prod = nodoActual.getDato();
+                    TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getEtiqueta(), prod.getStock());
+                    arbol.insertar(elem3);
+                    nodoActual = nodoActual.getSiguiente();
+                }
+                Nodo<TArbolBB<Integer>> ciudadNueva = new Nodo<>(aux.getDato().getCiudad(), arbol);
+                lista.insertar(ciudadNueva);
+
+            }
+            aux = aux.getSiguiente();
+        }
+
+        String[] output = Printer.generarArray(lista, contadorLineas);
+        ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", output);
+
+    }
 }
