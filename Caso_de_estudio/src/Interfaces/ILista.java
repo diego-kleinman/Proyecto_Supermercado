@@ -28,13 +28,6 @@ public interface ILista<T> {
     public boolean eliminar(Comparable clave);
 
     /**
-     * Retorna la cantidad de elementos de la lista.
-     *
-     * @return Cantidad de elementos de la lista.
-     */
-    public int cantElementos();
-
-    /**
      * Indica si la lista contiene o no elementos.
      *
      * @return Si tiene elementos o no.

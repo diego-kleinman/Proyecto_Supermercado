@@ -19,6 +19,7 @@ public class ManejadorArchivosGenerico {
         String[] listaLineasArchivo) {
         FileWriter fw;
         try {
+            //El segundo parámetro del FileWriter fue asignado a false para que se sobreescriba el archivo si ya existe
             fw = new FileWriter(nombreCompletoArchivo, false);
             BufferedWriter bw = new BufferedWriter(fw);
             for (int i = 0; i < listaLineasArchivo.length; i++) {

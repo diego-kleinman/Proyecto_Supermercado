@@ -7,7 +7,10 @@ public class Lista<T> implements ILista<T> {
 
     private Nodo<T> primero;
     private Nodo<T> ultimo;
-
+    
+    /**
+     * Constructor de la clase lista
+     */
     public Lista() {
         primero = null;
         ultimo = null;
@@ -93,22 +96,6 @@ public class Lista<T> implements ILista<T> {
             aux = aux.getSiguiente();
         }
         return false;
-    }
-
-    @Override
-    public int cantElementos() {
-        int contador = 0;
-        if (esVacia()) {
-            System.out.println("Cantidad de elementos 0.");
-            return 0;
-        } else {
-            INodo aux = primero;
-            while (aux != null) {
-                contador++;
-                aux = aux.getSiguiente();
-            }
-        }
-        return contador;
     }
 
 }

@@ -2,10 +2,19 @@ package Estructuras;
 
 import Exceptions.SucursalNotFound;
 
+/**
+ * Clase experta, se encarga de todas las operaciones necesarias del sistema
+ * software, algunas las hace ella misma y otras las delega
+ *
+ * @author Diego
+ */
 public class CadenaDeSupermercados {
 
     private final Lista<Sucursal> listaSucursales;
 
+    /**
+     * Constructor de la clase CadenaDeSupermercados
+     */
     public CadenaDeSupermercados() {
         listaSucursales = new Lista<>();
     }
@@ -14,20 +23,33 @@ public class CadenaDeSupermercados {
         return listaSucursales;
     }
 
+    /**
+     * Método encargado de incorporar una sucursal a la cadena de supermercados,
+     * llama al método insertar de la lista de sucursales
+     *
+     * @param suc Sucursal a incorporar
+     */
     public void incorporarSucursal(Sucursal suc) {
         Nodo<Sucursal> nodoSuc = new Nodo<>(suc.getNombre(), suc);
         this.listaSucursales.insertar(nodoSuc);
 
     }
 
+    /**
+     * Método encargado de incorporar un producto a la cadena de supermercados
+     * (a todas las sucursales), llama al método insertarProducto de todas las
+     * sucursales
+     *
+     * @param prod Producto a incorporar
+     */
     public void incorporarProductoEnCadena(Producto prod) {
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
-        // Inserto en todas las sucursales de la listaSucursales
+
+        //Recorro todas las sucursales insertando el producto si no está ya insertado
         while (actual != null) {
 
             Sucursal suc = actual.getDato();
             if (suc.getArbolProductos().buscar(prod.getEtiqueta()) == null) {
-                //Producto insert = new Producto(prod.getEtiqueta(),prod.getNombre(),prod.getPrecio());
                 suc.insertarProducto(prod.clonar());
                 actual = actual.getSiguiente();
             } else {
@@ -37,6 +59,13 @@ public class CadenaDeSupermercados {
         }
     }
 
+    /**
+     * Método encargado de incorporar un producto a una cierta sucursal, llama
+     * al método insertar producto de una sucursal
+     *
+     * @param prod Producto a incorporar
+     * @param suc Sucursal en la cual incorporarlo
+     */
     public void incorporarProductoEnSucursal(Producto prod, String suc) {
 
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
@@ -50,6 +79,13 @@ public class CadenaDeSupermercados {
 
     }
 
+    /**
+     * Método encargado de eliminar un producto de la cadena de supermercados
+     * (de todas las sucursales), llama al método eliminarProductos de cada
+     * sucursal
+     *
+     * @param Etiqueta Codigo de producto a eliminar
+     */
     public void eliminarProductoEnCadena(Comparable Etiqueta) {
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
         // Inserto en todas las sucursales de la listaSucursales
@@ -65,6 +101,13 @@ public class CadenaDeSupermercados {
         }
     }
 
+    /**
+     * Método que llama al método eliminarProductos de una cierta sucursal
+     *
+     * @param codigo Codigo de producto a eliminar
+     * @param suc Sucursal en la cual eliminarlo
+     * @throws SucursalNotFound
+     */
     public void eliminarProductoEnSucursal(Comparable codigo, String suc) throws SucursalNotFound {
 
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
