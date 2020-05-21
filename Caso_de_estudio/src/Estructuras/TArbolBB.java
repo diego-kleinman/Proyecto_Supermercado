@@ -86,15 +86,14 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return arbol;
     }
 
-    public void inordenQueImprime(String suc, String ruta) {
+    public String[] inordenQueDevuelveArray() {
         String[] array = new String[this.obtenerTamanio() + 1];
-        array[0] = suc.toUpperCase();
         int[] contador = new int[1];
         contador[0] = 1;
         if (!esVacio()) {
-            raiz.inordenQueImprime(array, contador);
+            raiz.inordenQueDevuelveArray(array, contador);
         }
-        ManejadorArchivosGenerico.escribirArchivo(ruta, array);
+        return array;
     }
 
 }

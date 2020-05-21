@@ -188,7 +188,9 @@ public class CadenaDeSupermercados {
         }
         try {
             TArbolBB<Integer> salida = aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
-            salida.inordenQueImprime(suc, "src/ArchivosDePrueba/" + ruta + ".txt");
+            String[] array = salida.inordenQueDevuelveArray();
+            array[0] = suc.toUpperCase();
+            ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + ruta + ".txt", array);
             System.out.println("\n");
         } catch (NullPointerException ex) {
             System.out.println("La sucursal no tiene productos");
@@ -220,8 +222,9 @@ public class CadenaDeSupermercados {
 
             aux = aux.getSiguiente();
         }
-
-        salida.inordenQueImprime("Stock total de la cadena de supermercados ordenado por nombre de producto:", "src/ArchivosDePrueba/" + nombre + ".txt");
+        String[] array = salida.inordenQueDevuelveArray();
+        array[0] = "Stock total de la cadena de supermercados ordenado por nombre de producto:";
+        ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", array);
 
     }
 

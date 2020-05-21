@@ -57,6 +57,7 @@ public class Menu {
                     } catch (Exception ex) {
                         System.out.println("Ocurrio un error inesperado al inicializar la cadena");
                     }
+                    break;
                 case 0:
                     flag = false;
                     break;

@@ -30,13 +30,22 @@ public class MenuListadosYBusquedas {
                     case 1:
                         System.out.println("Ingrese clave del producto");
                         String codigo = scannerStr.nextLine();
-                        cadena.indicarExistenciasTotales(codigo);
+                        try {
+                            cadena.indicarExistenciasTotales(codigo);
+                        } catch (Exception ex) {
+                            System.out.println("Ocurrió un error inesperado, intente nuevamente");
+                        }
                         break;
 
                     case 2:
                         System.out.println("Ingrese clave del producto");
                         String codigo2 = scannerStr.nextLine();
-                        cadena.indicarExistenciasPorSucursal(codigo2);
+                        try {
+                            cadena.indicarExistenciasPorSucursal(codigo2);
+                        } catch (Exception ex) {
+                            System.out.println("Ocurrió un error inesperado, intente nuevamente");
+                        }
+
                         break;
 
                     case 3:
@@ -44,12 +53,24 @@ public class MenuListadosYBusquedas {
                         String nombre = scannerStr.nextLine();
                         try {
                             cadena.productosTotalesOrdenadosPorNombre(nombre);
+                            System.out.println("Se generó el archivo con éxito");
                         } catch (Exception ex) {
                             System.out.println("Ocurrió un error inesperado, intente nuevamente");
                         }
                         break;
 
                     case 4:
+                        System.out.println("Ingrese una sucursal");
+                        String suc = scannerStr.nextLine();
+                        System.out.println("Ingrese un nombre para su archivo de salida (El mismo se encontrará en la carpeta 'Archivos') :");
+                        String nombre2 = scannerStr.nextLine();
+                        try {
+                            cadena.productosSucursalOrdenadosPorNombre(suc, nombre2);
+                            System.out.println("Se generó el archivo con éxito");
+                        } catch (Exception ex) {
+                            System.out.println("Ocurrió un error inesperado, intente nuevamente");
+                        }
+                        break;
 
                     case 5:
 

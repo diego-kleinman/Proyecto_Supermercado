@@ -126,10 +126,10 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
-    public void inordenQueImprime(String[] array, int[] contador) {
+    public void inordenQueDevuelveArray(String[] array, int[] contador) {
 
         if (getHijoIzq() != null) {
-            getHijoIzq().inordenQueImprime(array, contador);
+            getHijoIzq().inordenQueDevuelveArray(array, contador);
         }
 
         Integer stock = (Integer) this.getDatos();
@@ -137,7 +137,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
         contador[0] = contador[0] + 1;
 
         if (getHijoDer() != null) {
-            getHijoDer().inordenQueImprime(array, contador);
+            getHijoDer().inordenQueDevuelveArray(array, contador);
         }
 
     }
