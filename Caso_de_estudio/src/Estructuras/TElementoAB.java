@@ -10,6 +10,8 @@ public class TElementoAB<T> implements IElementoAB<T> {
     private T datos;
 
     /**
+     * Constructor de la clase TElementoAB
+     *
      * @param unaEtiqueta
      * @param unosDatos
      */
@@ -55,11 +57,6 @@ public class TElementoAB<T> implements IElementoAB<T> {
         this.hijoDer = elemento;
     }
 
-    /**
-     * @param unElemento
-     * @return
-     */
-    @SuppressWarnings("unchecked")
     @Override
     public boolean insertar(TElementoAB<T> unElemento) {
 
@@ -83,10 +80,6 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
-    /**
-     * @param unaEtiqueta
-     * @return
-     */
     @Override
     public TElementoAB<T> buscar(Comparable unaEtiqueta) {
 
@@ -105,13 +98,23 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
+    /**
+     * Método que recorre en inOrden y modifica un arbol recibido por parámetro,
+     * va ingresando los elementos por nombre
+     *
+     * @param arbol Arbol al cual ingresar los elementos
+     * @param array Array auxiliar para controlar el caso en el que hay
+     * productos con el mismo nombre pero distinto código
+     */
     public void inordenQueDevuelveArbolPorNombre(TArbolBB<Integer> arbol, int[] array) {
 
         if (getHijoIzq() != null) {
             getHijoIzq().inordenQueDevuelveArbolPorNombre(arbol, array);
         }
         Producto prod = (Producto) this.getDatos();
-        //Hay productos que tienen el mismo nombre pero distinto código
+
+        /*Hay productos que tienen el mismo nombre pero distinto código, en ese 
+        caso le agrego un numero al final a la etiqueta antes de insertar el elemento al arbol*/
         if (arbol.buscar(prod.getNombre()) != null) {
             TElementoAB<Integer> elem = new TElementoAB<>(prod.getNombre() + array[0], prod.getStock());
             arbol.insertar(elem);
@@ -126,6 +129,13 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
+    /**
+     * Método que recorre en inOrden y modifica un array recibido por parámetro
+     *
+     * @param array Array el cual modificar
+     * @param contador Array auxiliar que sirve como contador para ir ingresando
+     * elementos al array
+     */
     public void inordenQueDevuelveArray(String[] array, int[] contador) {
 
         if (getHijoIzq() != null) {
@@ -142,6 +152,11 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     }
 
+    /**
+     * Método que recorre en inOrden y modifica una lista recibida por parámetro
+     *
+     * @param unaLista Lista recibida
+     */
     @Override
     public void inorden(Lista<T> unaLista) {
 
@@ -156,6 +171,11 @@ public class TElementoAB<T> implements IElementoAB<T> {
         }
     }
 
+    /**
+     * Método que obtiene el tamaño de un arbol
+     *
+     * @return Tamaño
+     */
     @Override
     public int obtenerTamanio() {
         int tamaño = 1;

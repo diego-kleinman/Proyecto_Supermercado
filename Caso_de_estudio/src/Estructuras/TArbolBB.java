@@ -6,6 +6,9 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     private TElementoAB<T> raiz;
 
+    /**
+     * Constructos de la clase TArbolBB
+     */
     public TArbolBB() {
         raiz = null;
     }
@@ -18,10 +21,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return (raiz == null);
     }
 
-    /**
-     * @param unElemento
-     * @return
-     */
     @Override
     public boolean insertar(TElementoAB<T> unElemento) {
         if (esVacio()) {
@@ -32,11 +31,6 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
     }
 
-    /**
-     * @param unaEtiqueta
-     * @return
-     */
-    @SuppressWarnings("unchecked")
     @Override
     public TElementoAB<T> buscar(Comparable unaEtiqueta) {
         if (esVacio()) {
@@ -46,6 +40,11 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
     }
 
+    /**
+     * Método que llama al método inorden de TElementoAB y devuelve una lista
+     *
+     * @return Lista
+     */
     @Override
     public Lista<T> inorden() {
         Lista<T> listaInorden = null;
@@ -56,6 +55,12 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return listaInorden;
     }
 
+    /**
+     * Método que llama al método obtenerTamanio de TElementoAB y devuelve el
+     * tamanio
+     *
+     * @return Tamanio
+     */
     @Override
     public int obtenerTamanio() {
         if (!esVacio()) {
@@ -66,6 +71,12 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     }
 
+    /**
+     * Método que llama al método eliminar de TElementoAB
+     *
+     * @param unaEtiqueta etiqueta a eliminar
+     * @return True si se eliminó el elemento, False en caso contrario
+     */
     public boolean eliminar(Comparable unaEtiqueta) {
         if (this.raiz != null) {
             this.raiz = this.raiz.eliminar(unaEtiqueta);
@@ -75,6 +86,12 @@ public class TArbolBB<T> implements IArbolBB<T> {
         }
     }
 
+    /**
+     * Método que llama al método inordenQueDevuelveArbolPorNombre de
+     * TElementoAB
+     *
+     * @return TArbolBB
+     */
     public TArbolBB<Integer> inordenQueDevuelveArbolPorNombre() {
         TArbolBB<Integer> arbol = null;
         int[] array = new int[1];
@@ -86,6 +103,10 @@ public class TArbolBB<T> implements IArbolBB<T> {
         return arbol;
     }
 
+    /**
+     * Método que llama al método inordenQueDevuelveArray de TElementoAB
+     * @return Array de String
+     */
     public String[] inordenQueDevuelveArray() {
         String[] array = new String[this.obtenerTamanio() + 1];
         int[] contador = new int[1];
