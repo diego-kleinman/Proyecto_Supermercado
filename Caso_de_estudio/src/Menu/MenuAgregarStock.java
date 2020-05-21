@@ -4,8 +4,19 @@ import Builders.BuilderStock;
 import Estructuras.CadenaDeSupermercados;
 import java.util.Scanner;
 
+/**
+ * Menú encargado de las operaciónes relacionadas al stock
+ *
+ * @author Diego
+ */
 public class MenuAgregarStock {
 
+    /**
+     * Método que recibe la cadenaDeSupermercados instanciada en el menú
+     * principal y realiza las operaciones que se seleccionen
+     *
+     * @param cadena
+     */
     public static void display(CadenaDeSupermercados cadena) {
 
         Scanner scannerInt = new Scanner(System.in);

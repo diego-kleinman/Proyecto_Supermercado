@@ -4,8 +4,19 @@ import Builders.BuilderVentas;
 import Estructuras.CadenaDeSupermercados;
 import java.util.Scanner;
 
+/**
+ * Menú encargado de las operaciónes relacionadas a las ventas
+ *
+ * @author Diego
+ */
 public class MenuSimularVentas {
 
+    /**
+     * Método que recibe la cadenaDeSupermercados instanciada en el menú
+     * principal y realiza las operaciones que se seleccionen
+     *
+     * @param cadena
+     */
     public static void display(CadenaDeSupermercados cadena) {
 
         Scanner scannerInt = new Scanner(System.in);

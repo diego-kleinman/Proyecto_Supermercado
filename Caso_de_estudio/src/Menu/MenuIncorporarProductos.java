@@ -5,8 +5,20 @@ import Estructuras.CadenaDeSupermercados;
 import Estructuras.Producto;
 import java.util.Scanner;
 
+/**
+ * Menú encargado de las operaciónes relacionadas a la incorporación de
+ * productos
+ *
+ * @author Diego
+ */
 public class MenuIncorporarProductos {
 
+    /**
+     * Método que recibe la cadenaDeSupermercados instanciada en el menú
+     * principal y realiza las operaciones que se seleccionen
+     *
+     * @param cadena
+     */
     public static void display(CadenaDeSupermercados cadena) {
 
         Scanner scannerInt = new Scanner(System.in);
@@ -38,10 +50,10 @@ public class MenuIncorporarProductos {
                             Producto prod = new Producto(codigo, descripcion, precio);
                             cadena.incorporarProductoEnCadena(prod);
                             System.out.println("El producto fue ingresado con exito a la cadena de supermercados \n");
-                            
+
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la cadena de supermercados, intentelo nuevamente \n");
-                            
+
                         }
                         break;
                     case 2:
@@ -57,10 +69,10 @@ public class MenuIncorporarProductos {
                             Producto prod = new Producto(codigo2, descripcion2, precio2);
                             cadena.incorporarProductoEnSucursal(prod, nombreSuc);
                             System.out.println("El producto: " + descripcion2 + " fue ingresado correctamente en la sucursal " + nombreSuc + "\n");
-                            
+
                         } catch (Exception ex) {
                             System.out.println("El producto no pudo ser ingresado en la sucursal \n verifique los datos ingresados");
-                            
+
                         }
                         break;
                     case 3:
@@ -72,10 +84,10 @@ public class MenuIncorporarProductos {
                         try {
                             BuilderProductos.buildCadena(ruta, cadena);
                             System.out.println("Los productos fueron ingresados correctamente a la cadena de supermercados");
-                            
+
                         } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla con el formato correcto");
-                            
+
                         }
                         break;
                     case 4:
@@ -92,7 +104,7 @@ public class MenuIncorporarProductos {
 
                         } catch (Exception ex) {
                             System.out.println("Error al ingresar el archivo, asegurese de que cumpla con el formato correcto");
-                            
+
                         }
                         break;
                     case 0:

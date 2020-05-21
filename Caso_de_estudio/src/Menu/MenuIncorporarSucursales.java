@@ -1,12 +1,25 @@
 package Menu;
+
 import Estructuras.CadenaDeSupermercados;
 import Estructuras.Sucursal;
 import Builders.BuilderSucursales;
 
 import java.util.Scanner;
 
+/**
+ * Menú encargado de las operaciónes relacionadas a la incorporacion de
+ * sucursales
+ *
+ * @author Diego
+ */
 public class MenuIncorporarSucursales {
 
+    /**
+     * Método que recibe la cadenaDeSupermercados instanciada en el menú
+     * principal y realiza las operaciones que se seleccionen
+     *
+     * @param cadena
+     */
     public static void display(CadenaDeSupermercados cadena) {
 
         Scanner scannerInt = new Scanner(System.in);
@@ -34,15 +47,15 @@ public class MenuIncorporarSucursales {
                         System.out.println("Ingrese barrio de la sucursal: ");
                         String barrio = scannerStr.nextLine();
                         System.out.println("Ingrese ciudad de la sucursal: ");
-                        String ciudad = scannerStr.nextLine();                    
+                        String ciudad = scannerStr.nextLine();
                         try {
                             Sucursal suc = new Sucursal(direccion, telefono, nombre, barrio, ciudad);
                             cadena.incorporarSucursal(suc);
                             System.out.println("La sucursal fue incorporada con éxito \n");
-                            
+
                         } catch (Exception ex) {
                             System.out.println("Hubo un error en el ingreso de la sucursal deseada, intentelo nuevamente  \n ");
-                            
+
                         }
                         break;
                     case 2:
@@ -54,10 +67,10 @@ public class MenuIncorporarSucursales {
                         try {
                             BuilderSucursales.build(ruta, cadena);
                             System.out.println("Las sucursales fueron ingresadas con éxito");
-                            
+
                         } catch (Exception ex) {
                             System.out.println("Ocurrio un error inesperado al ingresar el archivo, asegurese de que cumpla con el formato correcto");
-                            
+
                         }
                         break;
                     case 0:

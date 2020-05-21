@@ -6,6 +6,18 @@ import Builders.BuilderSucursales;
 import Estructuras.CadenaDeSupermercados;
 import java.util.Scanner;
 
+/**
+ * Menú encargado de ejecutar todas las funciones del sistema software, Está
+ * formado por varios submenues referentes a todas las posibles operaciones que
+ * se pueden hacer en el sistema.
+ *
+ * En este menú principal se instancia una nueva cadenaDeSupermercados de nombre
+ * geant y se pasa como parámetro a cada submenú cuando el uso de este es
+ * requerido con el fin de que todas las operaciones actuen sobre la misma
+ * CadenaDeSupermercados
+ *
+ * @author Diego
+ */
 public class Menu {
 
     public static void main(String[] args) {
@@ -47,9 +59,11 @@ public class Menu {
                     MenuEliminarProductos.display(geant);
                     break;
                 case 6:
-                    MenuListadosYBusquedas.display(geant);
+                    MenuListados.display(geant);
                     break;
                 case 7:
+                    /*Esta opcion fue creada para inicializar rapidamente todos
+                    los archivos proporcionados por el cuerpo docente*/
                     try {
                         BuilderSucursales.build("src/Archivos/sucursales.txt", geant);
                         BuilderProductos.buildCadena("src/Archivos/productos.txt", geant);

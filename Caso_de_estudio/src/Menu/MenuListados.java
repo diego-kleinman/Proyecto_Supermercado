@@ -3,8 +3,19 @@ package Menu;
 import Estructuras.CadenaDeSupermercados;
 import java.util.Scanner;
 
-public class MenuListadosYBusquedas {
+/**
+ * Menú encargado de las operaciónes relacionadas a los listados
+ *
+ * @author Diego
+ */
+public class MenuListados {
 
+    /**
+     * Método que recibe la cadenaDeSupermercados instanciada en el menú
+     * principal y realiza las operaciones que se seleccionen
+     *
+     * @param cadena
+     */
     public static void display(CadenaDeSupermercados cadena) {
 
         Scanner scannerInt = new Scanner(System.in);
@@ -14,7 +25,7 @@ public class MenuListadosYBusquedas {
         boolean flag = true;
 
         while (flag) {
-            System.out.println("Menu listados y busquedas:");
+            System.out.println("Menu listados:");
             System.out.println("1: Indicar las existencias de un producto en la cadena de supermercados");
             System.out.println("2: Indicar las existencias de un producto ordenadas por sucursal");
             System.out.println("3: Listar todos los productos registrados ordenados por nombre y con su stock en la cadena de supermercados");
