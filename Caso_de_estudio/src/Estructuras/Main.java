@@ -8,7 +8,7 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/Archivos/sucursales.txt", geant);
+        BuilderSucursales.build("src/Archivos/5sucursales.txt", geant);
         BuilderProductos.buildCadena("src/Archivos/productos.txt", geant);
         BuilderStock.build("src/Archivos/stock.txt", geant);
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
