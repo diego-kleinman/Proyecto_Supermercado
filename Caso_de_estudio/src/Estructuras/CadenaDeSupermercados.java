@@ -119,7 +119,7 @@ public class CadenaDeSupermercados {
                 }
                 actual = actual.getSiguiente();
             }
-            Printer.imprimirListaSucursalesConStock(output);
+            Printer.imprimirListaSucursales(output);
 
         }
 
@@ -279,7 +279,7 @@ public class CadenaDeSupermercados {
             aux = aux.getSiguiente();
         }
 
-        String[] output = Printer.generarArray(lista, contadorLineas);
+        String[] output = GeneradorArray.generarArray(lista, contadorLineas);
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", output);
 
     }
@@ -336,7 +336,7 @@ public class CadenaDeSupermercados {
             aux = aux.getSiguiente();
         }
 
-        String[] output = Printer.generarArray(lista, contadorLineas);
+        String[] output = GeneradorArray.generarArray(lista, contadorLineas);
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", output);
 
     }

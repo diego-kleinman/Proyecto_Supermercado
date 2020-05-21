@@ -12,7 +12,7 @@ public class TElementoAB<T> implements IElementoAB<T> {
     /**
      * Constructor de la clase TElementoAB
      *
-     * @param unaEtiqueta
+     * @param unaEtiquetaF
      * @param unosDatos
      */
     @SuppressWarnings("unchecked")

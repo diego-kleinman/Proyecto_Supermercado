@@ -1,7 +1,6 @@
 package Estructuras;
 
 import Interfaces.ISucursal;
-import Interfaces.IProducto;
 
 public class Sucursal implements ISucursal {
 
@@ -11,9 +10,10 @@ public class Sucursal implements ISucursal {
     private final String barrio;
     private final String ciudad;
     private final TArbolBB<Producto> arbolProductos;
-    
+
     /**
      * Constructor de la clase sucursal
+     *
      * @param direccion Direccion
      * @param telefono Teléfono
      * @param nombre Nombre
@@ -59,8 +59,6 @@ public class Sucursal implements ISucursal {
         return this.arbolProductos;
     }
 
-
-
     @Override
     public void insertarProducto(Producto unProducto) {
 
@@ -79,10 +77,10 @@ public class Sucursal implements ISucursal {
 
     @Override
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
-        
+
         //Busco el producto
         TElementoAB<Producto> elem = getArbolProductos().buscar(etiqueta);
-        
+
         //Si no lo encuentro no hago nada, si lo encuentro asigno su stock al que tenía antes + el que le quiero agregar
         if (elem == null) {
             return false;
@@ -103,7 +101,7 @@ public class Sucursal implements ISucursal {
         prod.setStock(prod.getStock() - cantidad);
 
     }
-    
+
     @Override
     public boolean sePuedeVender(Comparable etiqueta, Integer cantidad) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
