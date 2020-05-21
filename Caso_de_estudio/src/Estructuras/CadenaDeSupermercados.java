@@ -238,18 +238,19 @@ public class CadenaDeSupermercados {
             Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
             //Busco la ciudad en la lista de salida, si la encuentro modifico los productos del arbol de esa ciudad
             if (ciudadActual != null) {
-                //Recorro todos los productos de la sucursal en la que estoy parado
+                // Recorro todos los productos de la sucursal en la que estoy parado
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {
                     Producto prod = nodoActual.getDato();
-                    TElementoAB<Integer> elem = ciudadActual.getDato().buscar(prod.getEtiqueta());
-                    //Si el producto ya esta en el arbol de la ciudad en la lista de salida aumento su stock
+                    TElementoAB<Integer> elem = ciudadActual.getDato().buscar(prod.getNombre());
+                    // Si el producto ya esta en el arbol de la ciudad en la lista de salida aumento
+                    // su stock
                     if (elem != null) {
                         elem.setDatos(elem.getDatos() + prod.getStock());
-                    } //Si no está aún en el arbol lo agrego
+                    } // Si no está aún en el arbol lo agrego
                     else {
-                        contadorLineas++; //un producto más
-                        TElementoAB<Integer> elem2 = new TElementoAB<>(prod.getEtiqueta(), prod.getStock());
+                        contadorLineas++; // un producto más
+                        TElementoAB<Integer> elem2 = new TElementoAB<>(prod.getNombre(), prod.getStock());
                         ciudadActual.getDato().insertar(elem2);
                     }
                     nodoActual = nodoActual.getSiguiente();
@@ -258,8 +259,7 @@ public class CadenaDeSupermercados {
             } //Si la ciudad no está aún en la salida
             else {
                 contadorLineas++; // Cuento nombre de ciudad
-                // TArbolBB<Integer> arbol =
-                // aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
+
                 TArbolBB<Integer> arbol = new TArbolBB<>();
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {
@@ -274,6 +274,63 @@ public class CadenaDeSupermercados {
                 }
                 Nodo<TArbolBB<Integer>> ciudadNueva = new Nodo<>(aux.getDato().getCiudad(), arbol);
                 lista.insertar(ciudadNueva);
+
+            }
+            aux = aux.getSiguiente();
+        }
+
+        String[] output = Printer.generarArray(lista, contadorLineas);
+        ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", output);
+
+    }
+    
+    public void productosTotalesOrdenadosPorBarrio(String nombre) {
+        int contadorLineas = 0;
+        Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
+        //Instancio un arbol de salida, va a tener códigos de producto como etiqueta y stock como dato
+        Lista<TArbolBB<Integer>> lista = new Lista<>();
+        //Recorro toda la lista de sucursales
+        while (aux != null) {
+            Nodo<TArbolBB<Integer>> barrioActual = lista.buscar(aux.getDato().getBarrio().toLowerCase());
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+            //Busco la ciudad en la lista de salida, si la encuentro modifico los productos del arbol de esa ciudad
+            if (barrioActual != null) {
+                // Recorro todos los productos de la sucursal en la que estoy parado
+                Nodo<Producto> nodoActual = listaAux.getPrimero();
+                while (nodoActual != null) {
+                    Producto prod = nodoActual.getDato();
+                    TElementoAB<Integer> elem = barrioActual.getDato().buscar(prod.getNombre());
+                    // Si el producto ya esta en el arbol de la ciudad en la lista de salida aumento
+                    // su stock
+                    if (elem != null) {
+                        elem.setDatos(elem.getDatos() + prod.getStock());
+                    } // Si no está aún en el arbol lo agrego
+                    else {
+                        contadorLineas++; // un producto más
+                        TElementoAB<Integer> elem2 = new TElementoAB<>(prod.getNombre(), prod.getStock());
+                        barrioActual.getDato().insertar(elem2);
+                    }
+                    nodoActual = nodoActual.getSiguiente();
+                }
+
+            } //Si la ciudad no está aún en la salida
+            else {
+                contadorLineas++; // Cuento nombre de ciudad
+
+                TArbolBB<Integer> arbol = new TArbolBB<>();
+                Nodo<Producto> nodoActual = listaAux.getPrimero();
+                while (nodoActual != null) {
+                    Producto prod = nodoActual.getDato();
+                    TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getNombre(), prod.getStock());
+                    if (arbol.buscar(prod.getNombre()) == null) {
+                        arbol.insertar(elem3);
+                        contadorLineas++; // Cuento cantidad de productos
+                    }
+
+                    nodoActual = nodoActual.getSiguiente();
+                }
+                Nodo<TArbolBB<Integer>> barrioNuevo = new Nodo<>(aux.getDato().getBarrio(), arbol);
+                lista.insertar(barrioNuevo);
 
             }
             aux = aux.getSiguiente();

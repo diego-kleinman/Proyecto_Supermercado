@@ -75,15 +75,22 @@ public class MenuListadosYBusquedas {
                     case 5:
                         System.out.println("Ingrese un nombre para su archivo de salida (El mismo se encontrará en la carpeta 'Archivos') :");
                         String nombre3 = scannerStr.nextLine();
-                        try{
+                        try {
                             cadena.productosTotalesOrdenadosPorCiudad(nombre3);
                             System.out.println("Archivo generado con éxito");
-                        }
-                        catch(Exception ex){
+                        } catch (Exception ex) {
                             System.out.println("Ocurrió un error inesperado, intente nuevamente");
                         }
 
                     case 6:
+                        System.out.println("Ingrese un nombre para su archivo de salida (El mismo se encontrará en la carpeta 'Archivos') :");
+                        String nombre4 = scannerStr.nextLine();
+                        try {
+                            cadena.productosTotalesOrdenadosPorBarrio(nombre4);
+                            System.out.println("Archivo generado con éxito");
+                        } catch (Exception ex) {
+                            System.out.println("Ocurrió un error inesperado, intente nuevamente");
+                        }
 
                     case 0:
                         flag = false;

@@ -14,7 +14,7 @@ public class Main {
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
 
         try {
-            geant.productosTotalesOrdenadosPorCiudad("aa");
+            geant.productosTotalesOrdenadosPorBarrio("aa");
         } catch (Exception ex) {
             System.out.println(ex);
         }
