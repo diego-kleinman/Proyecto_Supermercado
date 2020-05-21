@@ -15,7 +15,7 @@ public class MenuSimularVentas {
         boolean flag = true;
 
         while (flag) {
-            System.out.println("Menu stock:");
+            System.out.println("Menu ventas:");
             System.out.println("1: Simular ventas por archivo");
             System.out.println("2: Simular venta manual");
             System.out.println("0: Salir");

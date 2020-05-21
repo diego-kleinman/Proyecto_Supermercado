@@ -1,12 +1,15 @@
 package Menu;
-import Estructuras.*;
 
+import Builders.BuilderProductos;
+import Builders.BuilderStock;
+import Builders.BuilderSucursales;
+import Estructuras.CadenaDeSupermercados;
 import java.util.Scanner;
 
 public class Menu {
 
     public static void main(String[] args) {
-        
+
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
 
         Scanner entrada = new Scanner(System.in);
@@ -22,6 +25,7 @@ public class Menu {
             System.out.println("4: Simular ventas");
             System.out.println("5: Eliminacion de productos");
             System.out.println("6: Operaciones de listados");
+            System.out.println("7: Inicializar cadena con archivos proporcionados por el cuerpo docente");
             System.out.println("0: Salir");
 
             respuesta = entrada.nextInt();
@@ -43,8 +47,16 @@ public class Menu {
                     MenuEliminarProductos.display(geant);
                     break;
                 case 6:
-                    System.out.println("falta hacer");
+                    MenuListadosYBusquedas.display(geant);
                     break;
+                case 7:
+                    try {
+                        BuilderSucursales.build("src/Archivos/sucursales.txt", geant);
+                        BuilderProductos.buildCadena("src/Archivos/productos.txt", geant);
+                        BuilderStock.build("src/Archivos/stock.txt", geant);
+                    } catch (Exception ex) {
+                        System.out.println("Ocurrio un error inesperado al inicializar la cadena");
+                    }
                 case 0:
                     flag = false;
                     break;

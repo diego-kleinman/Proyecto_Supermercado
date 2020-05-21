@@ -110,7 +110,7 @@ public class CadenaDeSupermercados {
                     //Si en el arbol de salida ya hay algun TElementoAB que tenga el mismo stock del producto que tiene la sucursal que estoy parado
                     //agrego el nombre de la sucursal que estoy parado al TElementoAB del arbol que tiene el stock previamente mencionado
                     if (elem2 != null) {
-                          elem2.setDatos(elem2.getDatos()+ ";" + sucActual.getNombre());
+                        elem2.setDatos(elem2.getDatos() + ";" + sucActual.getNombre());
 
                     } else {
                         TElementoAB nuevoElem = new TElementoAB(elem.getDatos().getStock(), sucActual.getNombre());
@@ -170,11 +170,15 @@ public class CadenaDeSupermercados {
                 actual = actual.getSiguiente();
             }
         }
+        if (result.esVacia()) {
+            System.out.println("El producto no se encuentra en ninguna sucursal de la cadena");
+        } else {
+            Printer.imprimirExistenciasPorSucursal(Etiqueta, result);
+        }
 
-        Printer.imprimirExistenciasPorSucursal(Etiqueta, result);
     }
 
-    public void productosSucursalOrdenadosPorNombre(String suc,String ruta) throws SucursalNotFound {
+    public void productosSucursalOrdenadosPorNombre(String suc, String ruta) throws SucursalNotFound {
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
 
         try {
@@ -191,7 +195,8 @@ public class CadenaDeSupermercados {
         }
 
     }
-     public void productosTotalesOrdenadosPorNombre(String nombre) {
+
+    public void productosTotalesOrdenadosPorNombre(String nombre) {
         Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
         //Instancio un arbol de salida
         TArbolBB<Integer> salida = new TArbolBB<>();
@@ -215,7 +220,7 @@ public class CadenaDeSupermercados {
 
             aux = aux.getSiguiente();
         }
-        
+
         salida.inordenQueImprime("Stock total de la cadena de supermercados ordenado por nombre de producto:", "src/ArchivosDePrueba/" + nombre + ".txt");
 
     }

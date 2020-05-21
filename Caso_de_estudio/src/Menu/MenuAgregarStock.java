@@ -2,8 +2,6 @@ package Menu;
 
 import Builders.BuilderStock;
 import Estructuras.CadenaDeSupermercados;
-import Estructuras.Printer;
-import Estructuras.Producto;
 import java.util.Scanner;
 
 public class MenuAgregarStock {

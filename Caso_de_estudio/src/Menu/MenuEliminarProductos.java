@@ -16,7 +16,7 @@ public class MenuEliminarProductos {
         boolean flag = true;
 
         while (flag) {
-            System.out.println("Menu stock:");
+            System.out.println("Menu eliminar:");
             System.out.println("1: Eliminar productos de la cadena por archivo");
             System.out.println("2: Eliminar producto de la cadena manualmente");
             System.out.println("3: Eliminar productos de una sucursal por archivo");

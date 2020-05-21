@@ -2,12 +2,7 @@ package Menu;
 
 import Builders.BuilderProductos;
 import Estructuras.CadenaDeSupermercados;
-import Estructuras.Printer;
 import Estructuras.Producto;
-import Estructuras.Sucursal;
-import Exceptions.SucursalNotFound;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuIncorporarProductos {
