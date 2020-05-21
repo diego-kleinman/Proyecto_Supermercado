@@ -5,22 +5,31 @@ import Estructuras.IntercambiadorDeOrden;
 import Estructuras.ManejadorArchivosGenerico;
 import Exceptions.SucursalNotFound;
 
+/**
+ * Clase encargada de simular ventas
+ *
+ * @author Diego
+ */
 public class BuilderVentas {
-
+    
+    /**
+     * Método encargado de simular ventas a partir de un archivo
+     * @param ruta Ruta del archivo
+     * @param cadena CadenaDeSupermercados sobre la cual simular las ventas
+     */
     public static void build(String ruta, CadenaDeSupermercados cadena) {
         String[] lineas5 = ManejadorArchivosGenerico.leerArchivo(ruta);
-        IntercambiadorDeOrden.desordenar(lineas5);
         for (int i = 0; i < lineas5.length; i++) {
             String[] str = lineas5[i].split(",");
             try {
-                // Creamos todas las variables para poder instanciar un objeto de la clase
-                // Producto
+                //Intento crear las variables para poder simular la venta
                 String nombreSuc = str[0];
                 Comparable codigo = str[1];
                 Integer nroVenta = Integer.valueOf(str[2]);
-
+                
+                //Controlo que el nroVenta no sea negativo
                 if (nroVenta > 0) {
-                    // Instanciamos el objeto producto con las variables creadas anteriormente.
+                    //Intento hacer la venta
                     cadena.VenderProductoEnSucursal(codigo, nroVenta, nombreSuc);
                 }
 

@@ -28,8 +28,8 @@ public class MenuEliminarProductos {
 
         while (flag) {
             System.out.println("Menu eliminar:");
-            System.out.println("1: Eliminar productos de la cadena por archivo");
-            System.out.println("2: Eliminar producto de la cadena manualmente");
+            System.out.println("1: Eliminar productos de la cadena de supermercados por archivo");
+            System.out.println("2: Eliminar producto de la cadena de supermercados manualmente");
             System.out.println("3: Eliminar productos de una sucursal por archivo");
             System.out.println("4: Eliminar producto de una sucursal manualmente");
             System.out.println("0: Salir");
