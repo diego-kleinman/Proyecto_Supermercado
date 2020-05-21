@@ -234,15 +234,10 @@ public class CadenaDeSupermercados {
         Lista<TArbolBB<Integer>> lista = new Lista<>();
         //Recorro toda la lista de sucursales
         while (aux != null) {
-
-            
-            
-            Nodo<TArbolBB<Integer>> ciudadActual = lista.buscar(aux.getDato().getCiudad());
+            Nodo<TArbolBB<Integer>> ciudadActual = lista.buscar(aux.getDato().getCiudad().toLowerCase());
             Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
             //Busco la ciudad en la lista de salida, si la encuentro modifico los productos del arbol de esa ciudad
             if (ciudadActual != null) {
-                TArbolBB<Integer> arbolCiudadActual = ciudadActual.getDato().inordenQueDevuelveArbolPorNombre();
-                
                 //Recorro todos los productos de la sucursal en la que estoy parado
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {
@@ -263,12 +258,13 @@ public class CadenaDeSupermercados {
             } //Si la ciudad no está aún en la salida
             else {
                 contadorLineas++; //Cuento nombre de ciudad
+                //TArbolBB<Integer> arbol = aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
                 TArbolBB<Integer> arbol = new TArbolBB<>();
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {
                     contadorLineas++; //Cuento cantidad de productos
                     Producto prod = nodoActual.getDato();
-                    TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getEtiqueta(), prod.getStock());
+                    TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getNombre(), prod.getStock());
                     arbol.insertar(elem3);
                     nodoActual = nodoActual.getSiguiente();
                 }

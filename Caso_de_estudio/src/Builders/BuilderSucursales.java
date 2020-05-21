@@ -17,7 +17,7 @@ public class BuilderSucursales {
                 String telefono = aux[1];
                 String direccion = aux[2];
                 String barrio = aux[3];
-                String ciudad = aux[4];
+                String ciudad = aux[4].toLowerCase();
 
                 // Instanciamos el objeto sucursal
                 Sucursal sucursal = new Sucursal(direccion, telefono, nombre, barrio, ciudad);

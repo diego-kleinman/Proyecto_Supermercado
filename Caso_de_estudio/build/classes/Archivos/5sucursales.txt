@@ -1,5 +1,4 @@
 Local 122,29827010,18 de Julio 580,97000,Durazno,Departamento de Durazno
 Local 101,29563823,Av. 18 de Julio 1593,11200,Montevideo,Departamento de Montevideo
-Local 102,22772840,Av. 8 de Octubre 3723,12000,Montevideo,Departamento de Montevideo
 Local 111,45009170,19 de Abril 220,50000,Salto,Departamento de Salto
-Local 115,41008589,Bulevar General Artigas 1825,11200,Montevideo,Departamento de Montevideo
+

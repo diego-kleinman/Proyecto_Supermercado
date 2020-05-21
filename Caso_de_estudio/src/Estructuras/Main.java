@@ -1,4 +1,5 @@
 package Estructuras;
+
 import Builders.*;
 
 public class Main {
@@ -7,31 +8,20 @@ public class Main {
         CadenaDeSupermercados geant = new CadenaDeSupermercados();
         Lista<Sucursal> listaSucs = geant.getListaSucursales();
 
-        BuilderSucursales.build("src/ArchivosDePrueba/sucursalesPosta.txt", geant);
-        BuilderProductos.buildCadena("src/ArchivosDePrueba/productosPosta.txt", geant);
-        BuilderStock.build("src/ArchivosDePrueba/stockPosta.txt", geant);
-        BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
-        
-//        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
-//        try{
-//                geant.productosSucursalOrdenadosPorNombre(nodoSuc.getDato().getNombre(),"salida");
-//            }
-//            catch(Exception e){
-//            }
-        
-       geant.productosTotalesOrdenadosPorNombre("SalidaTotal");
-        
-        //BuilderProductos.buildSucursal("src/ArchivosDePrueba/20Productos.txt", geant,"local 122");
-//        try {
-//            BuilderProductos.buildCadena("src/ArchivosDePrueba/20Productoss.txt", geant);
-//        } catch (Exception ex) {
-//        }
+        BuilderSucursales.build("src/Archivos/sucursales.txt", geant);
+        BuilderProductos.buildCadena("src/Archivos/productos.txt", geant);
+        BuilderStock.build("src/Archivos/stock.txt", geant);
+        //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
 
-        
+        try {
+            geant.productosTotalesOrdenadosPorCiudad("aa");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
         //BuilderVentas.build("src/ArchivosDePrueba/ventasPrueba.txt", geant);
         //BuilderEliminar.eliminar("src/ArchivosDePrueba/elimPrueba.txt", geant);
         //BuilderEliminar.eliminarEnSucursal("src/ArchivosDePrueba/elimPrueba.txt", geant, "local 122");
-
         //Lista<Sucursal> aux3 = geant.getListaSucursales();
         //Printer.imprimirPorCodigo(aux3);
 //        Nodo<Sucursal> nodoSuc = listaSucs.getPrimero();
@@ -42,7 +32,6 @@ public class Main {
 //            catch(Exception e){
 //            }    
 //        }
-
         //Venta manual
 //        try {
 //            geant.VenderProductoEnSucursal("1403796890", 80, "local 122");
