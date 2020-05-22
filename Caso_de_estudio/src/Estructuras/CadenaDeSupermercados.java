@@ -60,8 +60,7 @@ public class CadenaDeSupermercados {
     }
 
     /**
-     * Método encargado de incorporar un producto a una cierta sucursal, llama
-     * al método insertar producto de una sucursal
+     * Método que delega a una cierta sucursal a incorporar un producto
      *
      * @param prod Producto a incorporar
      * @param suc Sucursal en la cual incorporarlo
@@ -102,7 +101,7 @@ public class CadenaDeSupermercados {
     }
 
     /**
-     * Método que llama al método eliminarProductos de una cierta sucursal
+     * Método que delega a una cierta sucursal a eliminar productos
      *
      * @param codigo Codigo de producto a eliminar
      * @param suc Sucursal en la cual eliminarlo
@@ -121,9 +120,19 @@ public class CadenaDeSupermercados {
 
     }
 
+    /**
+     * Método que delega a una cierta sucursal a hacer ventas
+     *
+     * @param codigo Codigo de producto a vender
+     * @param cantidad Cantidad a vender
+     * @param suc Nombre de sucursal en la cual realizar la venta
+     * @throws SucursalNotFound
+     */
     public void VenderProductoEnSucursal(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
-
+        /*Instancio un arbol de salida, este arbol tendrá como etiqueta a los stocks de producto en cada sucursal
+        y como dato al nombre de la sucursal/es en la cual hay ese stock*/
         TArbolBB<String> output = new TArbolBB();
+
         //Busco la sucursal para hacer la venta, si no la encuentro devuelvo la excepcion
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
         try {
@@ -139,35 +148,52 @@ public class CadenaDeSupermercados {
             //Si no se puede vender recorro la lista de sucursales y genero el output
             System.out.println("La venta del producto con codigo: " + codigo + " no pudo realizarse en la sucursal " + suc);
             System.out.println("Aqui tiene una lista de las sucursales con stock disponible: ");
+
+            //Tomo la primera sucursal de la lista de sucursales
             Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
+
+            //Recorro la lista de sucursales
             while (actual != null) {
                 Sucursal sucActual = actual.getDato();
-                //Si en la sucursal actual se puede vender, la función "sePuedeVender" incluye el chequeo de que el producto exista en
-                //el arbol de productos de la sucursal
+
+                //Si en la sucursal actual se puede vender
                 if (sucActual.sePuedeVender(codigo, cantidad)) {
                     TElementoAB<Producto> elem = sucActual.getArbolProductos().buscar(codigo);
 
-                    //Quiero buscar un elemento que tenga como etiqueta el stock de la sucursal en la cual estoy parado
+                    //Quiero buscar un elemento que tenga como etiqueta el stock existente de producto de la sucursal en la cual estoy parado actualmente
                     TElementoAB<String> elem2 = output.buscar(elem.getDatos().getStock());
 
-                    //Si en el arbol de salida ya hay algun TElementoAB que tenga el mismo stock del producto que tiene la sucursal que estoy parado
-                    //agrego el nombre de la sucursal que estoy parado al TElementoAB del arbol que tiene el stock previamente mencionado
+                    /*Si en el arbol salida ya hay algun TElementoAB que tenga el mismo stock del producto que tiene la sucursal en la que estoy parado
+                    agrego el nombre de la sucursal en la que estoy parado al dato del TElementoAB del arbol
+                    Ejemplo, en el arbol hay un TElementoAB con etiqueta 60 y dato "sucursal 1" (esto quiere decir que en la sucursal 1 tengo 60
+                    productos de stock), ahora recorro la "sucursal 2" y también tengo 60 de stock de ese producto en esa sucursal, en ese caso
+                    al TElementoAB del arbol con etiqueta=60 le agrego en su dato "; sucursal 2", aludiendo a que tanto en la "sucursal 1"
+                    como en la "sucursal 2" hay 60 de stock de ese producto*/
                     if (elem2 != null) {
                         elem2.setDatos(elem2.getDatos() + ";" + sucActual.getNombre());
-
-                    } else {
+                    } //En caso contrario creo el TElementoAB y lo inserto en el arbol salida
+                    else {
                         TElementoAB nuevoElem = new TElementoAB(elem.getDatos().getStock(), sucActual.getNombre());
                         output.insertar(nuevoElem);
                     }
                 }
                 actual = actual.getSiguiente();
             }
+            //Llamo al printer para que despliegue la información en pantalla
             Printer.imprimirListaSucursales(output);
 
         }
 
     }
 
+    /**
+     * Método que delega a una cierta sucursal a agregar stock de un producto
+     *
+     * @param codigo Codigo de producto al cual agregar stock
+     * @param cantidad Cantidad de stock a agregar
+     * @param suc Nombre de sucursal en la cual agregar el stock
+     * @throws SucursalNotFound
+     */
     public void agregarStock(Comparable codigo, Integer cantidad, String suc) throws SucursalNotFound {
         if (cantidad > 0) {
             Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase());
@@ -179,10 +205,17 @@ public class CadenaDeSupermercados {
         }
     }
 
+    /**
+     * Método encargado de indicar las existencias totales de un producto en la
+     * cadena de supermercados
+     *
+     * @param Etiqueta Codigo de producto sobre el cual indicar existencias
+     */
     public void indicarExistenciasTotales(Comparable Etiqueta) {
+        //Inicializo la variable resultado
         int result = 0;
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
-        // Inserto en todas las sucursales de la listaSucursales
+        //Recorro todas las sucursales buscando el producto, si lo encuentro agrego su stock al resultado
         while (actual != null) {
             Sucursal suc = actual.getDato();
             TElementoAB<Producto> aux = suc.getArbolProductos().buscar(Etiqueta);
@@ -193,15 +226,22 @@ public class CadenaDeSupermercados {
                 actual = actual.getSiguiente();
             }
         }
+        //Llamo al printer para que despliegue la información en pantalla
         Printer.imprimirExistenciasTotales(Etiqueta, result);
 
     }
 
+    /**
+     * Método encargado de indicar las existencias de un producto por sucursal
+     *
+     * @param Etiqueta Codigo del producto sobre el cual indicar existencias
+     */
     public void indicarExistenciasPorSucursal(Comparable Etiqueta) {
+        //Inicializo una lista resultado que va a tener como etiqueta nombres de sucursal y como dato stocks de producto
         Lista<Integer> result = new Lista();
 
         Nodo<Sucursal> actual = this.listaSucursales.getPrimero();
-        // Inserto en todas las sucursales de la listaSucursales
+        //Recorro todas las sucursales de la listaSucursales y genero la lista de salida
         while (actual != null) {
             Sucursal suc = actual.getDato();
             TElementoAB<Producto> aux = suc.getArbolProductos().buscar(Etiqueta);
@@ -215,13 +255,22 @@ public class CadenaDeSupermercados {
         }
         if (result.esVacia()) {
             System.out.println("El producto no se encuentra en ninguna sucursal de la cadena");
-        } else {
+        } //Llamo al printer para que despliegue la información en pantalla
+        else {
             Printer.imprimirExistenciasPorSucursal(Etiqueta, result);
         }
 
     }
 
-    public void productosSucursalOrdenadosPorNombre(String suc, String ruta) throws SucursalNotFound {
+    /**
+     * Método encargado de emitir un archivo txt con los productos de una
+     * sucursal ordenados por nombre y con su stock en esa sucursal
+     *
+     * @param suc Nombre de sucursal sobre la cual trabajar
+     * @param nombre Nombre del archivo salida
+     * @throws SucursalNotFound
+     */
+    public void productosSucursalOrdenadosPorNombre(String suc, String nombre) throws SucursalNotFound {
         Nodo<Sucursal> aux = this.listaSucursales.buscar(suc.toUpperCase()); //O(N)
 
         try {
@@ -230,10 +279,14 @@ public class CadenaDeSupermercados {
             throw new SucursalNotFound();
         }
         try {
+            //Utilizo el método de TArbolBB que me devuelve un arbol con productos ordenados por nombre
             TArbolBB<Integer> salida = aux.getDato().getArbolProductos().inordenQueDevuelveArbolPorNombre();
+            //Uso el método que me pasa el arbol a array
             String[] array = salida.inordenQueDevuelveArray();
+            //En el elemento de indice 0 del array pongo el nombre de la sucursal en cuestion
             array[0] = suc.toUpperCase();
-            ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + ruta + ".txt", array);
+            //Delego al manejador de archivos la escritura del archivo salida dado el array creado y el nombre introducido por parámetro
+            ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", array);
             System.out.println("\n");
         } catch (NullPointerException ex) {
             System.out.println("La sucursal no tiene productos");
@@ -241,9 +294,15 @@ public class CadenaDeSupermercados {
 
     }
 
+    /**
+     * Método encargado de emitir un archivo txt con los productos totales de la
+     * cadena y su stock en la misma
+     *
+     * @param nombre Nombre del archivo salida
+     */
     public void productosTotalesOrdenadosPorNombre(String nombre) {
         Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
-        //Instancio un arbol de salida
+        //Instancio un arbol salida
         TArbolBB<Integer> salida = new TArbolBB<>();
         //Recorro toda la lista de sucursales
         while (aux != null) {
@@ -252,11 +311,13 @@ public class CadenaDeSupermercados {
             //Recorro todos los productos de la sucursal en la que estoy parado
             while (actual != null) {
                 Producto prod = actual.getDato();
-                //Si el arbol de salida ya tiene el producto que quiero meterle, le quiero agregar
                 TElementoAB<Integer> elem2 = salida.buscar(prod.getNombre());
+
+                //Si el arbol salida ya tiene el producto que estoy recorriendo, le agrego stock
                 if (elem2 != null) {
                     elem2.setDatos(elem2.getDatos() + prod.getStock());
-                } else {
+                } //Si no lo tiene creo un nuevo TElementoAB y lo inserto en el arbol salida
+                else {
                     TElementoAB<Integer> elem3 = new TElementoAB(prod.getNombre(), prod.getStock());
                     salida.insertar(elem3);
                 }
@@ -265,21 +326,35 @@ public class CadenaDeSupermercados {
 
             aux = aux.getSiguiente();
         }
+        //Uso el método que me pasa el arbol a array
         String[] array = salida.inordenQueDevuelveArray();
+        //En el elemento de indice 0 del array pongo el string que está en la siguiente linea
         array[0] = "Stock total de la cadena de supermercados ordenado por nombre de producto:";
+        //Delego al manejador de archivos la escritura del archivo salida dado el array creado y el nombre introducido por parámetro
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", array);
     }
 
+    /**
+     * Método encargado de emitir un archivo txt con los productos de cada
+     * ciudad y su stock en la misma
+     *
+     * @param nombre Nombre del archivo salida
+     */
     public void productosTotalesOrdenadosPorCiudad(String nombre) {
+        //Inicializo un contador de lineas que voy a necesitar para posteriormente generar el array para mandar al manejador de archivos
         int contadorLineas = 0;
         Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
-        //Instancio un arbol de salida, va a tener códigos de producto como etiqueta y stock como dato
+
+        /*Instancio una lista salida,que va a tener nodos con etiqueta = nombres 
+        de ciudades y dato= arbol de productos ordenado por nombre de esa ciudad 
+        y con su stock en la misma*/
         Lista<TArbolBB<Integer>> lista = new Lista<>();
         //Recorro toda la lista de sucursales
         while (aux != null) {
             Nodo<TArbolBB<Integer>> ciudadActual = lista.buscar(aux.getDato().getCiudad().toLowerCase());
             Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
-            //Busco la ciudad en la lista de salida, si la encuentro modifico los productos del arbol de esa ciudad
+            /*Busco la ciudad en la que estoy parado en la lista de salida, 
+            si la encuentro modifico los productos del arbol de esa ciudad*/
             if (ciudadActual != null) {
                 // Recorro todos los productos de la sucursal en la que estoy parado
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
@@ -299,12 +374,13 @@ public class CadenaDeSupermercados {
                     nodoActual = nodoActual.getSiguiente();
                 }
 
-            } //Si la ciudad no está aún en la salida
+            } //Si la ciudad no está aún en la salida la genero y la inserto
             else {
                 contadorLineas++; // Cuento nombre de ciudad
 
                 TArbolBB<Integer> arbol = new TArbolBB<>();
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
+                //Recorro todos los productos de la sucursal actual
                 while (nodoActual != null) {
                     Producto prod = nodoActual.getDato();
                     TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getNombre(), prod.getStock());
@@ -322,43 +398,45 @@ public class CadenaDeSupermercados {
             aux = aux.getSiguiente();
         }
 
+        //Delego al generador de arrays a generar el array para mandarlo al manejador de archivos
         String[] output = GeneradorArray.generarArray(lista, contadorLineas);
+        //Delego al manejador de archivos la escritura del archivo salida dado el array creado y el nombre introducido por parámetro
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", output);
 
     }
 
+    /**
+     * Método encargado de emitir un archivo txt con los productos de cada
+     * barrio y su stock en el mismo
+     *
+     *
+     * @param nombre Nombre del archivo salida
+     */
+    //Es un método análogo al de ciudad pero para barrios
     public void productosTotalesOrdenadosPorBarrio(String nombre) {
         int contadorLineas = 0;
         Nodo<Sucursal> aux = this.listaSucursales.getPrimero();
-        //Instancio un arbol de salida, va a tener códigos de producto como etiqueta y stock como dato
         Lista<TArbolBB<Integer>> lista = new Lista<>();
-        //Recorro toda la lista de sucursales
         while (aux != null) {
             Nodo<TArbolBB<Integer>> barrioActual = lista.buscar(aux.getDato().getBarrio().toLowerCase());
             Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
-            //Busco la ciudad en la lista de salida, si la encuentro modifico los productos del arbol de esa ciudad
             if (barrioActual != null) {
-                // Recorro todos los productos de la sucursal en la que estoy parado
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {
                     Producto prod = nodoActual.getDato();
                     TElementoAB<Integer> elem = barrioActual.getDato().buscar(prod.getNombre());
-                    // Si el producto ya esta en el arbol de la ciudad en la lista de salida aumento
-                    // su stock
                     if (elem != null) {
                         elem.setDatos(elem.getDatos() + prod.getStock());
-                    } // Si no está aún en el arbol lo agrego
-                    else {
-                        contadorLineas++; // un producto más
+                    } else {
+                        contadorLineas++;
                         TElementoAB<Integer> elem2 = new TElementoAB<>(prod.getNombre(), prod.getStock());
                         barrioActual.getDato().insertar(elem2);
                     }
                     nodoActual = nodoActual.getSiguiente();
                 }
 
-            } //Si la ciudad no está aún en la salida
-            else {
-                contadorLineas++; // Cuento nombre de ciudad
+            } else {
+                contadorLineas++;
 
                 TArbolBB<Integer> arbol = new TArbolBB<>();
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
@@ -367,7 +445,7 @@ public class CadenaDeSupermercados {
                     TElementoAB<Integer> elem3 = new TElementoAB<>(prod.getNombre(), prod.getStock());
                     if (arbol.buscar(prod.getNombre()) == null) {
                         arbol.insertar(elem3);
-                        contadorLineas++; // Cuento cantidad de productos
+                        contadorLineas++;
                     }
 
                     nodoActual = nodoActual.getSiguiente();

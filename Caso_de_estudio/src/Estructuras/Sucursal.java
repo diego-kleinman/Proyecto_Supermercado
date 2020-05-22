@@ -59,6 +59,12 @@ public class Sucursal implements ISucursal {
         return this.arbolProductos;
     }
 
+    /**
+     * Método encargado de insertar un producto en el arbol de productos de la
+     * sucursal
+     *
+     * @param unProducto Producto a insertar en la sucursal
+     */
     @Override
     public void insertarProducto(Producto unProducto) {
 
@@ -75,6 +81,13 @@ public class Sucursal implements ISucursal {
 
     }
 
+    /**
+     * Método encargado de agregar stock de un cierto producto
+     *
+     * @param etiqueta Codigo de producto al cual agregar stock
+     * @param cantidad Stock a agregar
+     * @return
+     */
     @Override
     public Boolean agregarStock(Comparable etiqueta, Integer cantidad) {
 
@@ -93,6 +106,12 @@ public class Sucursal implements ISucursal {
 
     }
 
+    /**
+     * Método encargado de vender un producto
+     *
+     * @param etiqueta Código del producto a vender
+     * @param cantidad Cantidad a vender
+     */
     @Override
     public void vender(Comparable etiqueta, Integer cantidad) {
 
@@ -102,6 +121,13 @@ public class Sucursal implements ISucursal {
 
     }
 
+    /**
+     * Método encargado de discernir si se puede realizar una venta
+     *
+     * @param etiqueta Codigo del producto sobre el cual discernir
+     * @param cantidad Cantidad a vender
+     * @return
+     */
     @Override
     public boolean sePuedeVender(Comparable etiqueta, Integer cantidad) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
@@ -115,6 +141,13 @@ public class Sucursal implements ISucursal {
         return false;
     }
 
+    /**
+     * Método encargado de buscar un producto en el arbol de productos de la
+     * sucursal
+     *
+     * @param etiqueta Codigo de producto a buscar
+     * @return
+     */
     @Override
     public Producto buscarPorCodigo(Comparable etiqueta) {
         TElementoAB<Producto> nodo = getArbolProductos().buscar(etiqueta);
@@ -126,6 +159,12 @@ public class Sucursal implements ISucursal {
         }
     }
 
+    /**
+     * Método encargado de eliminar un producto de la sucursal
+     *
+     * @param clave Codigo de producto a eliminar
+     * @return
+     */
     @Override
     public boolean eliminarProducto(Comparable clave) {
         this.getArbolProductos().eliminar(clave);
