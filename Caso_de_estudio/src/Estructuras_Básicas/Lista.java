@@ -1,4 +1,4 @@
-package Estructuras;
+package Estructuras_Básicas;
 
 import Interfaces.ILista;
 import Interfaces.INodo;

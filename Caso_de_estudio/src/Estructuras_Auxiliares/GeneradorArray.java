@@ -1,4 +1,8 @@
-package Estructuras;
+package Estructuras_Auxiliares;
+
+import Estructuras_Básicas.Lista;
+import Estructuras_Básicas.Nodo;
+import Estructuras_Básicas.TArbolBB;
 
 /**
  * Clase encargada de generar un Array auxiliar para mandar al manejador de

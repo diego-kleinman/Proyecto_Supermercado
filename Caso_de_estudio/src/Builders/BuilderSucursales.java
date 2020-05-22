@@ -1,8 +1,8 @@
 package Builders;
 
-import Estructuras.CadenaDeSupermercados;
-import Estructuras.ManejadorArchivosGenerico;
-import Estructuras.Sucursal;
+import Estructuras_Básicas.CadenaDeSupermercados;
+import Estructuras_Auxiliares.ManejadorArchivosGenerico;
+import Estructuras_Básicas.Sucursal;
 
 /**
  * Clase encargada de instanciar sucursales

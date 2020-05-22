@@ -1,8 +1,8 @@
 package Menu;
 
 import Builders.BuilderProductos;
-import Estructuras.CadenaDeSupermercados;
-import Estructuras.Producto;
+import Estructuras_Básicas.CadenaDeSupermercados;
+import Estructuras_Básicas.Producto;
 import java.util.Scanner;
 
 /**

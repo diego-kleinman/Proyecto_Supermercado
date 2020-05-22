@@ -1,6 +1,8 @@
-package Estructuras;
+package Estructuras_Básicas;
 
-import Exceptions.SucursalNotFound;
+import Estructuras_Auxiliares.GeneradorArray;
+import Estructuras_Auxiliares.ManejadorArchivosGenerico;
+import Estructuras_Auxiliares.SucursalNotFound;
 
 /**
  * Clase experta, se encarga de todas las operaciones necesarias del sistema

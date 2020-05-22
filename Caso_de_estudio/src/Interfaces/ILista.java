@@ -1,6 +1,6 @@
 package Interfaces;
 
-import Estructuras.Nodo;
+import Estructuras_Básicas.Nodo;
 
 public interface ILista<T> {
 

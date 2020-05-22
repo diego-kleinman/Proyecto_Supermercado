@@ -1,7 +1,7 @@
 package Menu;
 
-import Estructuras.CadenaDeSupermercados;
-import Estructuras.Sucursal;
+import Estructuras_Básicas.CadenaDeSupermercados;
+import Estructuras_Básicas.Sucursal;
 import Builders.BuilderSucursales;
 
 import java.util.Scanner;

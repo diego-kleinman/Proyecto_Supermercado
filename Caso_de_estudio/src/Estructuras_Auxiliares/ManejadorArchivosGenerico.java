@@ -1,4 +1,4 @@
-package Estructuras;
+package Estructuras_Auxiliares;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

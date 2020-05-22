@@ -1,7 +1,7 @@
 package Interfaces;
 
-import Estructuras.Producto;
-import Estructuras.TArbolBB;
+import Estructuras_Básicas.Producto;
+import Estructuras_Básicas.TArbolBB;
 
 public interface ISucursal {
 

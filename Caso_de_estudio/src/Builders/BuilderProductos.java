@@ -1,9 +1,9 @@
 package Builders;
 
-import Estructuras.CadenaDeSupermercados;
-import Estructuras.IntercambiadorDeOrden;
-import Estructuras.ManejadorArchivosGenerico;
-import Estructuras.Producto;
+import Estructuras_Básicas.CadenaDeSupermercados;
+import Estructuras_Auxiliares.IntercambiadorDeOrden;
+import Estructuras_Auxiliares.ManejadorArchivosGenerico;
+import Estructuras_Básicas.Producto;
 
 /**
  * Clase encargada de los métodos referentes a la incorporación de productos

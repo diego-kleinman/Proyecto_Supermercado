@@ -1,4 +1,4 @@
-package Estructuras;
+package Estructuras_Auxiliares;
 
 import java.util.Random;
 

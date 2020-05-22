@@ -1,9 +1,9 @@
 package Builders;
 
-import Estructuras.CadenaDeSupermercados;
-import Estructuras.IntercambiadorDeOrden;
-import Estructuras.ManejadorArchivosGenerico;
-import Exceptions.SucursalNotFound;
+import Estructuras_Básicas.CadenaDeSupermercados;
+import Estructuras_Auxiliares.IntercambiadorDeOrden;
+import Estructuras_Auxiliares.ManejadorArchivosGenerico;
+import Estructuras_Auxiliares.SucursalNotFound;
 
 /**
  * Clase encargada de instanciar stocks en la cadena de supermercados

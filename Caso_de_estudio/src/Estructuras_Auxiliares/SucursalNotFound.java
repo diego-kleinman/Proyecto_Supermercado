@@ -1,4 +1,4 @@
-package Exceptions;
+package Estructuras_Auxiliares;
 
 /*Excepción específica creada para cuando no se encuentra una sucursal en la
  lista de sucursales de la cadena de supermercados*/

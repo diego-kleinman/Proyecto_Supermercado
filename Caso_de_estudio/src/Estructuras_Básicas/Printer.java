@@ -1,4 +1,4 @@
-package Estructuras;
+package Estructuras_Básicas;
 
 /**
  * Clase encargada de imprimir por consola

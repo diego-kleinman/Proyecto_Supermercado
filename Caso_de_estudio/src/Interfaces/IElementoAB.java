@@ -1,7 +1,7 @@
 package Interfaces;
 
-import Estructuras.Lista;
-import Estructuras.TElementoAB;
+import Estructuras_Básicas.Lista;
+import Estructuras_Básicas.TElementoAB;
 
 public interface IElementoAB<T> {
 

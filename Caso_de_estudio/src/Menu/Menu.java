@@ -3,7 +3,7 @@ package Menu;
 import Builders.BuilderProductos;
 import Builders.BuilderStock;
 import Builders.BuilderSucursales;
-import Estructuras.CadenaDeSupermercados;
+import Estructuras_Básicas.CadenaDeSupermercados;
 import java.util.Scanner;
 
 /**
