@@ -36,7 +36,7 @@ public class SucursalTest {
     }
 
     @Test
-    public void testAgregarStock() {
+    public void testAgregarStockTresProductos() {
         //Instancio la sucursal, los productos y se los agrego
         Sucursal suc = new Sucursal("aa", "123", "suc", "2", "2");
         Producto prod1 = new Producto(123, "prod", 1.0);
@@ -71,19 +71,25 @@ public class SucursalTest {
     }
 
     @Test
-    public void testVender() {
+    public void testSePuedeVenderNoSePuede() {
+        //Instancio la sucursal, los productos y se los agrego
+        Sucursal suc = new Sucursal("aa", "123", "suc", "2", "2");
+        Producto prod1 = new Producto(123, "prod", 1.0);
+        suc.insertarProducto(prod1);
+        //Agrego stock al producto
+        suc.agregarStock(123, 2);
+        assertFalse(suc.sePuedeVender(123, 3));
     }
 
     @Test
-    public void testSePuedeVender() {
-    }
-
-    @Test
-    public void testBuscarPorCodigo() {
-    }
-
-    @Test
-    public void testEliminarProducto() {
+    public void testSePuedeVenderSiSePuede() {
+        //Instancio la sucursal, los productos y se los agrego
+        Sucursal suc = new Sucursal("aa", "123", "suc", "2", "2");
+        Producto prod1 = new Producto(123, "prod", 1.0);
+        suc.insertarProducto(prod1);
+        //Agrego stock al producto
+        suc.agregarStock(123, 2);
+        assertTrue(suc.sePuedeVender(123, 1));
     }
 
 }
