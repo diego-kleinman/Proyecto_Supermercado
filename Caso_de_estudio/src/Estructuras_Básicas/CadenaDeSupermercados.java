@@ -32,8 +32,12 @@ public class CadenaDeSupermercados {
      * @param suc Sucursal a incorporar
      */
     public void incorporarSucursal(Sucursal suc) {
-        Nodo<Sucursal> nodoSuc = new Nodo<>(suc.getNombre(), suc);
-        this.listaSucursales.insertar(nodoSuc);
+        //Controlo no insertar sucursales repetidas
+        if (listaSucursales.buscar(suc.getNombre()) == null) {
+            Nodo<Sucursal> nodoSuc = new Nodo<>(suc.getNombre(), suc);
+            this.listaSucursales.insertar(nodoSuc);
+
+        }
 
     }
 
