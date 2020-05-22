@@ -66,7 +66,7 @@ public class TArbolBBTest {
         arbol.insertar(tres);
 
         //Genero la lista de salida con el arbol que me da el método recorrido en inOrden
-        Lista<Integer> salidaObtenida = arbol.inordenQueDevuelveArbolPorNombre().inorden();
+        Lista<Integer> salidaObtenida = arbol.inordenQueDevuelveArbolPorNombre().inOrden();
 
         //Recorro la lista obtenida metiendo los elementos en un array para comparar después
         String[] arrayObtenido = new String[3];

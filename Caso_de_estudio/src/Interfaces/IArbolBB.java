@@ -26,7 +26,7 @@ public interface IArbolBB<T> {
     /**
      * @return una Lista con los elementos del recorrido.
      */
-    public Lista<T> inorden();
+    public Lista<T> inOrden();
 
     /**
      * Retorna el tamanio del arbol.

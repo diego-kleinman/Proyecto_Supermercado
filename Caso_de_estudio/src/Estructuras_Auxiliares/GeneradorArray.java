@@ -34,7 +34,7 @@ public class GeneradorArray {
                 salida[contadorInterno] = nodo.getEtiqueta().toString();
                 contadorInterno++;
                 //Genero una lista con todos los elementos del arbol de ese nodo
-                Lista<Integer> listaAux = nodo.getDato().inorden();
+                Lista<Integer> listaAux = nodo.getDato().inOrden();
                 Nodo<Integer> nodoAux = listaAux.getPrimero();
                 //Recorro los elementos y los voy agregando a la salida
                 while (nodoAux != null) {

@@ -308,7 +308,7 @@ public class CadenaDeSupermercados {
         TArbolBB<Integer> salida = new TArbolBB<>();
         //Recorro toda la lista de sucursales
         while (aux != null) {
-            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inOrden();
             Nodo<Producto> actual = listaAux.getPrimero();
             //Recorro todos los productos de la sucursal en la que estoy parado
             while (actual != null) {
@@ -354,7 +354,7 @@ public class CadenaDeSupermercados {
         //Recorro toda la lista de sucursales
         while (aux != null) {
             Nodo<TArbolBB<Integer>> ciudadActual = lista.buscar(aux.getDato().getCiudad().toLowerCase());
-            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inOrden();
             /*Busco la ciudad en la que estoy parado en la lista de salida, 
             si la encuentro modifico los productos del arbol de esa ciudad*/
             if (ciudadActual != null) {
@@ -421,7 +421,7 @@ public class CadenaDeSupermercados {
         Lista<TArbolBB<Integer>> lista = new Lista<>();
         while (aux != null) {
             Nodo<TArbolBB<Integer>> barrioActual = lista.buscar(aux.getDato().getBarrio().toLowerCase());
-            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inorden();
+            Lista<Producto> listaAux = aux.getDato().getArbolProductos().inOrden();
             if (barrioActual != null) {
                 Nodo<Producto> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null) {

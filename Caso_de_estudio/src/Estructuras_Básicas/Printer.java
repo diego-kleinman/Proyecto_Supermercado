@@ -16,7 +16,7 @@ public class Printer {
         if (arbol.esVacio()) {
             System.out.println("Lo siento, no disponemos de sucursales con el stock requerido");
         } else {
-            Lista<String> listaSuc = arbol.inorden();
+            Lista<String> listaSuc = arbol.inOrden();
             String productosSuc = "";
             Nodo<String> aux = listaSuc.getPrimero();
             while (aux != null) {

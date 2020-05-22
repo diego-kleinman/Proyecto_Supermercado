@@ -41,12 +41,12 @@ public class TArbolBB<T> implements IArbolBB<T> {
     }
 
     /**
-     * Método que llama al método inorden de TElementoAB y devuelve una lista
+     * Método que llama al método inOrden de TElementoAB y devuelve una lista
      *
      * @return Lista
      */
     @Override
-    public Lista<T> inorden() {
+    public Lista<T> inOrden() {
         Lista<T> listaInorden = null;
         if (!esVacio()) {
             listaInorden = new Lista<>();
