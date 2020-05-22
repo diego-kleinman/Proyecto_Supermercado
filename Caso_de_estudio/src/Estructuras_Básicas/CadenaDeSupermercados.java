@@ -18,7 +18,7 @@ public class CadenaDeSupermercados {
      * Constructor de la clase CadenaDeSupermercados
      */
     public CadenaDeSupermercados() {
-        listaSucursales = new Lista<>();
+        listaSucursales = new Lista<Sucursal>();
     }
 
     public Lista<Sucursal> getListaSucursales() {
