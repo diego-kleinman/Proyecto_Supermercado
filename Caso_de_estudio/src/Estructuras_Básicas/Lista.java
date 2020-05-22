@@ -1,7 +1,6 @@
 package Estructuras_Básicas;
 
 import Interfaces.ILista;
-import Interfaces.INodo;
 
 public class Lista<T> implements ILista<T> {
 

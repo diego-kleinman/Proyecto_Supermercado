@@ -331,7 +331,7 @@ public class CadenaDeSupermercados {
         //Uso el método que me pasa el arbol a array
         String[] array = salida.inordenQueDevuelveArray();
         //En el elemento de indice 0 del array pongo el string que está en la siguiente linea
-        array[0] = "Stock total de la cadena de supermercados ordenado por nombre de producto:";
+        array[0] = "Productos totales de la cadena de supermercados:";
         //Delego al manejador de archivos la escritura del archivo salida dado el array creado y el nombre introducido por parámetro
         ManejadorArchivosGenerico.escribirArchivo("src/Archivos/" + nombre + ".txt", array);
     }
