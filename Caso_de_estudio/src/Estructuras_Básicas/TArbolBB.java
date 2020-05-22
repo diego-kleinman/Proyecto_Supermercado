@@ -109,10 +109,11 @@ public class TArbolBB<T> implements IArbolBB<T> {
      * @return Array de String
      */
     public String[] inordenQueDevuelveArray() {
-        String[] array = new String[this.obtenerTamanio() + 1];
+        String[] array = null;
         int[] contador = new int[1];
         contador[0] = 1;
         if (!esVacio()) {
+            array = new String[this.obtenerTamanio() + 1];
             raiz.inordenQueDevuelveArray(array, contador);
         }
         return array;
