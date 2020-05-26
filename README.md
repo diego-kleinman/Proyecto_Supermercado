@@ -1,7 +1,7 @@
 ## Español/Spanish:
 
 #### Resumen del proyecto: 📚🔨💻⚠️
-En este proyecto se hizo utilizando java.
+En este proyecto se hizo utilizando Java.
 La idea básica es generar un sistema software para una cadena de supermercados con varias sucursales.
 Se procura lograr la máxima eficiencia en tiempo de ejecucion de los algoritmos y un consumo de memoria razonable.
 Para este proyecto se utilizaron árboles binarios de búsqueda y listas enlazadas.
@@ -9,15 +9,25 @@ Para este proyecto se utilizaron árboles binarios de búsqueda y listas enlazad
 Se plantearon varios requisitos:
 
 ❖ Venta de un producto en una sucursal (de no haber stock suficiente debe indicarse una lista de sucursales que tengan el stock   necesario, ordenadas por cantidad de producto).
+
 ❖ Agregar stock a un producto en una sucursal.
+
 ❖ Dado un código de producto indicar las existencias totales en la cadena de supermercados.
+
 ❖ Dado un código de producto indicar las existencias del mismo ordenadas por sucursal.
+
 ❖ Listar todos los productos registrados en una sucursal, ordenados por nombre y presentando su stock.
+
 ❖ Listar todos los productos registrados ordenados por ciudad, presentando su stock en esa ciudad.
+
 ❖ Listar todos los productos registrados ordenados por barrio, presentando su stock en ese barrio.
+
 ❖ Incorporar un nuevo producto a la cadena de supermercados (a todas las sucursales).
+
 ❖ Incorporar un nuevo producto a una sucursal específica.
+
 ❖ Eliminar un producto de la cadena de supermercados.
+
 ❖ Eliminar un producto de una cierta sucursal.
 
 En el repositorio se encuentra un documento pdf, el mismo cubre el análisis del problema planteado y el estudio de dos alternativas distintas para generar el sistema software, con diagramas explicativos y comparativas entre las mismas.
