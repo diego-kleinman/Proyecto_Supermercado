@@ -38,14 +38,42 @@ Una interesante propuesta que dio mucho trabajo pero también mucha satisfacció
 
 ## Inglés/English:
 
-#### Project Resume:
-In this project I utiliced python and arduino. I connected them using the serial port and the PySerial library.
-The basic idea was taking mesurements of temperature and luminosity in a variety of different places, then process that data I took and the data from
-other classmates.
-The goal is to find the "best places" if for instance we wanted to put a solar panel.
+#### Project Resume:📚🔨💻⚠️
+This project was build using Java.
+The basic idea behind it is to generate a software system for a supermarket chain with several branches.
+The system is built to maximize the effectiveness in time of execution of the algoritms inside and to have a reasonable use of memory.
+In the projects I used Binary Search Trees and linked lists, built by myself(not the premade ones from Java).
 
-It comes with user manual and the executable asociated.
+Several requirements were provided:
+
+❖ Selling of a product in a branch(If the selling isn´t possible due to the lack of stock available in that branch, the system prints a list of branches with sufficient stock ordered by amount of stock available).
+
+❖ Adding stock of a product in a branch
+
+❖ Given a product code, print the total stock of it in the supermarket chain.
+
+❖ Given a product code,print the stock of it divided by branch.
+
+❖ List all product registered in the supermarket chain ordered by name and with stock.
+
+❖ List all product registered in a branch ordered by name and with stock.
+
+❖ List all product in a certain city, with stock.
+
+❖ List all product in a certain neighborhood, with stock.
+
+❖ Add a new product to the supermarket chain (to all it´s branches)
+
+❖ Add a new product to a certain branch.
+
+❖ Eliminate a product of the supermarket chain (in all it´s branches)
+
+❖ Eliminate a product of a certain branch.
+
+In this repository you can find a PDF (in Spanish), in it there is an analisis of two possible solutions to implement, drawings and comparatives. Also there is a user manual.
 
 #### Knowledge Acquired:
-It´s a project were I deepened my knoledge in python and arduino. Handling of strings, output and input of text files, data process,etc.
+It´s a project were I deepened my knoledge in Java. Handling of strings, output and input of text files, data process, Binary Search Trees, linked lists,etc.
 An interesting idea that took me a lot of work but also gave me great satisfaction.
+
+
