@@ -1,7 +1,7 @@
 ## Español/Spanish:
 
 #### Resumen del proyecto: 📚🔨💻⚠️
-En este proyecto se hizo utilizando Java.
+Este proyecto se hizo utilizando Java.
 La idea básica es generar un sistema software para una cadena de supermercados con varias sucursales.
 Se procura lograr la máxima eficiencia en tiempo de ejecucion de los algoritmos y un consumo de memoria razonable.
 Para este proyecto se utilizaron árboles binarios de búsqueda y listas enlazadas.
@@ -34,7 +34,7 @@ En el repositorio se encuentra un documento pdf, el mismo cubre el análisis del
 
 #### Conocimientos adquiridos:
 Es un proyecto en el que pude profundizar conocimientos de Java y de estructuras de datos(ABB y Listas simplemente enlazadas), manejo de strings, salida y entrada de archivos de texto,procesamiento de datos, etc.
-Una interesante propuesta que dio mucho trabajo pero también mucha satisfacción.
+Un interesante proyecto que dio mucho trabajo pero también mucha satisfacción.
 
 ## Inglés/English:
 
@@ -74,6 +74,6 @@ In this repository you can find a PDF (in Spanish), in it there is an analisis o
 
 #### Knowledge Acquired:
 It´s a project were I deepened my knoledge in Java. Handling of strings, output and input of text files, data process, Binary Search Trees, linked lists,etc.
-An interesting idea that took me a lot of work but also gave me great satisfaction.
+An interesting project that took me a lot of work but also gave me great satisfaction.
 
 
